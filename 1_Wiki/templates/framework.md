@@ -18,7 +18,7 @@ tags:
   - para/resource
 aliases:
   - [alias]
-author: cc
+author: agent
 ---
 ```
 
