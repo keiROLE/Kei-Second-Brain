@@ -98,9 +98,9 @@ Output: `3_KnowledgeBaseIterationLog/YYYY-MM-DD-iteration-report.md` — **read-
 
 ## ⑤ Output — knowledge back into content
 
-**Goal**: compiled knowledge becomes new content.
+**Goal**: compiled knowledge becomes new content in `4_outputs/` (the Output layer).
 
-Use `/blog-1` to generate article/blog documents from 1_Wiki entries, or adapt entries into video scripts / posts manually or with an AI client of your choice.
+Use `/blog-1` to generate articles / project pages / shares into `4_outputs/`, or adapt entries into video scripts / posts manually or with an AI client of your choice. Output-layer rules and naming: `2_Schema/TheSchema.md` §1 (4_outputs), `2_Schema/naming.md`.
 
 Rules:
 - Output derives from entries; entries remain the source of truth.
