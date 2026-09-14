@@ -5,40 +5,36 @@ type: template
 
 # Weekly Review — MMDD
 
-> Compiled by `/wr-1` from the last full week of diary notes. Read-only source, appended frontmatter markers only.
+> Compiled by `/wr-1` from the last full week (Mon–Sun) of diary notes. Diary frontmatter gets `weekly_reviewed: YYYY-MM-DD` appended; the diary body is never rewritten.
 
 ```yaml
 ---
-title: "MMDD Weekly Review"
-type: weekly-review
+abstract: "[MMDD] Last Week Review"
 created: YYYY-MM-DD
-weekly_reviewed: YYYY-MM-DD
 tags:
   - weekly-review
-  - compiled
+  - review
+  - inbox/raw
 ---
 ```
 
-## 1. Week at a Glance
+## 本周总览 / Week Overview
 
-3-5 sentences: what the week was about, what moved, what stalled.
+> 3-5 lines: the week's main thread — what moved forward, what stalled.
 
-## 2. Wins
+## 周一 ~ 周日 / Monday ~ Sunday
 
-What actually got done. Concrete, verifiable.
+One section per day: a `[[YYYY-MM-DD]]` link, then tagged bullet points (`#event` / `#method` / `#thought` / `#quote`).
 
-## 3. Stalls & Blockers
+## 关键事件 / Key Events
 
-What did not get done and why. Repeated stalls (≥2 weeks) get flagged.
+- #event ...
 
-## 4. Patterns
+## 认知与反思 / Cognition & Reflection
 
-Recurring themes across the week's diary entries — topics, emotions, energy patterns.
+- #thought ...
+- #quote ...
 
-## 5. Next Week Focus
+## 未解决问题 / Unresolved Questions
 
-2-3 priorities. Derived from patterns, not wishful thinking.
-
-## 6. Knowledge Signals
-
-Entries / fragments worth compiling into 1_Wiki (for `/by-1` or `/by-a`).
+- #next ...
