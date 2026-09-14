@@ -22,7 +22,7 @@ Kei-Second-Brain 是把个人知识库方法论做成可复用系统的开源发
 |------|------|--------|
 | **系统** | `2_Schema/` | 规则：架构、frontmatter 规范、命名、链接规则、流水线手册 |
 | **Skill** | `.agents/skills/` | 9 个驱动系统运转的 AI Skill（编译、迭代、复盘、规划……） |
-| **示例** | `examples/` 及 `0_Inbox/` `1_Wiki/` `3_KnowledgeBaseIterationLog/` `4_outputs/` | 完整的格式演示——每类一条、仅占位符，展示流水线的每个环节。`examples/compile-demo/` 存放唯一一段真实内容：原始视频文案 → 编译后的条目 |
+| **示例** | `0_Inbox/` `1_Wiki/` `3_KnowledgeBaseIterationLog/` `4_outputs/` | 完整的示例库，展示流水线的每个环节——格式演示（每类一条、仅占位符），外加一次**真实**的"摘录→编译"（见「真实例子」） |
 
 ## 与其他方法的区别
 
@@ -38,7 +38,7 @@ Kei-Second-Brain 是把个人知识库方法论做成可复用系统的开源发
 只需要两个工具：
 
 1. **Obsidian** —— 知识库运行在 Obsidian 里（免费），任意较新版本即可。
-2. **支持自定义 Skill/Agent 的 AI 客户端** —— 如豆包、Claude Code，或任何能读取 markdown 指令并操作文件的 agent。`.agents/skills/` 里的 Skill 就是纯 markdown 指令文件（SKILL.md），你的 AI 客户端只需要能加载并执行它们。
+2. **支持自定义 Skill/Agent 的 AI 客户端** —— 如 Claude Code，或任何能读取 markdown 指令并操作文件的 agent。`.agents/skills/` 里的 Skill 就是纯 markdown 指令文件（SKILL.md），你的 AI 客户端只需要能加载并执行它们。
 
 不需要写代码、不需要服务器、不需要数据库。
 
@@ -68,6 +68,15 @@ chat-distill/  clippings/            comparisons/  frameworks/          AGENTS�
 
 **输入**：视频逐字稿、网页剪藏、AI 对话、日记都落到 `0_Inbox/`。**编译**：`/by-1`（单篇）或 `/by-a`（批量）把它们变成 `1_Wiki/` 里的类型化条目——概念、实体、对比、框架、资源——每条都带来源、置信度和类型化链接。**维护**：`/kb-iter` 扫描缺口、断链、孤岛和幻觉，输出只读的迭代报告。**输出**：条目被取材成文章、视频脚本和帖子（如 `/blog-1`）。没有任何环节自动运行——每步都由用户主动触发。完整操作手册见 `2_Schema/pipeline.md`。
 
+## 真实例子 —— 摘录 → 编译
+
+示例库里有一段**真实**的"摘录→编译"（其余都是格式骨架）：
+
+1. **摘录** —— 作者本人讲显示器选购的视频文案被剪藏进 `0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md`：真实输入，按原文保留。
+2. **编译** —— `/by-1` 把它编译成一个类型化条目：`1_Wiki/frameworks/monitor-selection-guide.zh.md`，frontmatter 带来源溯源，正文是结构化规则（尺寸/分辨率/刷新率），文末有带类型标注的 `## 参见` 链接。素材里的引流话术（"私信我免费帮你选"）被丢弃——它不是知识。
+
+把这两个文件并排打开：整个系统就是一个这样的循环。
+
 ## 快速开始
 
 ### 方式 A —— 先逛示例（推荐）
@@ -75,16 +84,16 @@ chat-distill/  clippings/            comparisons/  frameworks/          AGENTS�
 ```bash
 git clone https://github.com/keiROLE/Kei-Second-Brain.git
 # 用 Obsidian 打开本文件夹（"作为库打开文件夹"）
-# 先读 examples/README.zh.md，再按建议顺序浏览
+# 先逛 0_Inbox/ 和 1_Wiki/ —— 从上面「真实例子」里的两个文件开始
 ```
 
-本仓库本身就是一套完整的示例库。`0_Inbox/`、`1_Wiki/`、`2_Schema/`、`3_KnowledgeBaseIterationLog/` 和 `4_outputs/` 以格式演示展示流水线的每个环节——每类一条、具体内容已移除、仅保留占位符。
+本仓库本身就是一套完整的示例库。`0_Inbox/`、`1_Wiki/`、`2_Schema/`、`3_KnowledgeBaseIterationLog/` 和 `4_outputs/` 展示流水线的每个环节——每类一条格式演示，外加一次真实的"摘录→编译"。
 
 ### 方式 B —— 让 AI 帮你搭建
 
 **你可以把本 README 交给任意 AI 助手，让它帮你搭建知识库。** AI 会：
 
-1. 创建四个顶层目录（`0_Inbox/`、`1_Wiki/`、`2_Schema/`、`3_KnowledgeBaseIterationLog/`）及子目录。
+1. 创建五个顶层目录（`0_Inbox/`、`1_Wiki/`、`2_Schema/`、`3_KnowledgeBaseIterationLog/`、`4_outputs/`）及子目录。
 2. 让你从本仓库复制 `2_Schema/`（规则）和 `.agents/skills/`（Skill）。
 3. 带你走完第一个循环：写一篇日记 → 对这篇日记跑 `/by-1` → 看编译出的条目。
 
@@ -105,8 +114,8 @@ git clone https://github.com/keiROLE/Kei-Second-Brain.git
 | `2_Schema/naming.md` | 命名规范 + PARA 分类口径 |
 | `2_Schema/pipeline.md` | 端到端操作手册（输入 → 输出） |
 | `.agents/skills/` | by-1、by-a、kb-iter、jh-1、wr-1、rec-1、chat-distill、blog-1、chiselplan |
-| `examples/` | 示例库（自带中英双版本 README） |
-| `examples/compile-demo/` | 真实原始素材 + 它编译成的条目 |
+| `0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md` | 真实剪藏素材（例子里的输入） |
+| `1_Wiki/frameworks/monitor-selection-guide.zh.md` | 它被编译成的条目（例子里的输出） |
 | `4_outputs/` | 输出层格式示例（由条目编译的文章） |
 
 ## 支持与维护边界
