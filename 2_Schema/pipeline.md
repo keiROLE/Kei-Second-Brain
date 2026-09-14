@@ -1,7 +1,7 @@
 ---
 title: "Pipeline — End-to-End Operating Procedure"
 type: schema
-updated: 2026-09-14
+updated: 2026-09-15
 tags:
   - config
   - pipeline
