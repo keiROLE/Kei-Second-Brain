@@ -22,7 +22,7 @@ Kei-Second-Brain 是把个人知识库方法论做成可复用系统的开源发
 |------|------|--------|
 | **系统** | `2_Schema/` | 规则：架构、frontmatter 规范、命名、链接规则、流水线手册 |
 | **Skill** | `.agents/skills/` | 9 个驱动系统运转的 AI Skill（编译、迭代、复盘、规划……） |
-| **示例** | `examples/` 及 `0_Inbox/` `1_Wiki/` `3_KnowledgeBaseIterationLog/` | 一套完整的虚构知识库，展示流水线的每个环节 |
+| **示例** | `examples/` 及 `0_Inbox/` `1_Wiki/` `3_KnowledgeBaseIterationLog/` `4_outputs/` | 完整的格式演示——每类一条、仅占位符，展示流水线的每个环节 |
 
 ## 与其他方法的区别
 
@@ -51,9 +51,9 @@ diary/  weekly-review/               concepts/  entities/               TheSchem
 chat-distill/  clippings/            comparisons/  frameworks/          AGENTS（AI 行为守则）
                                       resources/  index.md              frontmatter/naming
                                                                         pipeline（操作手册）
-                                    3_KnowledgeBaseIterationLog/
-                                    迭代层
-                                    编译报告 / 迭代报告 / 链接审计
+3_KnowledgeBaseIterationLog/         4_outputs/
+迭代层                               输出层
+编译报告 / 迭代报告 / 链接审计          文章、脚本、帖子
 ```
 
 | 层级 | 职责 | 谁写 |
@@ -62,6 +62,7 @@ chat-distill/  clippings/            comparisons/  frameworks/          AGENTS�
 | `1_Wiki/` | 编译后的知识条目 | AI（通过 Skill） |
 | `2_Schema/` | 知识库运转的规则 | 你 + AI |
 | `3_KnowledgeBaseIterationLog/` | 报告：编译、健康检查、审计 | AI |
+| `4_outputs/` | 由条目编译的内容 | AI（取材 wiki） |
 
 ## 流水线（一段话）
 
@@ -77,7 +78,7 @@ git clone https://github.com/keiROLE/Kei-Second-Brain.git
 # 先读 examples/README.zh.md，再按建议顺序浏览
 ```
 
-本仓库本身就是一套完整的示例库。`0_Inbox/`、`1_Wiki/`、`2_Schema/`、`3_KnowledgeBaseIterationLog/` 里都填满了一个虚构演示（一个卖电脑的自媒体创作者）——用真实文件看流水线的每个环节。
+本仓库本身就是一套完整的示例库。`0_Inbox/`、`1_Wiki/`、`2_Schema/`、`3_KnowledgeBaseIterationLog/` 和 `4_outputs/` 以格式演示展示流水线的每个环节——每类一条、具体内容已移除、仅保留占位符。
 
 ### 方式 B —— 让 AI 帮你搭建
 
@@ -105,6 +106,7 @@ git clone https://github.com/keiROLE/Kei-Second-Brain.git
 | `2_Schema/pipeline.md` | 端到端操作手册（输入 → 输出） |
 | `.agents/skills/` | by-1、by-a、kb-iter、jh-1、wr-1、rec-1、chat-distill、blog-1、chiselplan |
 | `examples/` | 示例库（自带中英双版本 README） |
+| `4_outputs/` | 输出层格式示例（由条目编译的文章） |
 
 ## 支持与维护边界
 
