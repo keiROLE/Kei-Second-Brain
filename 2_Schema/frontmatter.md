@@ -24,7 +24,7 @@ The measured inventory of YAML frontmatter fields used across the vault: require
 | `confidence` | Yes | `high` / `medium` / `low` |
 | `tags` | Yes | ≥ 3 tags: type + topic + PARA category |
 | `aliases` | Optional | Alias array to reduce navigation ambiguity |
-| `author` | Optional | `cc` for AI-produced content |
+| `author` | Yes | `agent` — entries compiled by AI are authored by the compiling agent (this release never uses a personal handle) |
 | `entity_kind` | Required for entities | `person` / `organization` / `project` / `product` |
 
 Example:
@@ -42,7 +42,7 @@ tags:
   - para/resource
 aliases:
   - attention economy
-author: cc
+author: agent
 ---
 ```
 
