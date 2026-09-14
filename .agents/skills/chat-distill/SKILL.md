@@ -84,7 +84,7 @@ Frontmatter template (**no `related` / no `links` fields** — deprecated):
 ```yaml
 ---
 title: "Distilled: <topic>"
-author: cc
+author: agent
 created: YYYY-MM-DD
 tags:
   - chat-distill
