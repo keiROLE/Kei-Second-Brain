@@ -24,21 +24,18 @@ A dedicated compile pipeline for **agent conversations**: Collect → Triage →
 
 ---
 
-## Step 0: Collect — where the logs are, how to read them
+## Step 0: Collect — get the conversation logs
 
-Locations vary by AI client and environment. Configure yours:
+**Input**: the user provides the logs. This skill is **client-agnostic** — it never assumes a specific AI client or path:
 
-| Agent | Typical location | Format |
-|-------|------------------|--------|
-| Claude Code | `~/.claude/projects/<project>/` | JSONL, one event per line |
-| Codex | `~/.codex/sessions/YYYY/MM/DD/` | JSONL (payload: role/content, messages) |
-| DoubaoWork / other agents | your agent runtime's session/workspace traces | JSONL (role/content) |
-| Others | export from your client | varies |
+- The user gives the path to a conversation log file (Claude Code, Codex, DoubaoWork or any agent that exports session traces), **or**
+- The user pastes the conversation content directly.
+
+If the path is unknown, ask the user — do not guess locations.
 
 **Action**:
-1. Scan the configured log locations for sessions from the last 7 days.
-2. For each session, extract: first user message (truncated), message count, file size, file path.
-3. Produce a session list for triage.
+1. For each provided log, extract: first user message (truncated), message count, file size, file path.
+2. Produce a session list for triage.
 
 **Session-list format** (one line per session):
 
@@ -79,23 +76,7 @@ Write the **essence excerpts** (not the full log) of selected conversations as s
 
 File naming: `YYYY-MM-DD-<agent>-<short-topic>.md`
 
-Frontmatter template (**no `related` / no `links` fields** — deprecated):
-
-```yaml
----
-title: "Distilled: <topic>"
-author: agent
-created: YYYY-MM-DD
-tags:
-  - chat-distill
-  - inbox/raw
-processed: false
-source_type: chat
-source_agent: claude-code | codex | doubao | other
-source_file: "<path to original log>"
-source_time: YYYY-MM-DD
----
-```
+Frontmatter: follow `2_Schema/frontmatter.md` §2b — chat-distill fields (`title` / `author: agent` / `created` / `tags` / `processed: false` / `source_type: chat` / `source_agent` / `source_file` / `source_time`). **No `related` / no `links` fields** — deprecated.
 
 Body structure (only excerpts with incremental value):
 - **Background**: what problem this conversation was solving (1-2 lines)
