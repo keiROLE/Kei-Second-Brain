@@ -37,7 +37,7 @@ tags:
 
 | Entry | Question answered |
 |-------|-------------------|
-| [[framework-example]] | [What question does this framework answer?] |
+| [[monitor-selection-guide]] | How to pick a monitor (real example — see README) |
 
 ### Resources
 
