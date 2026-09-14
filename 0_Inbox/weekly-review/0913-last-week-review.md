@@ -1,56 +1,45 @@
 ---
-title: "0913 Last Week Review"
-created: 2026-09-13
+abstract: "[MMDD] Last Week Review"
+created: YYYY-MM-DD
 tags:
   - weekly-review
+  - review
   - inbox/raw
 ---
 
-# 0913 Last Week Review (2026-09-07 ~ 2026-09-13)
+<!-- Format example — a weekly review compiled from the 7 diary notes of the last complete week (Mon-Sun). -->
+
+# [MMDD] Last Week Review (2026-MM-DD ~ 2026-MM-DD)
 
 ## Week Overview
 
-A steady sales week: two orders closed, one video in production. The recurring theme was customers asking the same three questions — budget split, Intel vs AMD, prebuilt vs custom.
+> [3-5 lines summarizing the week's main thread: what moved forward, what stalled.]
 
-## Monday 09-07
+## Monday MM-DD
 
-[[2026-09-07]] — posted the AMD vs Intel shorts clip; engagement above average.
+[[YYYY-MM-DD]]
 
-## Tuesday 09-08
+- #event [event]
+- #method [insight or method captured that day]
 
-[[2026-09-08]] — customer B asked about a work-station build; sent config with CPU-heavy allocation.
+## Tuesday MM-DD
 
-## Wednesday 09-09
+[[YYYY-MM-DD]]
 
-[[2026-09-09]] — researched benchmark tools for the resource entry; picked three to recommend.
+- #method [insight]
 
-## Thursday 09-10
-
-[[2026-09-10]] — customer inquiry (6000 gaming rig); started the pitfalls video script.
-
-## Friday 09-11
-
-[[2026-09-11]] — customer A ordered config B; budget-allocation framework drafted with AI.
-
-## Saturday 09-12
-
-[[2026-09-12]] — filmed B-roll for the video; edited 3 clips.
-
-## Sunday 09-13
-
-[[2026-09-13]] — weekly review; compiled the week's knowledge into wiki entries.
+<!-- ... Wednesday through Sunday follow the same pattern ... -->
 
 ## Key Events
 
-- Customer A closed (deposit paid) — second this month
-- Budget-allocation framework formalized with AI distillation
-- Benchmark tools resource entry created
+- #event [the events that actually mattered]
+- #event [artifact produced: [[entry-name]]]
 
 ## Cognition & Reflection
 
-- The three recurring questions are the three wiki entries being compiled — sales calls are a knowledge source.
-- Script is slower than planned; filming B-roll took the whole afternoon.
+- #thought [what changed in your thinking]
+- #quote [a line worth keeping]
 
 ## Unresolved Questions
 
-- Whether to also sell prebuilt machines (the prebuilt-vs-custom comparison will help decide).
+- #next [open question / carried-over task]
