@@ -22,7 +22,7 @@ Kei-Second-Brain 是把个人知识库方法论做成可复用系统的开源发
 |------|------|--------|
 | **系统** | `2_Schema/` | 规则：架构、frontmatter 规范、命名、链接规则、流水线手册 |
 | **Skill** | `.agents/skills/` | 9 个驱动系统运转的 AI Skill（编译、迭代、复盘、规划……） |
-| **示例** | `examples/` 及 `0_Inbox/` `1_Wiki/` `3_KnowledgeBaseIterationLog/` `4_outputs/` | 完整的格式演示——每类一条、仅占位符，展示流水线的每个环节 |
+| **示例** | `examples/` 及 `0_Inbox/` `1_Wiki/` `3_KnowledgeBaseIterationLog/` `4_outputs/` | 完整的格式演示——每类一条、仅占位符，展示流水线的每个环节。`examples/compile-demo/` 存放唯一一段真实内容：原始视频文案 → 编译后的条目 |
 
 ## 与其他方法的区别
 
@@ -99,13 +99,14 @@ git clone https://github.com/keiROLE/Kei-Second-Brain.git
 
 | 路径 | 内容 |
 |------|------|
+| `AGENTS.md` | AI 行为守则（仓库根目录——AI 客户端优先读取） |
 | `2_Schema/TheSchema.md` | 架构、标签、8 类链接类型、质量红线、工作流 |
-| `2_Schema/AGENTS.md` | 知识库内 AI 代理的行为守则 |
 | `2_Schema/frontmatter.md` | frontmatter 字段规范 |
 | `2_Schema/naming.md` | 命名规范 + PARA 分类口径 |
 | `2_Schema/pipeline.md` | 端到端操作手册（输入 → 输出） |
 | `.agents/skills/` | by-1、by-a、kb-iter、jh-1、wr-1、rec-1、chat-distill、blog-1、chiselplan |
 | `examples/` | 示例库（自带中英双版本 README） |
+| `examples/compile-demo/` | 真实原始素材 + 它编译成的条目 |
 | `4_outputs/` | 输出层格式示例（由条目编译的文章） |
 
 ## 支持与维护边界
