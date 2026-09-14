@@ -19,31 +19,31 @@ tags:
 
 | Entry | Question answered |
 |-------|-------------------|
-| [[pc-build-bottleneck]] | [What question does this concept answer?] |
+| [[concept-example]] | [What question does this concept answer?] |
 
 ### Entities
 
 | Entry | Question answered |
 |-------|-------------------|
-| [[xiaojian-guo-studio]] | [What question does this entity answer?] |
+| [[entity-example]] | [What question does this entity answer?] |
 
 ### Comparisons
 
 | Entry | Question answered |
 |-------|-------------------|
-| [[intel-vs-amd-cpu]] | [What question does this comparison answer?] |
+| [[comparison-example]] | [What question does this comparison answer?] |
 
 ### Frameworks
 
 | Entry | Question answered |
 |-------|-------------------|
-| [[pc-budget-allocation]] | [What question does this framework answer?] |
+| [[framework-example]] | [What question does this framework answer?] |
 
 ### Resources
 
 | Entry | Question answered |
 |-------|-------------------|
-| [[pc-benchmark-tools]] | [What question does this resource answer?] |
+| [[resource-example]] | [What question does this resource answer?] |
 
 ## Source Map
 
