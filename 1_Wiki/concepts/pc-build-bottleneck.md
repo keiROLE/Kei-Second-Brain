@@ -1,35 +1,35 @@
 ---
-title: "PC Build Bottleneck"
+title: "[Concept Name]"
 type: concept
-created: 2026-09-12
-source: 0_Inbox/diary/2026-09-10.md
+created: YYYY-MM-DD
+source: "[full path of the source file]"
 confidence: high
 tags:
   - concept
-  - hardware
+  - [topic]
   - para/resource
 aliases:
-  - bottleneck
-author: cc
+  - [alias]
+author: agent
 ---
 
-# PC Build Bottleneck
+# [Concept Name]
+
+<!-- Format example — the body of a concept entry. Replace every placeholder with real content; never leave fabricated text in the vault. -->
 
 ## Source
 
-- [[2026-09-10]] (0_Inbox/diary/2026-09-10.md)
-- [[pc-benchmark-tools]] (0_Inbox/clippings/pc-benchmark-tools.md)
+- [[source-filename]] (0_Inbox/...)
 
 ## Definition
 
-The component that limits overall system performance in a given workload. A machine is only as fast as its slowest link: a weak CPU starves a strong GPU in games; insufficient RAM bottlenecks multitasking regardless of the CPU model.
+[Write 2-5 plain-language sentences defining this concept.]
 
 ## Core Insight
 
-Customers feel the bottleneck, not the average spec. A balanced config beats a lopsided one on the same budget — this is the single most useful idea when talking to a buyer who only knows "bigger number = better".
+[Optional — the one thing worth remembering.]
 
 ## See also
 
-- [[pc-budget-allocation]] apply
-- [[prebuilt-vs-custom-pc]] background
-- [[intel-vs-amd-cpu]] example
+- [[related-entry]] apply
+- [[another-entry]] contrast
