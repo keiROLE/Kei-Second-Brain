@@ -1,0 +1,22 @@
+# Obsidian workspace state (contains local paths) — never commit
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Obsidian cache & trash
+.obsidian/cache
+.obsidian/plugins/*/data.json
+.trash/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sync tool state (if you sync this vault)
+.verysync/
+.verysync
+
+# Editor temp
+*.tmp
+
+# Internal working document (not for public release)
+需求文档.md
