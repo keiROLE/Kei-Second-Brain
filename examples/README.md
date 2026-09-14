@@ -29,4 +29,13 @@ This folder is a complete, runnable example of the Kei-Second-Brain system — a
 
 A capture lands in the diary (input). The compile skill turns it into a wiki entry (compile). The iteration skill checks the vault and suggests what is missing (maintain). An article or script pulls from the entries (output). Next week's diary records what that content brought back — and the loop runs again.
 
+## The compile demo (real material)
+
+`compile-demo/` shows the one transformation this whole system exists for — **raw material → compiled entry**:
+
+- `00-raw-material.md` — a short piece of the author's **real** video transcript (小坚果搞机, a DIY-PC content creator, episode on choosing a monitor), kept verbatim.
+- `01-compiled-entry.md` — what `/by-1` turns it into: a `framework` entry with frontmatter, `## Source` traceability, structured rules and a typed `## See also` link.
+
+This is the only real content in the sample vault — it exists so you can see compilation working on genuine input, not placeholders. Everything else in the sample is a format skeleton (fictional content disclaimer above applies to the rest).
+
 > The configuration layer (2_Schema, skills, directory names) is English-only; the example layer is bilingual (`*.md` = English, `*.zh.md` = Chinese). English is authoritative.
