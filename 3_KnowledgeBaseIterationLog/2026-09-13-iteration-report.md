@@ -1,43 +1,45 @@
 ---
-title: "Knowledge Base Iteration Report 2026-09-13"
+title: "Knowledge Base Iteration Report YYYY-MM-DD"
 type: iteration-report
-created: 2026-09-13
+created: YYYY-MM-DD
 tags:
   - analysis
   - iteration
 ---
 
-# Knowledge Base Iteration Report — 2026-09-13
+<!-- Format example — the iteration report produced by /kb-iter. Read-only analysis; fixes are applied only after user confirmation. -->
 
-> Audit scope & depth: full vault (8 entries, 6 source files), each link classified. Demonstration example — fictional content, real format produced by /kb-iter.
+# Knowledge Base Iteration Report — YYYY-MM-DD
+
+> Audit scope & depth: [what was covered — e.g. all `## See also` links in 1_Wiki; what was not covered — state it honestly].
 
 ## 1. Vault Overview
 
 | Metric | Value |
 |--------|-------|
-| Total wiki entries | 8 |
-| Concept/Entity/Comparison/Framework/Resource | 2/1/2/2/1 |
-| Uncompiled files | 0 |
-| Island entries | 0 |
+| Total wiki entries | [N] |
+| Concept/Entity/Comparison/Framework/Resource | [N]/[N]/[N]/[N]/[N] |
+| Uncompiled files | [N] |
+| Islands / half-islands / single-point links | [N]/[N]/[N] |
 
 ## 2. Coverage Gaps
 
 ### Missing domains (high priority)
 
-1. **Power supply selection**
-   - Current state: only mentioned inside [[pc-budget-allocation]].
-   - Why it matters: it is the #1 "never cut here" rule and a common customer objection.
-   - Suggested entries: [[psu-selection-rules]]
+1. **[Domain]**
+   - Current state: [what exists]
+   - Why it matters: [link to the vault owner's goals]
+   - Suggested entries: [[entry-1]], [[entry-2]]
 
 ### Missing domains (medium priority)
 
-2. **Video content pipeline** — the studio runs on video, but there is no framework entry for the content workflow yet.
+...
 
 ## 3. Uncompiled Content
 
 | File | Potential type | Suggested entry |
 |------|----------------|-----------------|
-| diary/2026-09-11.md | framework (supplement) | PSU section of the script |
+| [file] | [concept / framework / ...] | [[entry]] |
 
 ## 4. Wiki Health
 
@@ -45,31 +47,31 @@ tags:
 
 | Entry | Broken link | Break type | Disposition |
 |-------|-------------|------------|-------------|
-| — | none found | — | — |
+| [[entry]] | [[missing]] | [typo / renamed / truly missing / forced link] | [fix pointer / create entry / remove link / fix syntax] |
 
 ### 🟡 Missing Content
 
 | Entry | Source | Missing |
 |-------|--------|---------|
-| — | — | none found |
+| [[entry]] | [source] | [what is missing] |
 
 ### 🔴 Hallucinations
 
 | Entry | Content not in source | Action |
 |-------|------------------------|--------|
-| — | none found | — |
+| [[entry]] | "[quote]" | [delete / mark as AI note] |
 
 ### 🟢 Structural Issues
 
 | Entry | Issue |
 |-------|-------|
-| — | none found |
+| [[entry]] | [missing tag, wrong date format, ...] |
 
 ### 🟣 Weak-Link List (link audit)
 
 | Entry | Link | Why weak |
 |-------|------|----------|
-| [[xiaojian-guo-studio]] | [[information-arbitrage-pricing]] | labeled `related` — acceptable but generic; confirm a stronger type or keep |
+| [[entry]] | [[other]] | [no type label / forced relationship] |
 
 ## 5. Graph Analysis
 
@@ -77,25 +79,24 @@ tags:
 
 | Entry | incoming | outgoing | Question |
 |-------|----------|----------|----------|
-| none | — | — | — |
+| [[entry]] | [N] | [N] | [is it intentionally standalone?] |
 
 ### Semantic Link Suggestions (real links only)
 
 | Entry A | Suggested link | Relationship | Reason | Confidence |
 |---------|----------------|--------------|--------|------------|
-| [[pc-budget-allocation]] | [[psu-selection-rules]] | part-of | the PSU rule is a component of the allocation framework | high |
+| [[entry]] | [[other]] | [apply / contrast / cause / example / part-of / background / prerequisite] | [one sentence — must be sayable, otherwise drop] | high |
 
 ## 6. Action Items
 
 ### Immediate
 
-1. [ ] Create entry: [[psu-selection-rules]] — reason: high-frequency customer objection, currently buried
-2. [ ] Confirm or re-label: [[xiaojian-guo-studio]] → [[information-arbitrage-pricing]] link type
+1. [ ] [concrete action] — reason: ...
 
 ### This week's learning direction
 
-1. [ ] Add a "video content pipeline" framework entry (the studio's output stage)
+1. [ ] [direction aligned with the owner's goals]
 
 ## 7. Insight of the Day
 
-The vault's two concepts (bottleneck, information arbitrage) are exactly the two ideas that keep closing orders — the knowledge base is already mirroring the business.
+> [the single most worth-noting finding, in one sentence]
