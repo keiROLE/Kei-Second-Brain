@@ -1,45 +1,40 @@
 ---
-title: "PC Budget Allocation"
+title: "[Framework Name]"
 type: framework
-created: 2026-09-12
-source: 0_Inbox/chat-distill/2026-09-11-doubao-budget-allocation.md
+created: YYYY-MM-DD
+source: "[full path of the source file]"
 confidence: high
 tags:
   - framework
-  - hardware
+  - [topic]
   - para/resource
 aliases:
-  - budget split
-author: cc
+  - [alias]
+author: agent
 ---
 
-# PC Budget Allocation
+# [Framework Name]
+
+<!-- Format example — the body of a framework entry. Replace every placeholder with real content. -->
 
 ## Source
 
-- [[2026-09-11-doubao-budget-allocation]] (0_Inbox/chat-distill/2026-09-11-doubao-budget-allocation.md)
+- [[source-filename]] (0_Inbox/...)
 
 ## Definition
 
-A rule set for splitting a PC build budget across components so the machine is balanced and the customer feels the money went where it matters.
+[What is this framework for? 1-3 sentences.]
 
 ## Steps
 
-1. **CPU + GPU: 50-60% of the budget** — they define the performance class.
-2. **Motherboard + RAM + storage: 20-25%** — buy for the platform, not the brand.
-3. **PSU: ~10% — never cut here**; an unstable PSU degrades everything and gets returned.
-4. **Case + cooling: remaining 10-15%** — the only place looks justify spending.
+1. [Step one — each step delivers a verifiable outcome]
+2. [Step two]
+3. [Step three]
 
 ## When to Use
 
-Every customer config. Instead of re-explaining, point customers to this logic in the video or a note.
-
-## Core Insight
-
-The rule exists to prevent the two most common buyer mistakes: over-spending on the CPU brand, and under-spending on the PSU.
+[In which situation does this framework apply?]
 
 ## See also
 
-- [[pc-build-bottleneck]] cause
-- [[prebuilt-vs-custom-pc]] example
-- [[intel-vs-amd-cpu]] example
+- [[related-entry]] cause
