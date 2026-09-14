@@ -57,7 +57,7 @@ Higher is sharper, but only buy what the graphics card can drive (for mainstream
 
 ## See also
 
-- [[pc-budget-allocation]] related — the budget-first mindset this guide fits into
+- [[framework-example]] related — the budget-first mindset this guide fits into
 
 ---
 
