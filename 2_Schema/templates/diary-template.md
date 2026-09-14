@@ -5,26 +5,26 @@ type: template
 
 # Daily Note — YYYY-MM-DD
 
-> Daily note format. Append, never rewrite.
+> Daily note format. Raw capture only: append, never rewrite. Compilation happens later via `/by-1` / `/by-a`.
 
 ```yaml
 ---
-title: "YYYY-MM-DD"
-created: YYYY-MM-DD
+abstract: Diary
+author: Kei
 tags:
   - diary
-  - inbox/raw
+processed: false
 ---
 ```
 
-## 任务 / Tasks
-
-- [ ] ...
-
 ## 记录 / Log
 
-What happened, what I did, what I learned. Raw, unpolished.
+What happened — one line per event. Tags (`#event`, `#project`) go at the **start** of each block, before the text. Link produced artifacts: `[[entry-name]]`.
 
-## 想法 / Thoughts
+## 输入 / Input
 
-Fragments, ideas, questions. Anything worth keeping "for later" — the AI compile stage will turn these into knowledge entries.
+What you consumed — `#learn` / `#method` blocks with raw notes in your own words. This is the raw material the compile skills turn into wiki entries.
+
+## 计划 / Plan
+
+Link the active plan file (`[[plan_2]]`) and list today's temporary tasks as checkboxes.
