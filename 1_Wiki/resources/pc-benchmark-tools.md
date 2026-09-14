@@ -1,43 +1,38 @@
 ---
-title: "PC Benchmark Tools"
+title: "[Resource Name]"
 type: resource
-created: 2026-09-12
-source: 0_Inbox/clippings/pc-benchmark-tools.md
+created: YYYY-MM-DD
+source: "[full path of the source file]"
 confidence: high
 tags:
   - resource
-  - hardware
+  - [topic]
   - para/resource
 aliases:
-  - benchmark software
-author: cc
+  - [alias]
+author: agent
 ---
 
-# PC Benchmark Tools
+# [Resource Name]
+
+<!-- Format example — the body of a resource entry. Replace every placeholder with real content. -->
 
 ## Source
 
-- [[pc-benchmark-tools]] (0_Inbox/clippings/pc-benchmark-tools.md)
+- [[source-filename]] (0_Inbox/...)
 
 ## Category
 
 | Category | Value |
 |----------|-------|
-| Type | software tools |
-| Topic | hardware benchmarking |
-| Cost | free |
+| Type | [tool / website / list / template] |
+| Topic | [topic] |
+| Cost | [free / paid / freemium] |
 
 ## Description
 
-The three tools recommended for verifying a build:
-
-1. **Cinebench R23** — CPU multi/single-core scores; the quoted number in reviews.
-2. **3DMark Time Spy** — GPU / gaming performance; standard for graphics cards.
-3. **CrystalDiskMark** — SSD read/write; the disk health check.
-
-Use them to back the "balanced build" claim with numbers in videos and after-sales checks.
+[What is this resource, and when should you reach for it?]
 
 ## See also
 
-- [[pc-build-bottleneck]] background
-- [[pc-budget-allocation]] related
+- [[related-entry]] background
