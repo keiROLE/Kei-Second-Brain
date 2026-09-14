@@ -1,23 +1,9 @@
----
-title: "Clipping: PC Benchmark Tools Roundup"
-created: 2026-09-09
-tags:
-  - clippings
-  - inbox/raw
----
+# [Clipping Title]
 
-# PC Benchmark Tools Roundup
+<!-- Format example — a web clipping as captured by Obsidian's web clipper. No frontmatter, no rewriting: the raw page content lives here untouched. -->
 
-> Fictional clipping for demonstration. Source: a hardware review site (example.com, fictional).
+> [source URL]
+>
+> [publisher] · [date]
 
-A roundup of the three benchmark tools I keep recommending:
-
-1. **Cinebench R23** — CPU multi-core and single-core scores; the most quoted number in reviews.
-2. **3DMark (Time Spy)** — GPU/gaming performance; the standard for comparing graphics cards.
-3. **CrystalDiskMark** — sequential and random read/write for SSDs; the "is my disk healthy" check.
-
-Key points:
-
-- Always compare scores on the **same driver version** and cooling conditions.
-- A single benchmark number is marketing; the *bottleneck* between components is what actually decides real-world feel (see [[pc-build-bottleneck]]).
-- For customer quotes, CPU + GPU benchmarks matter most; the rest is noise for most buyers.
+[The raw clipped body — article text, transcript, or notes as captured, unedited. This is input material: it is compiled into wiki entries later, never left unprocessed forever.]
