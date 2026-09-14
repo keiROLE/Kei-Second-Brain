@@ -34,7 +34,7 @@ Example:
 title: "Attention Economics"
 type: concept
 created: 2026-09-14
-source: 0_Inbox/clippings/attention-economics.md
+source: 0_Inbox/clippings/clipping-example.md
 confidence: high
 tags:
   - concept
