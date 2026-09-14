@@ -146,7 +146,7 @@ All entry templates (in `1_Wiki/templates/`) must include:
 | confidence | Yes | `high` / `medium` / `low` |
 | tags | Yes | At least 3 (type + topic + PARA) |
 | aliases | Optional | Alias array, reduces navigation ambiguity |
-| author | Optional | `cc` for AI-produced content |
+| author | Yes | `agent` — AI-compiled entries are authored by the compiling agent; never a personal handle |
 
 **Additional required for entities**: `entity_kind` (`person` / `organization` / `project` / `product`).
 
@@ -251,7 +251,7 @@ Determine entry type → use the corresponding template → search existing entr
 - **No fabrication**: content not present in the source is not written. When unsure, mark `confidence: low`.
 - **AI supplements must be labeled**: `> 💡 AI note: ...`
 - **Numbers / dates / facts are traceable**: distinguish "verified" from "claimed by one party".
-- **Author marker**: AI-produced content uses `author: cc`.
+- **Author marker**: AI-compiled content uses `author: agent` (the compiling agent). Raw material written by the vault owner keeps the owner's own handle (e.g. `author: Kei` in diaries).
 
 ---
 
