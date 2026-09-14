@@ -52,24 +52,7 @@ Classification rules:
 
 Use the matching template (in `1_Wiki/templates/`) and follow:
 
-**Required frontmatter**:
-
-```yaml
----
-title: "[Entry Title]"
-type: concept | entity | comparison | framework | resource
-created: YYYY-MM-DD
-source: "[full path of source file]"
-confidence: high | medium | low
-tags:
-  - [type tag]
-  - [topic tag]
-  - para/resource
-aliases:
-  - [alias]
-author: agent
----
-```
+**Frontmatter**: follow `2_Schema/frontmatter.md` — required fields are `title` / `type` / `created` / `source` / `confidence` / `tags` / `aliases` / `author: agent` (entities add `entity_kind`).
 
 **Body rules**:
 - Use tables for structured info (comparisons, steps, categories).
