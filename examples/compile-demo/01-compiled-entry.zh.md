@@ -57,7 +57,7 @@ author: agent
 
 ## See also
 
-- [[pc-budget-allocation]] related — 本指南所属的"预算优先"思路
+- [[framework-example]] related — 本指南所属的"预算优先"思路
 
 ---
 
