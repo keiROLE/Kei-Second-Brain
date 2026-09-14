@@ -1,7 +1,7 @@
 ---
 title: "Frontmatter Field Specification"
 type: schema
-updated: 2026-09-14
+updated: 2026-09-15
 tags:
   - config
   - frontmatter
@@ -33,8 +33,8 @@ Example:
 ---
 title: "Attention Economics"
 type: concept
-created: 2026-09-14
-source: 0_Inbox/clippings/clipping-example.md
+created: 2026-09-15
+source: 0_Inbox/clippings/xiaojian-guo-monitor-episode.md
 confidence: high
 tags:
   - concept
@@ -66,7 +66,7 @@ Landed raw notes in `0_Inbox/chat-distill/` (via `/chat-distill`) add traceabili
 | `tags` | Yes | `chat-distill` + `inbox/raw` |
 | `processed` | Yes | starts `false`; flipped `true` after compilation |
 | `source_type` | Yes | `chat` |
-| `source_agent` | Yes | the AI client the conversation came from (e.g. `doubao`, `claude-code`, `codex`, `other`) |
+| `source_agent` | Yes | the AI client the conversation came from (fill in the agent name; placeholder `agent`) |
 | `source_file` | Yes | path of the original conversation log |
 | `source_time` | Yes | `YYYY-MM-DD` of the conversation |
 
