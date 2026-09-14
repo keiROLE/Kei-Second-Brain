@@ -54,6 +54,22 @@ author: agent
 | `abstract` | Optional | One-line summary |
 | `weekly_reviewed` | Optional | Date value `YYYY-MM-DD` after the weekly review covered it |
 
+## 2b. 0_Inbox / chat-distill (distilled AI conversations)
+
+Landed raw notes in `0_Inbox/chat-distill/` (via `/chat-distill`) add traceability fields on top of the diary set:
+
+| Field | Required | Notes |
+|-------|----------|-------|
+| `title` | Yes | `"Distilled: <topic>"` |
+| `author` | Yes | `agent` (compiled by the distilling agent) |
+| `created` | Yes | `YYYY-MM-DD` |
+| `tags` | Yes | `chat-distill` + `inbox/raw` |
+| `processed` | Yes | starts `false`; flipped `true` after compilation |
+| `source_type` | Yes | `chat` |
+| `source_agent` | Yes | the AI client the conversation came from (e.g. `doubao`, `claude-code`, `codex`, `other`) |
+| `source_file` | Yes | path of the original conversation log |
+| `source_time` | Yes | `YYYY-MM-DD` of the conversation |
+
 ## 3. Deprecated fields
 
 | Field | Status | Replacement |
