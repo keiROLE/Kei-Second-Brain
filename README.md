@@ -22,7 +22,7 @@ The repo contains three things:
 |------|----------|------------|
 | **The system** | `2_Schema/` | The rules: architecture, frontmatter spec, naming, link rules, pipeline manual |
 | **The skills** | `.agents/skills/` | 9 AI skills (compile, iterate, review, plan...) that run the system |
-| **The example** | `examples/`, plus `0_Inbox/` `1_Wiki/` `3_KnowledgeBaseIterationLog/` `4_outputs/` | A complete format demonstration — one entry per type, placeholders only, showing every stage of the pipeline |
+| **The example** | `examples/`, plus `0_Inbox/` `1_Wiki/` `3_KnowledgeBaseIterationLog/` `4_outputs/` | A complete format demonstration — one entry per type, placeholders only, showing every stage of the pipeline. `examples/compile-demo/` holds the one real piece: raw video transcript → compiled entry |
 
 ## How it differs from other methods
 
@@ -99,13 +99,14 @@ The repository *is* a complete example vault. `0_Inbox/`, `1_Wiki/`, `2_Schema/`
 
 | Path | What |
 |------|------|
+| `AGENTS.md` | AI behavior contract (repo root — read first by AI clients) |
 | `2_Schema/TheSchema.md` | Architecture, tags, 8 link types, quality red lines, workflows |
-| `2_Schema/AGENTS.md` | Behavior contract for AI agents in the vault |
 | `2_Schema/frontmatter.md` | Frontmatter field spec |
 | `2_Schema/naming.md` | Naming + PARA classification |
 | `2_Schema/pipeline.md` | End-to-end operating manual (input → output) |
 | `.agents/skills/` | by-1, by-a, kb-iter, jh-1, wr-1, rec-1, chat-distill, blog-1, chiselplan |
 | `examples/` | The sample vault, with its own bilingual README |
+| `examples/compile-demo/` | Real raw material + the compiled entry it becomes |
 | `4_outputs/` | Output-layer format examples (articles compiled from entries) |
 
 ## Support & maintenance boundaries
