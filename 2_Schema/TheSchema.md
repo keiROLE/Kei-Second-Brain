@@ -28,6 +28,7 @@ The global rules, naming conventions and AI workflows of the knowledge base.
 | 1_Wiki/ | Knowledge compilation layer | The core knowledge base, maintained by AI | AI read/write |
 | 2_Schema/ | Configuration layer | The operating system of the vault | AI read/write |
 | 3_KnowledgeBaseIterationLog/ | Iteration layer | Compile reports, iteration reports, link audits | AI write |
+| 4_outputs/ | Output layer | Content compiled from entries (articles, scripts, posts) | AI write |
 
 ### 0_Inbox/ — Raw material layer
 
@@ -65,7 +66,18 @@ The core knowledge base maintained by AI. Content is **compiled, not stored**.
 
 ### 2_Schema/ — Configuration layer
 
-Everything the system needs to operate: this file, AGENTS.md, frontmatter.md, naming.md, pipeline.md, templates/.
+Everything the system needs to operate: this file, frontmatter.md, naming.md, pipeline.md, templates/. (AGENTS.md, the AI behavior contract, lives at the **repo root** so any AI client that opens the vault reads it first.)
+
+### 4_outputs/ — Output layer
+
+Compiled knowledge feeds back into content here: articles, video scripts, posts — produced by `/blog-1` (articles / project pages / shares) or adapted manually from 1_Wiki/ entries.
+
+| Rule | Detail |
+|------|--------|
+| Who writes | AI (via `/blog-1`) or the user, from entries |
+| Source of truth | 1_Wiki/ entries — output is derived, entries stay authoritative |
+| No fabrication | anything not backed by an entry is marked as inference |
+| File naming | `YYYY-MM-DD-<slug>.md` or `<slug>.md`, per `naming.md` |
 
 ---
 
@@ -135,24 +147,9 @@ Every entry starts with a `## Source` section right after the title (`# Title`),
 
 ## 4. Frontmatter Field Spec
 
-All entry templates (in `1_Wiki/templates/`) must include:
-
-| Field | Required | Notes |
-|-------|----------|-------|
-| title | Yes | Entry title |
-| type | Yes | Matches the containing directory: concept/entity/comparison/framework/resource |
-| created | Yes | YYYY-MM-DD |
-| source | Yes | Full path of source file(s) (compile traceability) |
-| confidence | Yes | `high` / `medium` / `low` |
-| tags | Yes | At least 3 (type + topic + PARA) |
-| aliases | Optional | Alias array, reduces navigation ambiguity |
-| author | Yes | `agent` — AI-compiled entries are authored by the compiling agent; never a personal handle |
-
-**Additional required for entities**: `entity_kind` (`person` / `organization` / `project` / `product`).
+All 1_Wiki/ entry templates must follow the **full field inventory in `frontmatter.md`** (required: `title` / `type` / `created` / `source` / `confidence` / `tags` / `aliases` / `author: agent`; entities add `entity_kind`). Raw-material fields (`processed`, `abstract`, `weekly_reviewed`, chat-distill fields) are also specified there.
 
 **Deprecated fields**: `related` / `links` (removed; cross-links live in `## See also`).
-
-Full field inventory: see `frontmatter.md`.
 
 ---
 
@@ -258,7 +255,7 @@ Determine entry type → use the corresponding template → search existing entr
 ## 9. Standard Workflow
 
 ```
-Record → Review → Compile → Iterate → Distill → Plan
+Record → Review → Compile → Iterate → Distill → Plan → Output
 ```
 
 1. **Record**: daily note (`0_Inbox/diary/YYYY-MM-DD.md`); AI appends via `/rec-1`.
@@ -267,6 +264,7 @@ Record → Review → Compile → Iterate → Distill → Plan
 4. **Iterate**: `/kb-iter` health check (gaps, broken links, islands, hallucinations, link audit) — read-only report.
 5. **Distill**: `/chat-distill` filters AI conversations into the knowledge base.
 6. **Plan**: `/chiselplan` for project planning; optional daily loop via the `plan-1` skill it can create.
+7. **Output**: `/blog-1` turns entries into articles / project pages / shares in `4_outputs/`.
 
 The end-to-end pipeline (input → compile → maintain → output) with concrete operating steps: see `pipeline.md`.
 
@@ -277,7 +275,7 @@ The end-to-end pipeline (input → compile → maintain → output) with concret
 | Document | Responsibility |
 |----------|----------------|
 | TheSchema.md (this file) | Architecture, tags, links, quality lines, workflows |
-| AGENTS.md | AI behavior rules for agents working in this vault |
+| AGENTS.md (repo root) | AI behavior rules for agents working in this vault |
 | frontmatter.md | Full frontmatter field inventory |
 | naming.md | Naming conventions + PARA classification criteria |
 | pipeline.md | End-to-end operating procedure: input → output |
