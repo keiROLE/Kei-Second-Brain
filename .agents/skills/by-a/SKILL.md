@@ -112,7 +112,7 @@ Body:
 3. **Label AI supplements**: `> 💡 AI note: ...`.
 4. **Incremental compiling**: if more than ~20 new files, process in 2-3 rounds.
 5. **Date format**: `YYYY-MM-DD`.
-6. **Author marker**: `author: cc`.
+6. **Author marker**: `author: agent`.
 7. **Links are earned, not assigned**: cross-links only in `## See also` with type labels; no label → no link.
 8. **`processed` write-back is mandatory**: mark sources immediately, in the same pass as the index update.
 
