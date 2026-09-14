@@ -1,7 +1,7 @@
 ---
 title: "Naming Conventions & PARA Classification"
 type: schema
-updated: 2026-09-14
+updated: 2026-09-15
 tags:
   - config
   - naming
