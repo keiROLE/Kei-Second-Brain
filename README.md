@@ -22,7 +22,7 @@ The repo contains three things:
 |------|----------|------------|
 | **The system** | `2_Schema/` | The rules: architecture, frontmatter spec, naming, link rules, pipeline manual |
 | **The skills** | `.agents/skills/` | 9 AI skills (compile, iterate, review, plan...) that run the system |
-| **The example** | `examples/`, plus `0_Inbox/` `1_Wiki/` `3_KnowledgeBaseIterationLog/` | A complete fictional knowledge base showing every stage of the pipeline |
+| **The example** | `examples/`, plus `0_Inbox/` `1_Wiki/` `3_KnowledgeBaseIterationLog/` `4_outputs/` | A complete format demonstration — one entry per type, placeholders only, showing every stage of the pipeline |
 
 ## How it differs from other methods
 
@@ -51,9 +51,9 @@ diary/  weekly-review/               concepts/  entities/               TheSchem
 chat-distill/  clippings/            comparisons/  frameworks/          AGENTS (AI behavior)
                                       resources/  index.md              frontmatter/naming
                                                                         pipeline (operating manual)
-                                    3_KnowledgeBaseIterationLog/
-                                    Iteration layer
-                                    compile reports / iteration reports / link audits
+3_KnowledgeBaseIterationLog/         4_outputs/
+Iteration layer                      Output layer
+compile reports / iteration reports  articles, scripts, posts
 ```
 
 | Layer | Role | Who writes |
@@ -62,6 +62,7 @@ chat-distill/  clippings/            comparisons/  frameworks/          AGENTS (
 | `1_Wiki/` | Compiled knowledge entries | AI (via skills) |
 | `2_Schema/` | The rules the vault runs on | You + AI |
 | `3_KnowledgeBaseIterationLog/` | Reports: compiles, health checks, audits | AI |
+| `4_outputs/` | Content compiled from entries | AI (from wiki) |
 
 ## The pipeline (one paragraph)
 
@@ -77,7 +78,7 @@ git clone https://github.com/keiROLE/Kei-Second-Brain.git
 # read  examples/README.md, then follow the suggested reading order
 ```
 
-The repository *is* a complete example vault. `0_Inbox/`, `1_Wiki/`, `2_Schema/`, `3_KnowledgeBaseIterationLog/` are all filled with a fictional demonstration (a DIY-PC seller and content creator) — browse them to see every stage of the pipeline with real files.
+The repository *is* a complete example vault. `0_Inbox/`, `1_Wiki/`, `2_Schema/`, `3_KnowledgeBaseIterationLog/` and `4_outputs/` show every stage of the pipeline as format demonstrations — one entry per type, concrete content removed, placeholders in place.
 
 ### Option B — let an AI build your own
 
@@ -105,6 +106,7 @@ The repository *is* a complete example vault. `0_Inbox/`, `1_Wiki/`, `2_Schema/`
 | `2_Schema/pipeline.md` | End-to-end operating manual (input → output) |
 | `.agents/skills/` | by-1, by-a, kb-iter, jh-1, wr-1, rec-1, chat-distill, blog-1, chiselplan |
 | `examples/` | The sample vault, with its own bilingual README |
+| `4_outputs/` | Output-layer format examples (articles compiled from entries) |
 
 ## Support & maintenance boundaries
 
