@@ -1,38 +1,36 @@
 ---
-title: "Intel vs AMD CPU"
+title: "[A] vs [B]"
 type: comparison
-created: 2026-09-12
-source: 0_Inbox/weekly-review/0913-last-week-review.md
-confidence: medium
+created: YYYY-MM-DD
+source: "[full path of the source file]"
+confidence: high
 tags:
   - comparison
-  - hardware
+  - [topic]
   - para/resource
 aliases:
-  - Intel vs AMD
-author: cc
+  - [alias]
+author: agent
 ---
 
-# Intel vs AMD CPU
+# [A] vs [B]
+
+<!-- Format example — the body of a comparison entry. Replace every placeholder with real content. -->
 
 ## Source
 
-- [[0913-last-week-review]] (0_Inbox/weekly-review/0913-last-week-review.md)
+- [[source-filename]] (0_Inbox/...)
 
 ## Comparison Matrix
 
-| Dimension | Intel | AMD |
-|-----------|-------|-----|
-| Gaming at mid-budget | strong single-core, high clocks | very competitive, often better value |
-| Multi-core / workstation | good, efficient cores | strong core counts, good multi-core |
-| Power consumption at high load | higher at the top end | efficient, lower power draw |
-| Upgrade path | socket changes more often | longer platform life |
+| Dimension | [A] | [B] |
+|-----------|-----|-----|
+| [dimension 1] | [value] | [value] |
 
 ## Conclusion
 
-For gaming rigs up to ~8000, AMD usually wins value; Intel wins on brand recognition with non-technical buyers. For workstations, decide by core-count and software benchmarks, not by brand.
+[One paragraph: when to choose which, and what the deciding factor is.]
 
 ## See also
 
-- [[pc-build-bottleneck]] example
-- [[pc-budget-allocation]] example
+- [[related-entry]] example
