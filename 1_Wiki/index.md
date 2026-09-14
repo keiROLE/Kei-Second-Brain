@@ -1,7 +1,7 @@
 ---
 title: "Index — Knowledge Base Navigation"
 type: index
-updated: 2026-09-13
+updated: YYYY-MM-DD
 tags:
   - index
   - para/resource
@@ -9,7 +9,9 @@ tags:
 
 # Knowledge Base Index
 
-> Total entries: 8 · Concepts 2 · Entities 1 · Comparisons 2 · Frameworks 2 · Resources 1
+<!-- Format example — the index navigation. One entry per type is kept as a format demonstration; replace with your real entries. -->
+
+> Total entries: 5 · Concepts 1 · Entities 1 · Comparisons 1 · Frameworks 1 · Resources 1
 
 ## Quick Navigation
 
@@ -17,43 +19,36 @@ tags:
 
 | Entry | Question answered |
 |-------|-------------------|
-| [[pc-build-bottleneck]] | Why is a balanced build faster than a lopsided one? |
-| [[information-arbitrage-pricing]] | Where does the margin actually come from? |
+| [[pc-build-bottleneck]] | [What question does this concept answer?] |
 
 ### Entities
 
 | Entry | Question answered |
 |-------|-------------------|
-| [[xiaojian-guo-studio]] | Who runs this knowledge base and business? |
+| [[xiaojian-guo-studio]] | [What question does this entity answer?] |
 
 ### Comparisons
 
 | Entry | Question answered |
 |-------|-------------------|
-| [[intel-vs-amd-cpu]] | Which CPU brand for which buyer? |
-| [[prebuilt-vs-custom-pc]] | DIY or prebuilt — and when? |
+| [[intel-vs-amd-cpu]] | [What question does this comparison answer?] |
 
 ### Frameworks
 
 | Entry | Question answered |
 |-------|-------------------|
-| [[pc-budget-allocation]] | How to split a build budget? |
-| [[customer-conversion-flow]] | How to convert an inquiry into an order? |
+| [[pc-budget-allocation]] | [What question does this framework answer?] |
 
 ### Resources
 
 | Entry | Question answered |
 |-------|-------------------|
-| [[pc-benchmark-tools]] | Which tools verify a build? |
+| [[pc-benchmark-tools]] | [What question does this resource answer?] |
 
 ## Source Map
 
 | Source (0_Inbox) | Compiled into |
 |------------------|---------------|
-| diary/2026-09-10.md | [[pc-build-bottleneck]], [[prebuilt-vs-custom-pc]] |
-| diary/2026-09-11.md | (supplement) |
-| chat-distill/2026-09-11-doubao-budget-allocation.md | [[pc-budget-allocation]], [[information-arbitrage-pricing]] |
-| clippings/pc-benchmark-tools.md | [[pc-benchmark-tools]] |
-| weekly-review/0913-last-week-review.md | [[xiaojian-guo-studio]], [[intel-vs-amd-cpu]], [[customer-conversion-flow]] |
+| [source file] | [[entry]] |
 
-> Note: This is a demonstration example, deliberately small. A real vault grows through weekly compile runs (/by-a) and iteration reports (/kb-iter).
+> Note: entries in this example vault are format placeholders only. A real vault grows through weekly compile runs (/by-a) and iteration reports (/kb-iter).
