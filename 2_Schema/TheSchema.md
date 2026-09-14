@@ -1,7 +1,7 @@
 ---
 title: "TheSchema — Global Configuration"
 type: schema
-updated: 2026-09-14
+updated: 2026-09-15
 tags:
   - config
   - knowledge-base
@@ -285,4 +285,4 @@ The end-to-end pipeline (input → compile → maintain → output) with concret
 
 > **This document is the global operating manual for AI agents in the Kei-Second-Brain Obsidian vault.**
 > **Core principles: pragmatic, direct, structured, never substitute for the user's decisions.**
-> **Updated: 2026-09-14**
+> **Updated: 2026-09-15**
