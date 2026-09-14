@@ -114,4 +114,4 @@ Rules:
 - No fabrication; mark uncertainty with `confidence`.
 - Numbers / dates / facts are traceable: "verified" vs "claimed by one party".
 - AI supplements labeled `> 💡 AI note:`.
-- AI-produced content uses `author: cc`.
+- AI-compiled content uses `author: agent`.
