@@ -79,7 +79,7 @@ Scan files whose names contain "misc"/"untitled":
 
 ### Step 5: Output the compile report (with details)
 
-**Output location (mandatory)**: write the report to `3_KnowledgeBaseIterationLog/YYYY-MM-DD-compile-report.md`. The compile report is the audit trail of how the knowledge base evolved — what was compiled, what was skipped.
+**Output location (mandatory)**: write the report to `3_KBI-log/YYYY-MM-DD-compile-report.md`. The compile report is the audit trail of how the knowledge base evolved — what was compiled, what was skipped.
 
 ```yaml
 ---
