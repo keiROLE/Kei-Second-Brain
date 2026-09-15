@@ -26,7 +26,7 @@ tags:
 
 ### Repo / vault level
 
-- Directories: `0_Inbox`, `1_Wiki`, `2_Schema`, `3_KnowledgeBaseIterationLog` — fixed, do not rename.
+- Directories: `0_Inbox`, `1_Wiki`, `2_Schema`, `3_KBI-log` — fixed, do not rename.
 - Subdirectories: lowercase with hyphens (`weekly-review`, `chat-distill`).
 
 ---
