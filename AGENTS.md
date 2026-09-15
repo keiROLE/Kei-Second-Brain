@@ -16,7 +16,7 @@ This file is the project-level behavior contract for AI agents working inside th
 | `0_Inbox/` | Raw material layer: unprocessed input (diary/, weekly-review/, chat-distill/, clippings/). Read-only, never edited in place. |
 | `1_Wiki/` | Knowledge compilation layer: compiled entries (concepts/entities/comparisons/frameworks/resources), templates/, archive/, index.md |
 | `2_Schema/` | Configuration layer: TheSchema, frontmatter, naming, pipeline, templates |
-| `3_KnowledgeBaseIterationLog/` | Compile reports, iteration reports, link audits, other AI analysis outputs |
+| `3_KBI-log/` | Compile reports, iteration reports, link audits, other AI analysis outputs |
 | `.agents/skills/` | Project skills (SKILL.md files). Read the corresponding SKILL.md before using a skill. |
 
 ## Document-Type Tasks
