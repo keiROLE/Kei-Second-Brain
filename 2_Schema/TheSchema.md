@@ -27,8 +27,8 @@ The global rules, naming conventions and AI workflows of the knowledge base.
 | 0_Inbox/ | Raw material layer | Source of truth; never edited in place | Read-only |
 | 1_Wiki/ | Knowledge compilation layer | The core knowledge base, maintained by AI | AI read/write |
 | 2_Schema/ | Configuration layer | The operating system of the vault | AI read/write |
-| 3_KnowledgeBaseIterationLog/ | Iteration layer | Compile reports, iteration reports, link audits | AI write |
-| 4_outputs/ | Output layer | Content compiled from entries (articles, scripts, posts) | AI write |
+| 3_KBI-log/ | Iteration layer | Compile reports, iteration reports, link audits | AI write |
+| 4_Outputs/ | Output layer | Content compiled from entries (articles, scripts, posts) | AI write |
 
 ### 0_Inbox/ — Raw material layer
 
@@ -68,7 +68,7 @@ The core knowledge base maintained by AI. Content is **compiled, not stored**.
 
 Everything the system needs to operate: this file, frontmatter.md, naming.md, pipeline.md, templates/. (AGENTS.md, the AI behavior contract, lives at the **repo root** so any AI client that opens the vault reads it first.)
 
-### 4_outputs/ — Output layer
+### 4_Outputs/ — Output layer
 
 Compiled knowledge feeds back into content here: articles, video scripts, posts — produced by `/blog-1` (articles / project pages / shares) or adapted manually from 1_Wiki/ entries.
 
@@ -127,7 +127,7 @@ Every 1_Wiki entry carries at least 3 tags: type + topic + PARA category.
 
 - **A link you cannot label is probably a fake link — do not write it, do not force it.**
 - New links must always carry a type label.
-- The type list is extensible; when extending, update by-1 / by-a / kb-iter / jh-1 skills accordingly.
+- The type list is extensible; when extending, update by-1 / by-a / kbi / jh-1 skills accordingly.
 
 ### Source section (mandatory traceability)
 
@@ -171,10 +171,10 @@ AI skill outputs fall into two groups: **reports** (compile reports, iteration r
 
 | Skill | Output file naming | Location |
 |-------|--------------------|----------|
-| by-1 single compile | `by-1-[topic]-[date].md` | `3_KnowledgeBaseIterationLog/analysis/` |
-| by-a compile all | `YYYY-MM-DD-compile-report.md` | `3_KnowledgeBaseIterationLog/` |
-| kb-iter iteration | `YYYY-MM-DD-iteration-report.md` (incl. link audit) | `3_KnowledgeBaseIterationLog/` |
-| jh-1 topic map | `jh-1-[topic]-[date].md` | `3_KnowledgeBaseIterationLog/analysis/` |
+| by-1 single compile | `by-1-[topic]-[date].md` | `3_KBI-log/analysis/` |
+| by-a compile all | `YYYY-MM-DD-compile-report.md` | `3_KBI-log/` |
+| kbi iteration | `YYYY-MM-DD-iteration-report.md` (incl. link audit) | `3_KBI-log/` |
+| jh-1 topic map | `jh-1-[topic]-[date].md` | `3_KBI-log/analysis/` |
 
 **Naming rules**:
 - Date format: `YYYY-MM-DD`
@@ -188,7 +188,7 @@ AI skill outputs fall into two groups: **reports** (compile reports, iteration r
 title: "[Report Title]"
 type: analysis-report
 created: YYYY-MM-DD
-source_skill: "/by-1" | "/by-a" | "/kb-iter" | "/jh-1"
+source_skill: "/by-1" | "/by-a" | "/kbi" | "/jh-1"
 tags:
   - analysis
   - para/resource
@@ -261,10 +261,10 @@ Record → Review → Compile → Iterate → Distill → Plan → Output
 1. **Record**: daily note (`0_Inbox/diary/YYYY-MM-DD.md`); AI appends via `/rec-1`.
 2. **Review**: weekly, `/wr-1` compiles the last full week of diary notes into a weekly review.
 3. **Compile**: `/by-1` for single docs, `/by-a` for bulk.
-4. **Iterate**: `/kb-iter` health check (gaps, broken links, islands, hallucinations, link audit) — read-only report.
+4. **Iterate**: `/kbi` health check (gaps, broken links, islands, hallucinations, link audit) — read-only report.
 5. **Distill**: `/chat-distill` filters AI conversations into the knowledge base.
 6. **Plan**: `/chiselplan` for project planning; optional daily loop via the `plan-1` skill it can create.
-7. **Output**: `/blog-1` turns entries into articles / project pages / shares in `4_outputs/`.
+7. **Output**: `/blog-1` turns entries into articles / project pages / shares in `4_Outputs/`.
 
 The end-to-end pipeline (input → compile → maintain → output) with concrete operating steps: see `pipeline.md`.
 
