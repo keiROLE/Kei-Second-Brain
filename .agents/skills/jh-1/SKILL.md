@@ -17,7 +17,7 @@ User says "/jh-1", "topic map", "aggregate [topic]", or similar.
 
 ## Output location
 
-All outputs go to `3_KnowledgeBaseIterationLog/analysis/`, named `jh-1-[topic]-[YYYY-MM-DD].md` (see `2_Schema/TheSchema.md` §6 for the output rules).
+All outputs go to `3_KBI-log/analysis/`, named `jh-1-[topic]-[YYYY-MM-DD].md` (see `2_Schema/TheSchema.md` §6 for the output rules).
 
 ## Workflow
 
@@ -95,11 +95,11 @@ Plus:
 4. **Visualize the map**: use an ASCII tree so relationships are obvious.
 5. **Priority**: verified link suggestions > merges > new entries > enrichment. Never link based only on shared tags / same directory / same source.
 
-## Relationship with kb-iter
+## Relationship with kbi
 
 | Scenario | Which skill |
 |----------|-------------|
-| Overall wiki health / knowledge gaps | /kb-iter |
+| Overall wiki health / knowledge gaps | /kbi |
 | Deep analysis of one topic | /jh-1 |
-| kb-iter found a single-point link, need deeper analysis | /kb-iter → /jh-1 |
+| kbi found a single-point link, need deeper analysis | /kbi → /jh-1 |
 | After bulk compiling, check topic completeness | /by-a → /jh-1 |
