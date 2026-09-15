@@ -72,7 +72,7 @@ Steps (by-a):
 5. Add a `## See also` section; every link carries one of the 8 type labels. No label → no link.
 6. Update `1_Wiki/index.md`.
 7. Mark the source file `processed: true` (or move to `1_Wiki/archive/`).
-8. Write the compile report to `3_KnowledgeBaseIterationLog/YYYY-MM-DD-compile-report.md`.
+8. Write the compile report to `3_KBI-log/YYYY-MM-DD-compile-report.md`.
 
 Quality red lines apply throughout: no fabrication, `confidence` marks uncertainty, AI supplements labeled `> 💡 AI note:`.
 
@@ -82,7 +82,7 @@ Quality red lines apply throughout: no fabrication, `confidence` marks uncertain
 
 **Goal**: keep the knowledge base healthy and honest.
 
-Use `/kb-iter`.
+Use `/kbi`.
 
 Scope of the scan:
 - Coverage gaps (topics missing)
@@ -92,15 +92,15 @@ Scope of the scan:
 - Hallucination candidates (unsourced claims)
 - Link audit (entries without type labels)
 
-Output: `3_KnowledgeBaseIterationLog/YYYY-MM-DD-iteration-report.md` — **read-only recommendations**. Fixes are applied only after user confirmation.
+Output: `3_KBI-log/YYYY-MM-DD-iteration-report.md` — **read-only recommendations**. Fixes are applied only after user confirmation.
 
 ---
 
 ## ⑤ Output — knowledge back into content
 
-**Goal**: compiled knowledge becomes new content in `4_outputs/` (the Output layer).
+**Goal**: compiled knowledge becomes new content in `4_Outputs/` (the Output layer).
 
-Use `/blog-1` to generate articles / project pages / shares into `4_outputs/`, or adapt entries into video scripts / posts manually or with an AI client of your choice. Output-layer rules and naming: `2_Schema/TheSchema.md` §1 (4_outputs), `2_Schema/naming.md`.
+Use `/blog-1` to generate articles / project pages / shares into `4_Outputs/`, or adapt entries into video scripts / posts manually or with an AI client of your choice. Output-layer rules and naming: `2_Schema/TheSchema.md` §1 (4_Outputs), `2_Schema/naming.md`.
 
 Rules:
 - Output derives from entries; entries remain the source of truth.
