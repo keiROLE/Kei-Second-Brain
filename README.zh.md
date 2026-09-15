@@ -2,7 +2,7 @@
 
 **一个由 AI 编译的第二大脑。** 一套完整、可开源的个人知识库方法论——**AI 负责编译、维护和输出**，而不只是存储。
 
-本仓库是一套可直接运行的系统：一份成文的架构、9 个可复用的 AI Skill、以及一个演示完整流水线的示例知识库。Clone 下来、读一遍、搭建你自己的。
+本仓库是一套可直接运行的系统：一份成文的架构、9 个可复用的 AI Skill、以及一个演示完整流水线的示例知识库。
 
 > English version: [README.md](README.md)（翻译可能滞后，以英文版为准）
 
@@ -22,7 +22,7 @@ Kei-Second-Brain 是把个人知识库方法论做成可复用系统的开源发
 |------|------|--------|
 | **系统** | `2_Schema/` | 规则：架构、frontmatter 规范、命名、链接规则、流水线手册 |
 | **Skill** | `.agents/skills/` | 9 个驱动系统运转的 AI Skill（编译、迭代、复盘、规划……） |
-| **示例** | `0_Inbox/` `1_Wiki/` `3_KnowledgeBaseIterationLog/` `4_outputs/` | 完整的示例库，展示流水线的每个环节——格式演示（每类一条、仅占位符），外加一次**真实**的"摘录→编译"（见「真实例子」） |
+| **示例** | `0_Inbox/` `1_Wiki/` `3_KBI-log/` `4_Outputs/` | 完整的示例库，展示流水线的每个环节——格式演示（每类一条、仅占位符），外加一次**真实**的"摘录→编译"（见「真实例子」） |
 
 ## 与其他方法的区别
 
@@ -51,7 +51,7 @@ diary/  weekly-review/               concepts/  entities/               TheSchem
 chat-distill/  clippings/            comparisons/  frameworks/          AGENTS（AI 行为守则）
                                       resources/  index.md              frontmatter/naming
                                                                         pipeline（操作手册）
-3_KnowledgeBaseIterationLog/         4_outputs/
+3_KBI-log/         4_Outputs/
 迭代层                               输出层
 编译报告 / 迭代报告 / 链接审计          文章、脚本、帖子
 ```
@@ -61,12 +61,12 @@ chat-distill/  clippings/            comparisons/  frameworks/          AGENTS�
 | `0_Inbox/` | 原始素材——事实来源 | 你（只追加） |
 | `1_Wiki/` | 编译后的知识条目 | AI（通过 Skill） |
 | `2_Schema/` | 知识库运转的规则 | 你 + AI |
-| `3_KnowledgeBaseIterationLog/` | 报告：编译、健康检查、审计 | AI |
-| `4_outputs/` | 由条目编译的内容 | AI（取材 wiki） |
+| `3_KBI-log/` | 报告：编译、健康检查、审计 | AI |
+| `4_Outputs/` | 由条目编译的内容 | AI（取材 wiki） |
 
 ## 流水线（一段话）
 
-**输入**：视频逐字稿、网页剪藏、AI 对话、日记都落到 `0_Inbox/`。**编译**：`/by-1`（单篇）或 `/by-a`（批量）把它们变成 `1_Wiki/` 里的类型化条目——概念、实体、对比、框架、资源——每条都带来源、置信度和类型化链接。**维护**：`/kb-iter` 扫描缺口、断链、孤岛和幻觉，输出只读的迭代报告。**输出**：条目被取材成文章、视频脚本和帖子（如 `/blog-1`）。没有任何环节自动运行——每步都由用户主动触发。完整操作手册见 `2_Schema/pipeline.md`。
+**输入**：视频逐字稿、网页剪藏、AI 对话、日记都落到 `0_Inbox/`。**编译**：`/by-1`（单篇）或 `/by-a`（批量）把它们变成 `1_Wiki/` 里的类型化条目——概念、实体、对比、框架、资源——每条都带来源、置信度和类型化链接。**维护**：`/kbi` 扫描缺口、断链、孤岛和幻觉，输出只读的迭代报告。**输出**：条目被取材成文章、视频脚本和帖子（如 `/blog-1`）。没有任何环节自动运行——每步都由用户主动触发。完整操作手册见 `2_Schema/pipeline.md`。
 
 ## 真实例子 —— 摘录 → 编译
 
@@ -87,13 +87,13 @@ git clone https://github.com/keiROLE/Kei-Second-Brain.git
 # 先逛 0_Inbox/ 和 1_Wiki/ —— 从上面「真实例子」里的两个文件开始
 ```
 
-本仓库本身就是一套完整的示例库。`0_Inbox/`、`1_Wiki/`、`2_Schema/`、`3_KnowledgeBaseIterationLog/` 和 `4_outputs/` 展示流水线的每个环节——每类一条格式演示，外加一次真实的"摘录→编译"。
+本仓库本身就是一套完整的示例库。`0_Inbox/`、`1_Wiki/`、`2_Schema/`、`3_KBI-log/` 和 `4_Outputs/` 展示流水线的每个环节——每类一条格式演示，外加一次真实的"摘录→编译"。
 
 ### 方式 B —— 让 AI 帮你搭建
 
 **你可以把本 README 交给任意 AI 助手，让它帮你搭建知识库。** AI 会：
 
-1. 创建五个顶层目录（`0_Inbox/`、`1_Wiki/`、`2_Schema/`、`3_KnowledgeBaseIterationLog/`、`4_outputs/`）及子目录。
+1. 创建五个顶层目录（`0_Inbox/`、`1_Wiki/`、`2_Schema/`、`3_KBI-log/`、`4_Outputs/`）及子目录。
 2. 让你从本仓库复制 `2_Schema/`（规则）和 `.agents/skills/`（Skill）。
 3. 带你走完第一个循环：写一篇日记 → 对这篇日记跑 `/by-1` → 看编译出的条目。
 
@@ -113,10 +113,10 @@ git clone https://github.com/keiROLE/Kei-Second-Brain.git
 | `2_Schema/frontmatter.md` | frontmatter 字段规范 |
 | `2_Schema/naming.md` | 命名规范 + PARA 分类口径 |
 | `2_Schema/pipeline.md` | 端到端操作手册（输入 → 输出） |
-| `.agents/skills/` | by-1、by-a、kb-iter、jh-1、wr-1、rec-1、chat-distill、blog-1、chiselplan |
+| `.agents/skills/` | by-1、by-a、kbi、jh-1、wr-1、rec-1、chat-distill、blog-1、chiselplan |
 | `0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md` | 真实剪藏素材（例子里的输入） |
 | `1_Wiki/frameworks/monitor-selection-guide.zh.md` | 它被编译成的条目（例子里的输出） |
-| `4_outputs/` | 输出层格式示例（由条目编译的文章） |
+| `4_Outputs/` | 输出层格式示例（由条目编译的文章） |
 
 ## 支持与维护边界
 
