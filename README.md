@@ -2,7 +2,7 @@
 
 **An AI-compiled second brain.** A complete, open methodology for running a personal knowledge base where **AI compiles, maintains and outputs** — not just stores.
 
-This repository is a fully working system: a documented architecture, 9 reusable AI skills, and a complete sample knowledge base that demonstrates the whole pipeline. Clone it, read it, and rebuild your own.
+This repository is a fully working system: a documented architecture, 9 reusable AI skills, and a complete sample knowledge base that demonstrates the whole pipeline.
 
 > Chinese version: [README.zh.md](README.zh.md)（中文版，以英文版为准）
 
@@ -22,7 +22,7 @@ The repo contains three things:
 |------|----------|------------|
 | **The system** | `2_Schema/` | The rules: architecture, frontmatter spec, naming, link rules, pipeline manual |
 | **The skills** | `.agents/skills/` | 9 AI skills (compile, iterate, review, plan...) that run the system |
-| **The example** | `0_Inbox/` `1_Wiki/` `3_KnowledgeBaseIterationLog/` `4_outputs/` | A complete sample vault showing every stage of the pipeline — format demonstrations (one entry per type, placeholders), plus one **real** capture→compile run (see "A real example") |
+| **The example** | `0_Inbox/` `1_Wiki/` `3_KBI-log/` `4_Outputs/` | A complete sample vault showing every stage of the pipeline — format demonstrations (one entry per type, placeholders), plus one **real** capture→compile run (see "A real example") |
 
 ## How it differs from other methods
 
@@ -51,7 +51,7 @@ diary/  weekly-review/               concepts/  entities/               TheSchem
 chat-distill/  clippings/            comparisons/  frameworks/          AGENTS (AI behavior)
                                       resources/  index.md              frontmatter/naming
                                                                         pipeline (operating manual)
-3_KnowledgeBaseIterationLog/         4_outputs/
+3_KBI-log/         4_Outputs/
 Iteration layer                      Output layer
 compile reports / iteration reports  articles, scripts, posts
 ```
@@ -61,12 +61,12 @@ compile reports / iteration reports  articles, scripts, posts
 | `0_Inbox/` | Raw material — source of truth | You (append-only) |
 | `1_Wiki/` | Compiled knowledge entries | AI (via skills) |
 | `2_Schema/` | The rules the vault runs on | You + AI |
-| `3_KnowledgeBaseIterationLog/` | Reports: compiles, health checks, audits | AI |
-| `4_outputs/` | Content compiled from entries | AI (from wiki) |
+| `3_KBI-log/` | Reports: compiles, health checks, audits | AI |
+| `4_Outputs/` | Content compiled from entries | AI (from wiki) |
 
 ## The pipeline (one paragraph)
 
-**Input**: video transcripts, web clippings, AI conversations and daily notes land in `0_Inbox/`. **Compile**: `/by-1` (single) or `/by-a` (bulk) turns them into typed entries in `1_Wiki/` — concept, entity, comparison, framework, resource — each with a source, a confidence level and typed links. **Maintain**: `/kb-iter` scans for gaps, broken links, islands and hallucinations and outputs a read-only iteration report. **Output**: entries are pulled into articles, video scripts and posts (e.g. `/blog-1`). Nothing runs automatically — every stage is user-triggered. The full operating manual is `2_Schema/pipeline.md`.
+**Input**: video transcripts, web clippings, AI conversations and daily notes land in `0_Inbox/`. **Compile**: `/by-1` (single) or `/by-a` (bulk) turns them into typed entries in `1_Wiki/` — concept, entity, comparison, framework, resource — each with a source, a confidence level and typed links. **Maintain**: `/kbi` scans for gaps, broken links, islands and hallucinations and outputs a read-only iteration report. **Output**: entries are pulled into articles, video scripts and posts (e.g. `/blog-1`). Nothing runs automatically — every stage is user-triggered. The full operating manual is `2_Schema/pipeline.md`.
 
 ## A real example — capture → compile
 
@@ -87,13 +87,13 @@ git clone https://github.com/keiROLE/Kei-Second-Brain.git
 # browse 0_Inbox/ and 1_Wiki/ — start with the two "real example" files listed above
 ```
 
-The repository *is* a complete sample vault. `0_Inbox/`, `1_Wiki/`, `2_Schema/`, `3_KnowledgeBaseIterationLog/` and `4_outputs/` show every stage of the pipeline — one entry per type as a format demonstration, plus one real capture→compile run.
+The repository *is* a complete sample vault. `0_Inbox/`, `1_Wiki/`, `2_Schema/`, `3_KBI-log/` and `4_Outputs/` show every stage of the pipeline — one entry per type as a format demonstration, plus one real capture→compile run.
 
 ### Option B — let an AI build your own
 
 **You can hand this README to any AI assistant and ask it to set up the vault for you.** The AI will:
 
-1. Create the five top-level directories (`0_Inbox/`, `1_Wiki/`, `2_Schema/`, `3_KnowledgeBaseIterationLog/`, `4_outputs/`) and their subdirectories.
+1. Create the five top-level directories (`0_Inbox/`, `1_Wiki/`, `2_Schema/`, `3_KBI-log/`, `4_Outputs/`) and their subdirectories.
 2. Ask you to copy `2_Schema/` (rules) and `.agents/skills/` (skills) from this repo.
 3. Walk you through your first cycle: write a diary note → run `/by-1` on it → see the compiled entry.
 
@@ -113,10 +113,10 @@ The repository *is* a complete sample vault. `0_Inbox/`, `1_Wiki/`, `2_Schema/`,
 | `2_Schema/frontmatter.md` | Frontmatter field spec |
 | `2_Schema/naming.md` | Naming + PARA classification |
 | `2_Schema/pipeline.md` | End-to-end operating manual (input → output) |
-| `.agents/skills/` | by-1, by-a, kb-iter, jh-1, wr-1, rec-1, chat-distill, blog-1, chiselplan |
+| `.agents/skills/` | by-1, by-a, kbi, jh-1, wr-1, rec-1, chat-distill, blog-1, chiselplan |
 | `0_Inbox/clippings/xiaojian-guo-monitor-episode.md` | Real clipped material (the example input) |
 | `1_Wiki/frameworks/monitor-selection-guide.md` | The entry it was compiled into (the example output) |
-| `4_outputs/` | Output-layer format examples (articles compiled from entries) |
+| `4_Outputs/` | Output-layer format examples (articles compiled from entries) |
 
 ## Support & maintenance boundaries
 
