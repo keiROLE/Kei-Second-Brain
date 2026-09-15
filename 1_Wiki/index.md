@@ -51,4 +51,4 @@ tags:
 |------------------|---------------|
 | [source file] | [[entry]] |
 
-> Note: entries in this example vault are format placeholders only. A real vault grows through weekly compile runs (/by-a) and iteration reports (/kb-iter).
+> Note: entries in this example vault are format placeholders only. A real vault grows through weekly compile runs (/by-a) and iteration reports (/kbi).
