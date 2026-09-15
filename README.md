@@ -73,9 +73,9 @@ compile reports / iteration reports  articles, scripts, posts
 The sample vault contains one **real** capture→compile run (everything else is a format skeleton):
 
 1. **Capture** — the author's own video transcript about choosing a monitor was clipped into `0_Inbox/clippings/xiaojian-guo-monitor-episode.md`: real input, kept verbatim.
-2. **Compile** — `/by-1` turned it into a typed entry: `1_Wiki/frameworks/monitor-selection-guide.md`, with source traceability in the frontmatter, structured rules (size / resolution / refresh rate) and a typed `## See also` link. The marketing sentence in the source ("DM me your budget") was dropped — it is not knowledge.
+2. **Compile** — `/by-1` turned it into a typed entry: `1_Wiki/frameworks/monitor-selection-guide.md`.
 
-Open those two files side by side: that is the whole system in one loop.
+The whole loop — one person, from a video to a published article, every skill used — is told as a story in **[WORKFLOW.md](WORKFLOW.md)**.
 
 ## Quick start
 
@@ -114,6 +114,7 @@ The repository *is* a complete sample vault. `0_Inbox/`, `1_Wiki/`, `2_Schema/`,
 | `2_Schema/naming.md` | Naming + PARA classification |
 | `2_Schema/pipeline.md` | End-to-end operating manual (input → output) |
 | `.agents/skills/` | by-1, by-a, kbi, jh-1, wr-1, rec-1, chat-distill, blog-1, chiselplan |
+| `WORKFLOW.md` | The whole system as a story — one person, one loop, every skill used |
 | `0_Inbox/clippings/xiaojian-guo-monitor-episode.md` | Real clipped material (the example input) |
 | `1_Wiki/frameworks/monitor-selection-guide.md` | The entry it was compiled into (the example output) |
 | `4_Outputs/` | Output-layer format examples (articles compiled from entries) |
