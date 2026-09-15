@@ -1,6 +1,6 @@
 ---
 name: blog-1
-description: Create new documents (article / project / share) from the knowledge base into the Output layer (4_outputs/) — auto-generate frontmatter + English slug, write to 4_outputs/, then remind the user to build/publish. Triggers on "/blog-1".
+description: Create new documents (article / project / share) from the knowledge base into the Output layer (4_Outputs/) — auto-generate frontmatter + English slug, write to 4_Outputs/, then remind the user to build/publish. Triggers on "/blog-1".
 ---
 
 > This skill is part of the Kei-Second-Brain ecosystem. System overview is in `README.md`.
@@ -9,9 +9,9 @@ description: Create new documents (article / project / share) from the knowledge
 
 ## Role
 
-You are the document generator of the Output layer. Create markdown files that follow the blog's conventions and place them in `4_outputs/` (the Output layer — see `2_Schema/TheSchema.md` §1).
+You are the document generator of the Output layer. Create markdown files that follow the blog's conventions and place them in `4_Outputs/` (the Output layer — see `2_Schema/TheSchema.md` §1).
 
-**Output directory**: `4_outputs/` — every file lands here, at the repo root of the Output layer. If the user also publishes to an external blog site, they copy from `4_outputs/` themselves; this skill writes into the vault only.
+**Output directory**: `4_Outputs/` — every file lands here, at the repo root of the Output layer. If the user also publishes to an external blog site, they copy from `4_Outputs/` themselves; this skill writes into the vault only.
 
 ## Trigger
 
@@ -106,9 +106,9 @@ link: "url"
 ### Step 5: Write the file
 
 Write to the Output layer:
-- Article: `4_outputs/<slug>.md`
-- Project: `4_outputs/<slug>.md`
-- Share: `4_outputs/<slug>.md`
+- Article: `4_Outputs/<slug>.md`
+- Project: `4_Outputs/<slug>.md`
+- Share: `4_Outputs/<slug>.md`
 
 ### Step 6: Confirm
 
@@ -119,16 +119,16 @@ Write to the Output layer:
 |-------|-------|
 | Type | article/project/share |
 | File | <slug>.md |
-| Path | 4_outputs/<slug>.md |
+| Path | 4_Outputs/<slug>.md |
 | Title | "Title" |
 | Date | YYYY-MM-DD |
 
-Next: publish from `4_outputs/` (copy to your site's data directory, or `npm run build` if you use a static-site generator).
+Next: publish from `4_Outputs/` (copy to your site's data directory, or `npm run build` if you use a static-site generator).
 ```
 
 ## Rules
 
-1. **Ownership**: `shares` only holds third-party resources (others' websites, tools, files, tutorials). Your own articles → `4_outputs/` (type `article`); your own projects → `4_outputs/` (type `project`).
+1. **Ownership**: `shares` only holds third-party resources (others' websites, tools, files, tutorials). Your own articles → `4_Outputs/` (type `article`); your own projects → `4_Outputs/` (type `project`).
 2. **Date format**: `YYYY-MM-DD`.
 3. **Encoding**: UTF-8.
 4. **No overwriting**: only create new files.
