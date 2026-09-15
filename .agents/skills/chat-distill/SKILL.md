@@ -118,7 +118,7 @@ Body structure (only excerpts with incremental value):
 
 ## Step 5: Log & review
 
-1. Per the `/by-a` compile report convention, write the compile report to `3_KnowledgeBaseIterationLog/YYYY-MM-DD-compile-report.md` with an extra "Conversation distillation stats" section:
+1. Per the `/by-a` compile report convention, write the compile report to `3_KBI-log/YYYY-MM-DD-compile-report.md` with an extra "Conversation distillation stats" section:
    - Sessions scanned / candidates / selected / new entries / supplemented entries
    - Duplicates blocked by the dedup gate (a good sign — the knowledge base already covers them)
    - Which agents/scenarios **consistently** produce valuable conclusions → mark "worth following"
