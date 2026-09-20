@@ -51,7 +51,7 @@ diary/  weekly-review/               concepts/  entities/               TheSchem
 chat-distill/  clippings/            comparisons/  frameworks/          AGENTS (AI behavior)
                                       resources/  index.md              frontmatter/naming
                                                                         pipeline (operating manual)
-3_KBI-log/         4_Outputs/
+3_KBI-log/                           4_Outputs/
 Iteration layer                      Output layer
 compile reports / iteration reports  articles, scripts, posts
 ```
