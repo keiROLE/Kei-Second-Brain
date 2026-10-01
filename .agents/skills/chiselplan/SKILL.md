@@ -3,7 +3,7 @@ name: chiselplan
 description: Project planning / restart — break a goal into "final goal + task phases" written into a plan file under 2_Schema/chiselplan/, or force a mid-way phase review. Triggers on "/chiselplan", "re-plan", "phase review", "project kickoff". This skill can create a companion "daily loop" skill (default name plan-1) — see "Can create skills" below.
 ---
 
-> This skill is part of the Kei-Second-Brain ecosystem. System overview is in `README.md`.
+> This skill is part of the Kei-Second-Brain ecosystem. The authoritative system entry is `AGENTS.md` (skill inventory + operating rules); `README.md` is the project showcase for GitHub visitors.
 
 # chiselplan — Planning / Phase Review (generic)
 

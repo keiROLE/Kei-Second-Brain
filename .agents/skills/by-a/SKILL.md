@@ -3,7 +3,7 @@ name: by-a
 description: Bulk-compile all new content into the LLM Wiki — scan the vault for unprocessed files and batch-compile them into 1_Wiki/. Triggers on "/by-a", "compile everything" or "process all new content".
 ---
 
-> This skill is part of the Kei-Second-Brain ecosystem. System overview is in `README.md`.
+> This skill is part of the Kei-Second-Brain ecosystem. The authoritative system entry is `AGENTS.md` (skill inventory + operating rules); `README.md` is the project showcase for GitHub visitors.
 
 # by-a — Bulk Compile
 
@@ -16,6 +16,10 @@ User says "/by-a", "compile everything", "process all new content", or similar.
 ## Workflow
 
 ### Step 0: Discover new files
+
+> **Run the scanner first (deterministic part — the LLM does not re-scan files)**:
+> `python .agents/skills/by-a/find_uncompiled.py` (from the vault root) → outputs the candidate list, already excluding `processed: skip`, files already listed as sources in `1_Wiki/index.md`, and `processed: true`. The LLM does the grouping and judgment on top of this list.
+> After compiling, write back markers with: `python .agents/skills/by-a/find_uncompiled.py mark <file...>` (frontmatter only — no manual editing).
 
 Scan the following locations for .md files with `processed: false` or **missing the `processed` field**:
 

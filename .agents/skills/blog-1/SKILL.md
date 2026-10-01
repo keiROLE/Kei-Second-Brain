@@ -3,7 +3,7 @@ name: blog-1
 description: Create new documents (article / project / share) from the knowledge base into the Output layer (4_Outputs/) — auto-generate frontmatter + English slug, write to 4_Outputs/, then remind the user to build/publish. Triggers on "/blog-1".
 ---
 
-> This skill is part of the Kei-Second-Brain ecosystem. System overview is in `README.md`.
+> This skill is part of the Kei-Second-Brain ecosystem. The authoritative system entry is `AGENTS.md` (skill inventory + operating rules); `README.md` is the project showcase for GitHub visitors.
 
 # blog-1 — Blog Document Generator
 

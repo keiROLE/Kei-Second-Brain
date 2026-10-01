@@ -3,7 +3,7 @@ name: wr-1
 description: Weekly review — compile the last complete week (Monday-Sunday) of 7 diary notes into a concise weekly review document in 0_Inbox/weekly-review/, and mark each diary frontmatter with weekly_reviewed. Triggers on "/wr-1", "weekly review" or "last week review".
 ---
 
-> This skill is part of the Kei-Second-Brain ecosystem. System overview is in `README.md`.
+> This skill is part of the Kei-Second-Brain ecosystem. The authoritative system entry is `AGENTS.md` (skill inventory + operating rules); `README.md` is the project showcase for GitHub visitors.
 
 # wr-1 — Weekly Review
 
@@ -14,6 +14,10 @@ Compile the last complete week (Monday–Sunday) of 7 diary notes into a concise
 User says "/wr-1", "weekly review", "last week review", or asks to compile the last week's diary notes.
 
 ## Before starting
+
+> **Run the status script first (deterministic part — the LLM does not read frontmatter itself)**:
+> `python .agents/skills/wr-1/review_status.py` (from the vault root) → lists which diaries carry `weekly_reviewed` and which weeks are missing marks.
+> After the review, mark the compiled diaries with: `python .agents/skills/wr-1/review_status.py mark <YYYY-MM-DD...>` (existing marks are never overwritten).
 
 1. Confirm "today" from the system's current date.
 2. Default target: the last **completed** Monday–Sunday. If today is Monday, last week = today-7 .. today-1. If today is not Monday, still take the previous complete Monday–Sunday and tell the user the chosen range.

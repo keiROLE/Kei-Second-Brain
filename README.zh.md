@@ -108,12 +108,12 @@ git clone https://github.com/keiROLE/Kei-Second-Brain.git
 
 | 路径 | 内容 |
 |------|------|
-| `AGENTS.md` | AI 行为守则（仓库根目录——AI 客户端优先读取） |
+| `AGENTS.md` | 唯一权威入口：目录约定、Skill 权威清单、操作守则、常用命令速查 |
 | `2_Schema/TheSchema.md` | 架构、标签、8 类链接类型、质量红线、工作流 |
 | `2_Schema/frontmatter.md` | frontmatter 字段规范 |
 | `2_Schema/naming.md` | 命名规范 + PARA 分类口径 |
 | `2_Schema/pipeline.md` | 端到端操作手册（输入 → 输出） |
-| `.agents/skills/` | by-1、by-a、kbi、jh-1、wr-1、rec-1、chat-distill、blog-1、chiselplan |
+| `.agents/skills/` | by-1、by-a、kbi、jh-1、wr-1、rec-1、chat-distill、blog-1、chiselplan——完整清单见 AGENTS.md |
 | `WORKFLOW.md` | 整个系统的故事版——一个人、一个闭环、所有 skill 都会用到 |
 | `0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md` | 真实剪藏素材（例子里的输入） |
 | `1_Wiki/frameworks/monitor-selection-guide.zh.md` | 它被编译成的条目（例子里的输出） |

@@ -12,7 +12,7 @@ tags:
 
 The global rules, naming conventions and AI workflows of the knowledge base.
 
-> **System entry point**: This specification is part of the Kei-Second-Brain ecosystem. For the full system overview, see `README.md`.
+> **System entry point**: This specification is part of the Kei-Second-Brain ecosystem. The single authoritative entry — directory conventions, the authoritative skill inventory and operating rules — is `AGENTS.md` (repo root). `README.md` is the project showcase for GitHub visitors, not a system document.
 > This document is the "operating system" of the Obsidian vault. Every AI task and every human action must follow it.
 > Detailed rules live in the sibling documents under `2_Schema/`; this file is the index and the authority.
 
@@ -66,7 +66,7 @@ The core knowledge base maintained by AI. Content is **compiled, not stored**.
 
 ### 2_Schema/ — Configuration layer
 
-Everything the system needs to operate: this file, frontmatter.md, naming.md, pipeline.md, templates/. (AGENTS.md, the AI behavior contract, lives at the **repo root** so any AI client that opens the vault reads it first.)
+Everything the system needs to operate: this file, frontmatter.md, naming.md, pipeline.md, templates/. (AGENTS.md — the single authoritative entry: directory conventions, skill inventory, operating rules — lives at the **repo root** so any AI client that opens the vault reads it first.)
 
 ### 4_Outputs/ — Output layer
 
@@ -208,7 +208,7 @@ All compilation operations are **explicitly triggered by the user**. Nothing run
 Trigger: user says "compile the inbox" or "tidy the inbox".
 
 Steps:
-1. Scan 0_Inbox/ for files with `processed: false` **or missing the `processed` field**
+1. Scan 0_Inbox/ for files with `processed: false` **or missing the `processed` field** (exclude files marked `processed: skip` — the "never compile" set)
 2. For each file, extract knowledge units: concepts, entities, frameworks, resources, comparisons
 3. Use the corresponding templates in `1_Wiki/templates/`
 4. Build cross-references in `## See also` with type labels (8 types; no label → no link)
@@ -275,14 +275,16 @@ The end-to-end pipeline (input → compile → maintain → output) with concret
 | Document | Responsibility |
 |----------|----------------|
 | TheSchema.md (this file) | Architecture, tags, links, quality lines, workflows |
-| AGENTS.md (repo root) | AI behavior rules for agents working in this vault |
+| AGENTS.md (repo root) | Single authoritative entry: directory conventions, authoritative skill inventory, operating rules, quick commands |
 | frontmatter.md | Full frontmatter field inventory |
 | naming.md | Naming conventions + PARA classification criteria |
 | pipeline.md | End-to-end operating procedure: input → output |
 | templates/ | Diary template, weekly review template |
 
+**Skills**: the authoritative skill inventory (name / trigger / responsibility / output) is maintained **only** in `AGENTS.md` (repo root). Read the corresponding `SKILL.md` under `.agents/skills/<name>/` before using a skill.
+
 ---
 
 > **This document is the global operating manual for AI agents in the Kei-Second-Brain Obsidian vault.**
 > **Core principles: pragmatic, direct, structured, never substitute for the user's decisions.**
-> **Updated: 2026-09-15**
+> **Updated: 2026-10-01**

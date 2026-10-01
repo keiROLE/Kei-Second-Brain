@@ -3,7 +3,7 @@ name: rec-1
 description: Minimal diary logging — at task wrap-up or project progress, append a one-line record of "what AI did and where things stand" to the `## Log` section of today's diary note 0_Inbox/diary/YYYY-MM-DD.md. Triggers on "/rec-1", "log it", "note it down", "write it to today's diary".
 ---
 
-> This skill is part of the Kei-Second-Brain ecosystem. System overview is in `README.md`.
+> This skill is part of the Kei-Second-Brain ecosystem. The authoritative system entry is `AGENTS.md` (skill inventory + operating rules); `README.md` is the project showcase for GitHub visitors.
 
 # rec-1 — Minimal Diary Logging
 
