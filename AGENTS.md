@@ -26,6 +26,10 @@ This file is the **single authoritative entry point** of Kei-Second-Brain: direc
 
 Before creating or modifying documents (PDF / Word / PPT / HTML), follow the quality red lines in `2_Schema/TheSchema.md` §8 and the operating manual in `2_Schema/pipeline.md` — no fabrication, traceable facts, structure over decoration.
 
+## Naming
+
+Filenames use **no spaces** — join words with `-` (e.g. `Agnes-AI-platform.md`, `SD-WebUI-prompt-reference.md`). Display titles may keep spaces. Full spec: `2_Schema/naming.md`.
+
 ## Project Skills (authoritative inventory)
 
 This vault ships **9** project skills. Read the corresponding `SKILL.md` under `.agents/skills/<name>/` before using a skill.

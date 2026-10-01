@@ -33,8 +33,9 @@ You are the knowledge-base iteration analyst. Analyze the Obsidian vault compreh
 
 ### Phase 1: Vault overview
 
-> **Run the audit script first (deterministic part — the LLM does not parse links itself)**:
-> `python .agents/skills/kbi/audit_links.py` (from the vault root) → outputs the broken-link list, island / half-island / single-point stats, incoming/outgoing connectivity and entry counts. The LLM makes semantic judgments on the script output.
+> **Run the scripts first (deterministic part — the LLM does not parse files itself)**:
+> ① `python .agents/skills/kbi/validate_vault.py` (from the vault root) → mechanical lint of all 1_Wiki entries (required fields, type-directory match, date format, tags ≥ 3, See-also link labels, deprecated fields, filenames, duplicate titles) — outputs a per-category violation list. The LLM judges which items are real defects and whether to fix them.
+> ② `python .agents/skills/kbi/audit_links.py` (from the vault root) → outputs the broken-link list, island / half-island / single-point stats, incoming/outgoing connectivity and entry counts. The LLM makes semantic judgments on the script output.
 
 1. List all .md files in 1_Wiki/ (excluding templates/ and index.md).
 2. Group by type: concepts/, entities/, comparisons/, frameworks/, resources/.
