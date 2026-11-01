@@ -20,7 +20,7 @@ The repo contains three things:
 
 | Part | Location | What it is |
 |------|----------|------------|
-| **The system** | `2_Schema/` | The rules: architecture, frontmatter spec, naming, link rules, pipeline manual |
+| **The system** | `2_Schema/` | The rules: architecture, frontmatter spec, naming, link rules, pipeline manual, diary system, AI working memory |
 | **The skills** | `.agents/skills/` | 9 AI skills (compile, iterate, review, plan...) that run the system |
 | **The example** | `0_Inbox/` `1_Wiki/` `3_KBI-log/` `4_Outputs/` | A complete sample vault showing every stage of the pipeline — format demonstrations (one entry per type, placeholders), plus one **real** capture→compile run (see "A real example") |
 
@@ -51,9 +51,16 @@ diary/  weekly-review/               concepts/  entities/               TheSchem
 chat-distill/  clippings/            comparisons/  frameworks/          AGENTS (AI behavior)
                                       resources/  index.md              frontmatter/naming
                                                                         pipeline (operating manual)
-3_KBI-log/                           4_Outputs/
-Iteration layer                      Output layer
-compile reports / iteration reports  articles, scripts, posts
+                                                                        diary-system (diary spec)
+                                                                        memory (AI working memory)
+
+3_KBI-log/
+Iteration layer
+compile reports / iteration reports / link audits
+
+4_Outputs/
+Output layer
+articles, scripts, posts
 ```
 
 | Layer | Role | Who writes |
@@ -108,12 +115,14 @@ The repository *is* a complete sample vault. `0_Inbox/`, `1_Wiki/`, `2_Schema/`,
 
 | Path | What |
 |------|------|
-| `AGENTS.md` | AI behavior contract (repo root — read first by AI clients) |
+| `AGENTS.md` | AI behavior contract + authoritative skill inventory (repo root — read first by AI clients) |
 | `2_Schema/TheSchema.md` | Architecture, tags, 8 link types, quality red lines, workflows |
 | `2_Schema/frontmatter.md` | Frontmatter field spec |
 | `2_Schema/naming.md` | Naming + PARA classification |
 | `2_Schema/pipeline.md` | End-to-end operating manual (input → output) |
-| `.agents/skills/` | by-1, by-a, kbi, jh-1, wr-1, rec-1, chat-distill, blog-1, chiselplan |
+| `2_Schema/diary-system.md` | Diary system spec (diary template, weekly-review loop) |
+| `2_Schema/memory/` | AI working-memory module — per-domain status snapshots (see its README.md) |
+| `.agents/skills/` | The 9 project skills — authoritative inventory maintained in `AGENTS.md` |
 | `WORKFLOW.md` | The whole system as a story — one person, one loop, every skill used |
 | `0_Inbox/clippings/xiaojian-guo-monitor-episode.md` | Real clipped material (the example input) |
 | `1_Wiki/frameworks/monitor-selection-guide.md` | The entry it was compiled into (the example output) |

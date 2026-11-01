@@ -89,6 +89,8 @@ Meanwhile, every evening Alex logged the day's progress into the daily note with
 0_Inbox/diary/2026-09-15.md
 ```
 
+Diary notes follow the format defined in `2_Schema/diary-system.md`.
+
 The **record principle**: diary is raw material too — append, never rewrite.
 
 ---
@@ -137,6 +139,8 @@ Learning needs a plan, so Alex kicked off a project with `/chiselplan`:
 ```
 
 It wrote a plan file with a final goal and task phases (foundation → build → deep-dive). During the week it can even create a companion daily-loop skill (default name `plan-1`) that rolls today's 3-5 tasks from the current phase — but Alex kept it simple this week.
+
+The agent also tracks the project's status in its working memory (`2_Schema/memory/`): a one-page snapshot of the current phase and red lines, read before the next session and updated whenever status changes, so it picks up where it left off instead of re-asking everything. Module contract: `2_Schema/memory/README.md`.
 
 At week's end, `/wr-1` compiled the seven diary notes into a weekly review:
 
