@@ -17,13 +17,18 @@ User says "/by-a", "compile everything", "process all new content", or similar.
 
 ### Step 0: Discover new files
 
-Scan the following locations for .md files with `processed: false` or **missing the `processed` field**:
+> **Run the script first (deterministic part — the LLM does not re-do file scanning)**:
+> `python .agents/skills/by-a/find_uncompiled.py` → prints the uncompiled-candidate list directly (it already excludes `processed: skip`, sources already listed in the index, and `processed: true`). The LLM only does the grouping judgment on this list.
+> After compiling, write back markers with: `python .agents/skills/by-a/find_uncompiled.py mark <file> ...` (frontmatter only). **Do not hand-edit frontmatter one by one.**
+
+Scan the following locations for .md files with `processed: false` or **missing the `processed` field** (**exclude files flagged `processed: skip`**):
 
 1. `0_Inbox/` — all .md files in all subdirectories (exclude .png/.html etc.)
 2. Other source folders the user points to.
 
 **Exclusion rules**:
 - Skip files already compiled (cross-check the "Source" column of `1_Wiki/index.md`).
+- Skip files flagged `processed: skip` (do-not-compile).
 - Skip pure password/secret files.
 - Skip fiction/creative drafts.
 - Skip images and non-.md files.
@@ -75,7 +80,7 @@ Scan files whose names contain "misc"/"untitled":
 2. Add all new entries to the quick-nav, grouped by type.
 3. Update the statistics.
 4. Ensure no duplicate entries.
-5. **Write back `processed` markers (mandatory)**: set `processed: false` → `true` on every source file compiled or scanned-and-skipped this round, **in the same pass as the index update**. Never update the index without writing back markers — otherwise the next scan re-processes the same files.
+5. **Write back `processed` markers (mandatory)**: set `processed: false` → `true` on every source file compiled or scanned-and-skipped this round, **in the same pass as the index update**. Use `python .agents/skills/by-a/find_uncompiled.py mark <file> ...` (frontmatter only); do not hand-edit frontmatter one by one. Never update the index without writing back markers — otherwise the next scan re-processes the same files.
 
 ### Step 5: Output the compile report (with details)
 

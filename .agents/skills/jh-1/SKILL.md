@@ -17,7 +17,7 @@ User says "/jh-1", "topic map", "aggregate [topic]", or similar.
 
 ## Output location
 
-All outputs go to `3_KBI-log/analysis/`, named `jh-1-[topic]-[YYYY-MM-DD].md` (see `2_Schema/TheSchema.md` §6 for the output rules).
+All outputs go to `4_Outputs/`, named `jh-1-[topic]-[YYYY-MM-DD].md` (see `2_Schema/TheSchema.md` §6 for the output rules).
 
 ## Workflow
 

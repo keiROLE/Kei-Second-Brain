@@ -9,9 +9,9 @@ description: Create new documents (article / project / share) from the knowledge
 
 ## Role
 
-You are the document generator of the Output layer. Create markdown files that follow the blog's conventions and place them in `4_Outputs/` (the Output layer — see `2_Schema/TheSchema.md` §1).
+You are the document generator for the keiROLE blog. Create markdown files that follow the blog's conventions and place them in `4_Outputs/` (the Output layer — see `2_Schema/TheSchema.md` §1). These files feed the keiROLE site's data directory (`data/blogs/posts/`, `data/projects/`, `data/shares/`) at publish time.
 
-**Output directory**: `4_Outputs/` — every file lands here, at the repo root of the Output layer. If the user also publishes to an external blog site, they copy from `4_Outputs/` themselves; this skill writes into the vault only.
+**Output directory**: `4_Outputs/` — every file lands here, at the repo root of the Output layer. The user copies from `4_Outputs/` into the keiROLE project's data directory themselves; this skill writes into the vault only.
 
 ## Trigger
 

@@ -33,6 +33,10 @@ You are the knowledge-base iteration analyst. Analyze the Obsidian vault compreh
 
 ### Phase 1: Vault overview
 
+> **Run the scripts first (deterministic part)** — the LLM does not re-parse links or hand-check frontmatter; it only makes semantic judgments on the script output:
+> ① `python .agents/skills/kbi/validate_vault.py` → mechanically checks every `1_Wiki/` entry against `2_Schema/frontmatter.md`, `TheSchema.md` §5 and `naming.md` (required fields, type-directory match, date format, tags ≥ 3, `## See also` 8-type labels, deprecated fields, filenames, duplicate titles), and prints a per-category violation list.
+> ② `python .agents/skills/kbi/audit_links.py` → prints broken links, islands/half-islands, incoming/outgoing connectivity stats, and total entry count.
+
 1. List all .md files in 1_Wiki/ (excluding templates/ and index.md).
 2. Group by type: concepts/, entities/, comparisons/, frameworks/, resources/.
 3. Count entries per type.
@@ -49,7 +53,7 @@ Against the user profile's "core domains" (or the user's stated focus areas if n
 
 ### Phase 3: Uncompiled content scan
 
-Scan 0_Inbox/ and other source folders for valuable-but-uncompiled notes:
+Scan 0_Inbox/ and other source folders for valuable-but-uncompiled notes (**exclude files flagged `processed: skip`**):
 
 - Check whether each .md file is already referenced in `1_Wiki/index.md`.
 - For unreferenced files, extract potential concepts, frameworks, resources.
@@ -151,6 +155,7 @@ tags:
 ```
 
 Report sections:
+- Opening note: audit scope and depth (what was covered, per-entry judged vs completeness-flagged, what was not covered — state honestly).
 1. Vault overview (counts)
 2. Coverage gaps (high/medium priority, each with: current state, why it matters, suggested entries)
 3. Uncompiled content (file → potential type → suggested entry)
@@ -182,6 +187,8 @@ Audit all existing `## See also` links (results merged into Phase 6 — no separ
 - Every recommendation needs a concrete reason tied to the user's profile/goals.
 - Priority ordering: things that directly affect goals first.
 - If nothing significant found, still output a "no major changes" report.
+- Reports go in `3_KBI-log/`; create the directory on first run.
+- Open each report by noting "X days since last report, no major changes" or "new findings vs last run".
 - **Read-only**: iteration analysis reports problems and findings; it does not modify files unless the user explicitly asks for fixes.
 - **Broken-link fixes go through the decision tree** (fix pointer / create entry / delete link / fix format); never fake-repair with a semantically close unrelated entry.
 - **Links are earned, not assigned**: See also links carry type labels; no label → no link.

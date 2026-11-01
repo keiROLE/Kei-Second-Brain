@@ -17,6 +17,7 @@ The user sends a markdown file or pasted content and says "compile this" or simi
 
 ### Step 0: Confirm input
 
+0. If the document's frontmatter has `processed: skip` (do-not-compile flag), **refuse to compile and tell the user** (they can change the flag and retry).
 1. Read the full document.
 2. Confirm the source file path.
 3. Tell the user what you will do (which entries, where they go).

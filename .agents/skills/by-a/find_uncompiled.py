@@ -15,9 +15,9 @@ import sys, re, os, io
 from pathlib import Path
 
 VAULT = Path(__file__).resolve().parents[3]
-SCAN_DIRS = ["0_Inbox"]
+SCAN_DIRS = ["0_Inbox", "Clippings"]
 EXCLUDE_DIRS = {".obsidian", ".trash", ".agents", ".claude", ".claudian",
-                "archive", "templates", ".git", ".preview"}
+                "archive", "templates", ".git", ".preview", ".dashboard-backup"}
 INDEX = VAULT / "1_Wiki" / "index.md"
 
 

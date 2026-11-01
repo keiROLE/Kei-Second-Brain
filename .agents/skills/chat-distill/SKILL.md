@@ -26,15 +26,16 @@ A dedicated compile pipeline for **agent conversations**: Collect → Triage →
 
 ## Step 0: Collect — get the conversation logs
 
-**Input**: the user provides the logs. This skill is **client-agnostic** — it never assumes a specific AI client or path:
+**Primary method**: run the collection script in this skill directory to scan all known agent log sources at once:
 
-- The user gives the path to a conversation log file (Claude Code, Codex, DoubaoWork or any agent that exports session traces), **or**
-- The user pastes the conversation content directly.
+`python ".agents/skills/chat-distill/collect_chats.py"`
 
-If the path is unknown, ask the user — do not guess locations.
+By default it lists sessions from the last 7 days into `0_Inbox/chat-distill/_raw/YYYY-WW-session-list.md` (WW = ISO week number). Options: `--days N` to change the window, `--agent claude-code|codex|doubao` to scan one agent only, `--all` to ignore the time filter.
+
+**Fallback**: if the script is unavailable or fails, scan manually — ask the user for log paths (Claude Code, Codex, DoubaoWork or any agent that exports session traces), or accept pasted conversation content directly. Do not guess locations.
 
 **Action**:
-1. For each provided log, extract: first user message (truncated), message count, file size, file path.
+1. For each log, extract: first user message (truncated), message count, file size, file path.
 2. Produce a session list for triage.
 
 **Session-list format** (one line per session):

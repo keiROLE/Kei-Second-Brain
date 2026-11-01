@@ -11,13 +11,16 @@ Path resolution: this script lives at <vault>/.agents/skills/kbi/audit_links.py
 
 Fix notes (2026-09-21):
   1. Valid targets now index the whole vault (previously only 1_Wiki, which mis-reported
-     the TheSchema-mandated `## 原文档` back-links to 0_Inbox/diary/Clippings source files
+     the TheSchema-mandated `## Source` back-links to 0_Inbox/diary/Clippings source files
      as broken).
-  2. The `## 原文档` section is skipped for link auditing (it is a source-backlink section,
+  2. The `## Source` section is skipped for link auditing (it is a source-backlink section,
      not navigation).
-  3. Path-style links (e.g. [[0_Inbox/000/认知记录/核心刚性.md]]) resolve by exact
-     vault-relative path.
+  3. Path-style links (e.g. [[0_Inbox/000/some-note]]) resolve by exact vault-relative path.
   4. Connectivity (incoming/outgoing, islands/half-islands) counts wiki-to-wiki links only.
+
+Fix notes (2026-09-28):
+  5. Path-style link resolution now also tries appending `.md` (previously links like
+     [[project_010/requirements-doc]] without an explicit extension were mis-reported as broken).
 """
 import os, re, io
 from pathlib import Path
@@ -46,7 +49,7 @@ def norm(s):
 
 
 def strip_section(body, heading):
-    """Remove a '## heading' section (used to exclude the ## 原文档 source section)."""
+    """Remove a '## heading' section (used to exclude the ## Source backlink section)."""
     sec = re.search(r"^##\s*%s\s*\n(.*?)(?=\n##\s|\Z)" % re.escape(heading), body, re.M | re.S)
     if not sec:
         return body
@@ -57,7 +60,7 @@ def main():
     # 1) Index the whole vault: file stem / title / aliases (valid targets are vault-wide)
     vault_names = set()      # normalized name -> resolvable
     wiki_entries = {}        # normalized name -> wiki entry relpath (connectivity only)
-    files = {}               # wiki relpath -> body (frontmatter and 原文档 section stripped)
+    files = {}               # wiki relpath -> body (frontmatter and Source section stripped)
     for dp, dn, fn in os.walk(VAULT):
         dn[:] = [x for x in dn if x not in EXCLUDE and not x.startswith(".")]
         for f in fn:
@@ -84,7 +87,7 @@ def main():
                 if am:
                     for al in re.findall(r"-\s+(.+)", am.group(1)):
                         wiki_entries[norm(al.strip())] = relw
-                files[relw] = strip_section(body, "原文档")
+                files[relw] = strip_section(body, "Source")
 
     link_re = re.compile(r"\[\[([^\]|#]+)(?:[#|][^\]]*)?\]\]")
     out = {}                 # outgoing links (wiki targets only, for connectivity)
@@ -93,13 +96,15 @@ def main():
         out[rel] = set()
         for t in link_re.findall(body):
             tn = norm(t)
-            # Path-style links: resolve by exact vault-relative path
+            # Path-style links: resolve by exact vault-relative path, also try appending .md
             if "/" in t or "\\" in t or t.endswith(".md"):
                 pt = t.strip().replace("/", os.sep).replace("\\", os.sep).lstrip(os.sep)
                 if pt.startswith("1_Wiki" + os.sep):
-                    resolved = (WIKI / pt[len("1_Wiki" + os.sep):]).is_file()
+                    wp = WIKI / pt[len("1_Wiki" + os.sep):]
+                    resolved = wp.is_file() or wp.with_suffix(".md").is_file()
                 else:
-                    resolved = (VAULT / pt).is_file()
+                    vp = VAULT / pt
+                    resolved = vp.is_file() or vp.with_suffix(".md").is_file()
                 if not resolved:
                     broken.setdefault(rel, set()).add(t.strip())
                 continue
@@ -114,7 +119,7 @@ def main():
             if tn in wiki_entries and wiki_entries[tn] in incoming:
                 incoming[wiki_entries[tn]] += 1
 
-    print("== Broken links (vault-wide resolution; `## 原文档` source section excluded) ==")
+    print("== Broken links (vault-wide resolution; `## Source` backlink section excluded) ==")
     if broken:
         for rel in sorted(broken):
             print(f"  {rel}: missing {', '.join(sorted(broken[rel]))}")

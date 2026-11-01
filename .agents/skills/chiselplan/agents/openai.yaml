@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chiselplan"
+  short_description: "Plan / restructure project goals and stages, or force a phase review."
+  default_prompt: "Use $chiselplan to restructure your plan file or run a phase review."
