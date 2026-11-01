@@ -1,7 +1,7 @@
 ---
 title: "TheSchema — Global Configuration"
 type: schema
-updated: 2026-09-15
+updated: 2026-11-01
 tags:
   - config
   - knowledge-base
@@ -20,7 +20,7 @@ The global rules, naming conventions and AI workflows of the knowledge base.
 
 ## 1. Directory Structure
 
-### Three-layer architecture
+### Five-layer architecture
 
 | Layer | Directory | Role | Read/Write |
 |-------|-----------|------|------------|
@@ -64,17 +64,21 @@ The core knowledge base maintained by AI. Content is **compiled, not stored**.
 | archive/ | Processed / discarded | Historical versions |
 | index.md | Global navigation | Entry point |
 
+### Legacy folders stay in place
+
+Any pre-existing folders (old notes, drafts, creative writing, misc collections) are kept where they are: not deleted, not renamed, not moved. During compilation, AI scans all `.md` files across the vault as knowledge sources — it reads them and writes compiled entries into `1_Wiki/`, leaving the originals unchanged.
+
 ### 2_Schema/ — Configuration layer
 
 Everything the system needs to operate: this file, frontmatter.md, naming.md, pipeline.md, templates/. (AGENTS.md, the AI behavior contract, lives at the **repo root** so any AI client that opens the vault reads it first.)
 
 ### 4_Outputs/ — Output layer
 
-Compiled knowledge feeds back into content here: articles, video scripts, posts — produced by `/blog-1` (articles / project pages / shares) or adapted manually from 1_Wiki/ entries.
+Compiled knowledge feeds back into content here: articles, video scripts, posts — produced by `/blog-1` (articles / project pages / shares); `/by-1` single compiles and `/jh-1` topic maps also land here.
 
 | Rule | Detail |
 |------|--------|
-| Who writes | AI (via `/blog-1`) or the user, from entries |
+| Who writes | AI (via `/blog-1`, `/by-1` single compiles, `/jh-1` topic maps) or the user, from entries |
 | Source of truth | 1_Wiki/ entries — output is derived, entries stay authoritative |
 | No fabrication | anything not backed by an entry is marked as inference |
 | File naming | `YYYY-MM-DD-<slug>.md` or `<slug>.md`, per `naming.md` |
@@ -126,7 +130,7 @@ Every 1_Wiki entry carries at least 3 tags: type + topic + PARA category.
 | `prerequisite` | B is a prerequisite for A | ml-basics → supervised-learning |
 
 - **A link you cannot label is probably a fake link — do not write it, do not force it.**
-- New links must always carry a type label.
+- Existing entries whose links are not yet labeled are treated as a backlog; **new compiles and newly added links must always carry a type label.**
 - The type list is extensible; when extending, update by-1 / by-a / kbi / jh-1 skills accordingly.
 
 ### Source section (mandatory traceability)
@@ -149,7 +153,27 @@ Every entry starts with a `## Source` section right after the title (`# Title`),
 
 All 1_Wiki/ entry templates must follow the **full field inventory in `frontmatter.md`** (required: `title` / `type` / `created` / `source` / `confidence` / `tags` / `aliases` / `author: agent`; entities add `entity_kind`). Raw-material fields (`processed`, `abstract`, `weekly_reviewed`, chat-distill fields) are also specified there.
 
+**Optional fields:**
+
+| Field | Applies to | Notes |
+|-------|------------|-------|
+| `aliases` | all | Alias array to reduce navigation ambiguity |
+| `entity_kind` | entities | `person` / `organization` / `project` / `product` |
+| `processed` | 0_Inbox/ | Three-state: `false` = uncompiled; `true` = compiled; `skip` = **never compiled** — every compile/iteration flow skips it unconditionally |
+
 **Deprecated fields**: `related` / `links` (removed; cross-links live in `## See also`).
+
+### Entry template spec (relaxed)
+
+Templates are guidance, not shackles. An entry that clearly states *what it is* and *what it relates to* is good enough.
+
+| Type | Required sections | Suggested | No longer mandatory |
+|------|-------------------|-----------|---------------------|
+| Concept | `## Source` + `## Definition` + `## See also` | `## Key insight` | counter-examples, practice, types/classification |
+| Entity | `## Source` + `## Overview` + `## See also` | `## Key facts` (table) | core process/features, related docs |
+| Comparison | `## Source` + `## Comparison matrix` + `## See also` | `## Conclusion` or `## Key insight` (pick one) | — |
+| Framework | `## Source` + `## Full name / definition` + `## See also` | `## Steps`, `## When to use`, `## Key insight` | — |
+| Resource | `## Source` + `## Category` (table) + `## See also` | `## Definition` | — |
 
 ---
 
@@ -161,20 +185,20 @@ All 1_Wiki/ entry templates must follow the **full field inventory in `frontmatt
 - Comparison names use "A vs B": `student-mindset-vs-money-mindset.md`
 - Dates: `YYYY-MM-DD`
 
-See `naming.md` for the full spec and PARA classification criteria.
+See `naming.md` for the full spec (layer numbering, skill naming, file naming) and PARA classification criteria.
 
 ---
 
 ## 6. Output File Storage Rules
 
-AI skill outputs fall into two groups: **reports** (compile reports, iteration reports incl. link audit) and **other analysis outputs** (single-entry compiles, topic maps).
+AI skill outputs fall into two groups: **reports** (by-a compile reports, kbi iteration reports incl. link audit) → `3_KBI-log/`; **other analysis outputs** (`/by-1` single compiles, `/jh-1` topic maps) → `4_Outputs/`.
 
 | Skill | Output file naming | Location |
 |-------|--------------------|----------|
-| by-1 single compile | `by-1-[topic]-[date].md` | `3_KBI-log/analysis/` |
+| by-1 single compile | `by-1-[topic]-[date].md` | `4_Outputs/` |
 | by-a compile all | `YYYY-MM-DD-compile-report.md` | `3_KBI-log/` |
 | kbi iteration | `YYYY-MM-DD-iteration-report.md` (incl. link audit) | `3_KBI-log/` |
-| jh-1 topic map | `jh-1-[topic]-[date].md` | `3_KBI-log/analysis/` |
+| jh-1 topic map | `jh-1-[topic]-[date].md` | `4_Outputs/` |
 
 **Naming rules**:
 - Date format: `YYYY-MM-DD`
@@ -208,12 +232,12 @@ All compilation operations are **explicitly triggered by the user**. Nothing run
 Trigger: user says "compile the inbox" or "tidy the inbox".
 
 Steps:
-1. Scan 0_Inbox/ for files with `processed: false` **or missing the `processed` field**
+1. Scan 0_Inbox/ for files with `processed: false` **or missing the `processed` field**; **exclude `processed: skip` (never compiled)**
 2. For each file, extract knowledge units: concepts, entities, frameworks, resources, comparisons
 3. Use the corresponding templates in `1_Wiki/templates/`
 4. Build cross-references in `## See also` with type labels (8 types; no label → no link)
 5. Update `1_Wiki/index.md`
-6. Mark the source file `processed: true` (or move to `1_Wiki/archive/`)
+6. Mark the source file `processed: true` (`skip` files are never written back) or move to `1_Wiki/archive/`
 7. Write the compile report
 
 ### 7.2 Cross-directory compile
@@ -242,17 +266,53 @@ Determine entry type → use the corresponding template → search existing entr
 
 ---
 
-## 8. Quality Red Lines
+## 8. Query Protocol — search before you answer
+
+The value of the knowledge base is in **extraction, not storage**. Before answering any question that draws on KB content, AI must query the vault first.
+
+### 8.1 Route the question type
+
+| Question type | Retrieval entry |
+|---------------|-----------------|
+| What is this / concept explanation | `1_Wiki/concepts/` + `frameworks/` |
+| How-to / method / process | `1_Wiki/frameworks/` |
+| Who / which product / organization | `1_Wiki/entities/` |
+| What is the difference between A and B | `1_Wiki/comparisons/` |
+| Which tools / resources / websites exist | `1_Wiki/resources/` |
+| What was compiled before / past conclusions | `3_KBI-log/` (compile & iteration reports) + `0_Inbox/weekly-review/` |
+
+### 8.2 Three-level retrieval
+
+1. **Filename exact hit**: the question keywords directly match an entry filename.
+2. **Index topic table**: check the topic navigation in `1_Wiki/index.md`.
+3. **Full-text search**: grep keywords to find entries mentioned in prose but not in their filenames.
+
+On a hit, list the entry name + its confidence rating; do not narrate the search process.
+
+### 8.3 Gap declaration (no fabrication)
+
+- When the vault has nothing, say so explicitly — never pass out-of-vault memory off as entry content.
+- Answers are split three ways: **hit entries** (confidence labeled) / **out-of-vault supplement** (explicitly marked as outside the vault) / **gap** (say it is missing; suggest which entry to create).
+- A low/medium-confidence hit comes with a trustworthiness warning.
+
+### 8.4 Querying feeds back
+
+- If a hit entry is stale or conflicts with current facts, update it per the compile rules, or log it into the iteration report for user confirmation.
+- Querying is a feedback loop: every use maintains the knowledge base.
+
+---
+
+## 9. Quality Red Lines
 
 - **0_Inbox/ is read-only**: compilation never edits the original (only appends frontmatter markers).
 - **No fabrication**: content not present in the source is not written. When unsure, mark `confidence: low`.
 - **AI supplements must be labeled**: `> 💡 AI note: ...`
 - **Numbers / dates / facts are traceable**: distinguish "verified" from "claimed by one party".
-- **Author marker**: AI-compiled content uses `author: agent` (the compiling agent). Raw material written by the vault owner keeps the owner's own handle (e.g. `author: Kei` in diaries).
+- **Author marker**: AI-compiled content uses `author: agent` (the compiling agent). Raw material written by the vault owner keeps the owner's own handle.
 
 ---
 
-## 9. Standard Workflow
+## 10. Standard Workflow
 
 ```
 Record → Review → Compile → Iterate → Distill → Plan → Output
@@ -270,19 +330,22 @@ The end-to-end pipeline (input → compile → maintain → output) with concret
 
 ---
 
-## 10. Document Index (2_Schema/)
+## 11. Document Index (2_Schema/)
 
 | Document | Responsibility |
 |----------|----------------|
-| TheSchema.md (this file) | Architecture, tags, links, quality lines, workflows |
+| TheSchema.md (this file) | Architecture, tags, links, query protocol, quality lines, workflows |
 | AGENTS.md (repo root) | AI behavior rules for agents working in this vault |
 | frontmatter.md | Full frontmatter field inventory |
 | naming.md | Naming conventions + PARA classification criteria |
 | pipeline.md | End-to-end operating procedure: input → output |
-| templates/ | Diary template, weekly review template |
+| diary-system.md | Daily note recording method & AI compile rules |
+| memory/README.md | AI working memory: main index + domain profile docs |
+| chiselplan/ | Planning skill workspace (lane-isolated plan files) |
+| templates/ | Entry templates, diary template, weekly review template |
 
 ---
 
 > **This document is the global operating manual for AI agents in the Kei-Second-Brain Obsidian vault.**
 > **Core principles: pragmatic, direct, structured, never substitute for the user's decisions.**
-> **Updated: 2026-09-15**
+> **Updated: 2026-11-01**
