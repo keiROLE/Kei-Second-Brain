@@ -3,7 +3,7 @@ name: wr-1
 description: Weekly review — compile the last complete week (Monday–Sunday) of 7 diary notes into a concise weekly review document in 0_Inbox/weekly-review/, and mark each diary frontmatter with weekly_reviewed. Also ships tag-hygiene scripts. Triggers on "/wr-1", "weekly review" or "last week review".
 ---
 
-> This skill is part of the Kei-Second-Brain ecosystem. System overview is in `README.md`.
+> This skill is part of the Kei-Second-Brain ecosystem. The authoritative system entry is `AGENTS.md` (skill inventory + operating rules); `README.md` is the project showcase for GitHub visitors.
 
 # wr-1 — Weekly Review
 

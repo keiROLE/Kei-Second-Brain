@@ -3,7 +3,7 @@ name: jh-1
 description: Topic aggregation — given a topic, scan all wiki entries for related content, generate a topic knowledge map, and suggest merges/additions. Triggers on "/jh-1", "topic map" or "aggregate [topic]".
 ---
 
-> This skill is part of the Kei-Second-Brain ecosystem. System overview is in `README.md`.
+> This skill is part of the Kei-Second-Brain ecosystem. The authoritative system entry is `AGENTS.md` (skill inventory + operating rules); `README.md` is the project showcase for GitHub visitors.
 
 # jh-1 — Topic Aggregation
 

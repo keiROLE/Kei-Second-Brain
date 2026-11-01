@@ -12,7 +12,7 @@ tags:
 
 The global rules, naming conventions and AI workflows of the knowledge base.
 
-> **System entry point**: This specification is part of the Kei-Second-Brain ecosystem. For the full system overview, see `README.md`.
+> **System entry point**: This specification is part of the Kei-Second-Brain ecosystem. The single authoritative entry — directory conventions, the authoritative skill inventory and operating rules — is `AGENTS.md` (repo root). `README.md` is the project showcase for GitHub visitors, not a system document.
 > This document is the "operating system" of the Obsidian vault. Every AI task and every human action must follow it.
 > Detailed rules live in the sibling documents under `2_Schema/`; this file is the index and the authority.
 
@@ -70,7 +70,7 @@ Any pre-existing folders (old notes, drafts, creative writing, misc collections)
 
 ### 2_Schema/ — Configuration layer
 
-Everything the system needs to operate: this file, frontmatter.md, naming.md, pipeline.md, templates/. (AGENTS.md, the AI behavior contract, lives at the **repo root** so any AI client that opens the vault reads it first.)
+Everything the system needs to operate: this file, frontmatter.md, naming.md, pipeline.md, templates/. (AGENTS.md — the single authoritative entry: directory conventions, skill inventory, operating rules — lives at the **repo root** so any AI client that opens the vault reads it first.)
 
 ### 4_Outputs/ — Output layer
 
@@ -335,7 +335,7 @@ The end-to-end pipeline (input → compile → maintain → output) with concret
 | Document | Responsibility |
 |----------|----------------|
 | TheSchema.md (this file) | Architecture, tags, links, query protocol, quality lines, workflows |
-| AGENTS.md (repo root) | AI behavior rules for agents working in this vault |
+| AGENTS.md (repo root) | Single authoritative entry: directory conventions, authoritative skill inventory, operating rules, quick commands |
 | frontmatter.md | Full frontmatter field inventory |
 | naming.md | Naming conventions + PARA classification criteria |
 | pipeline.md | End-to-end operating procedure: input → output |
@@ -343,6 +343,8 @@ The end-to-end pipeline (input → compile → maintain → output) with concret
 | memory/README.md | AI working memory: main index + domain profile docs |
 | chiselplan/ | Planning skill workspace (lane-isolated plan files) |
 | templates/ | Entry templates, diary template, weekly review template |
+
+**Skills**: the authoritative skill inventory (name / trigger / responsibility / output) is maintained **only** in `AGENTS.md` (repo root). Read the corresponding `SKILL.md` under `.agents/skills/<name>/` before using a skill.
 
 ---
 

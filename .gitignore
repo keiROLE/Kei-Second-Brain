@@ -18,5 +18,9 @@ Thumbs.db
 # Editor temp
 *.tmp
 
+# Python (companion scripts)
+__pycache__/
+*.pyc
+
 # Internal working document (not for public release)
 需求文档.md

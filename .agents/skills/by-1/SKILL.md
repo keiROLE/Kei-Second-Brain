@@ -3,7 +3,7 @@ name: by-1
 description: Compile a single document into the LLM Wiki — read the user-provided markdown file, extract knowledge and compile it into the matching 1_Wiki/ entry, then update index.md. Triggers on "/by-1" or "compile this".
 ---
 
-> This skill is part of the Kei-Second-Brain ecosystem. System overview (structure / skills / standards / workflow) is in `README.md`.
+> This skill is part of the Kei-Second-Brain ecosystem. The authoritative system entry is `AGENTS.md` (skill inventory + operating rules); `README.md` is the project showcase for GitHub visitors.
 
 # by-1 — Single-Document Compile
 

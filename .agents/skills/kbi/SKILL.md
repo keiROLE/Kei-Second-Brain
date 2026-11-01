@@ -3,7 +3,7 @@ name: kbi
 description: Knowledge-base iteration analysis — scan the whole vault, find coverage gaps, unprocessed content, isolated entries, broken links and hallucinations, and output an iteration report with recommendations. Triggers on "/kbi", "knowledge base iteration", "health check" or "analyze the knowledge base".
 ---
 
-> This skill is part of the Kei-Second-Brain ecosystem. System overview is in `README.md`.
+> This skill is part of the Kei-Second-Brain ecosystem. The authoritative system entry is `AGENTS.md` (skill inventory + operating rules); `README.md` is the project showcase for GitHub visitors.
 
 # kbi — Knowledge-Base Iteration Analysis
 

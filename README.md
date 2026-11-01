@@ -115,14 +115,14 @@ The repository *is* a complete sample vault. `0_Inbox/`, `1_Wiki/`, `2_Schema/`,
 
 | Path | What |
 |------|------|
-| `AGENTS.md` | AI behavior contract + authoritative skill inventory (repo root — read first by AI clients) |
+| `AGENTS.md` | Single authoritative entry: directory conventions, authoritative skill inventory, operating rules, quick commands |
 | `2_Schema/TheSchema.md` | Architecture, tags, 8 link types, quality red lines, workflows |
 | `2_Schema/frontmatter.md` | Frontmatter field spec |
 | `2_Schema/naming.md` | Naming + PARA classification |
 | `2_Schema/pipeline.md` | End-to-end operating manual (input → output) |
 | `2_Schema/diary-system.md` | Diary system spec (diary template, weekly-review loop) |
 | `2_Schema/memory/` | AI working-memory module — per-domain status snapshots (see its README.md) |
-| `.agents/skills/` | The 9 project skills — authoritative inventory maintained in `AGENTS.md` |
+| `.agents/skills/` | by-1, by-a, kbi, jh-1, wr-1, rec-1, chat-distill, blog-1, chiselplan — authoritative inventory maintained in `AGENTS.md` |
 | `WORKFLOW.md` | The whole system as a story — one person, one loop, every skill used |
 | `0_Inbox/clippings/xiaojian-guo-monitor-episode.md` | Real clipped material (the example input) |
 | `1_Wiki/frameworks/monitor-selection-guide.md` | The entry it was compiled into (the example output) |

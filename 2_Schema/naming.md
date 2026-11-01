@@ -53,6 +53,17 @@ Uniform format: **`<verb-short>-<optional number>`** (this open-source release u
 - Reports: see TheSchema §6 (Output File Storage Rules)
 - Same skill run multiple times a day: append a sequence number (`jh-1-topic-2026-06-24-2.md`)
 
+### Repo / vault level
+
+- Directories: `0_Inbox`, `1_Wiki`, `2_Schema`, `3_KBI-log`, `4_Outputs` — fixed, do not rename.
+- Subdirectories: lowercase with hyphens (`weekly-review`, `chat-distill`).
+
+### Skill directories
+
+- Project skills live in `.agents/skills/<short-name>/`. Short names use a lowercase abbreviation, optionally with a number: `by-1` (single compile), `by-a` (bulk compile), `kbi` (KB iteration), `jh-1` (topic map), `wr-1` (weekly review), `rec-1` (diary record), `chat-distill`, `chiselplan` (planning), `blog-1` (blog output).
+- The `name` field in each SKILL.md must match its directory name.
+- Companion scripts (deterministic parts) live in the same directory; SKILL.md must reference them with a **run-first** instruction using a relative path from the vault root (e.g. `python .agents/skills/by-a/find_uncompiled.py`), never an absolute path — the repo is cloned anywhere.
+
 ---
 
 ## 4. PARA Classification Criteria

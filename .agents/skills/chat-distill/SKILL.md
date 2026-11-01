@@ -3,7 +3,7 @@ name: chat-distill
 description: AI conversation distillation — filter agent conversation logs by value, then land them into the knowledge base (0_Inbox/chat-distill → 1_Wiki), following the link ecosystem rules (See also + 8 type labels, no fake links). Triggers on "/chat-distill", "distill conversations", "tidy up AI conversations".
 ---
 
-> This skill is part of the Kei-Second-Brain ecosystem. System overview is in `README.md`.
+> This skill is part of the Kei-Second-Brain ecosystem. The authoritative system entry is `AGENTS.md` (skill inventory + operating rules); `README.md` is the project showcase for GitHub visitors.
 
 # chat-distill — AI Conversation Distillation
 

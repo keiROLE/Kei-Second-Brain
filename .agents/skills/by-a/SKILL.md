@@ -3,7 +3,7 @@ name: by-a
 description: Bulk-compile all new content into the LLM Wiki — scan the vault for unprocessed files and batch-compile them into 1_Wiki/. Triggers on "/by-a", "compile everything" or "process all new content".
 ---
 
-> This skill is part of the Kei-Second-Brain ecosystem. System overview is in `README.md`.
+> This skill is part of the Kei-Second-Brain ecosystem. The authoritative system entry is `AGENTS.md` (skill inventory + operating rules); `README.md` is the project showcase for GitHub visitors.
 
 # by-a — Bulk Compile
 

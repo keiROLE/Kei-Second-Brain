@@ -1,8 +1,8 @@
 # AGENTS.md — Kei-Second-Brain Vault Guide
 
-This directory is an Obsidian vault. This file is the **project-level behavior contract** for any AI agent working inside this vault; it lives at the repo root so an AI client reads it first. Read it together with `README.md` (system entry) and `2_Schema/TheSchema.md` (global rules).
+This file is the **single authoritative entry point** of Kei-Second-Brain: directory conventions, the authoritative skill inventory, operating rules and quick commands all live here. Detailed rules live in `2_Schema/` (`TheSchema.md` = global rules, `frontmatter.md` = field spec, `naming.md` = naming + PARA, `pipeline.md` = operating manual). **Every AI task in this vault reads this file first.**
 
-> 🔗 **This file is the master entry of the vault system**: directory structure / skill inventory (single source of truth) / operating rules / command cheatsheet all live here. Rule details (link types, quality red lines, frontmatter fields, naming, pipeline) live under `2_Schema/` (TheSchema, frontmatter, naming, pipeline, diary-system). Any AI task must read this file first.
+`README.md` is the project showcase for GitHub visitors — it introduces the methodology but is **not** a system document; when a rule question arises, this file and `2_Schema/TheSchema.md` are the authority.
 
 ---
 
@@ -43,7 +43,7 @@ This repo is a git repository: commit small, reviewable steps. The skill invento
 | `0_Inbox/` | Raw material layer: unprocessed input (diary/, weekly-review/, chat-distill/, clippings/). Read-only — AI may only append frontmatter marker fields. |
 | `1_Wiki/` | Knowledge compilation layer: compiled entries (concepts/, entities/, comparisons/, frameworks/, resources/), templates/, archive/; entry point `index.md`. |
 | `2_Schema/` | Configuration layer: TheSchema, frontmatter, naming, pipeline, `diary-system.md` (diary system spec), `templates/`, and `memory/` (AI working memory — see below). |
-| `3_KBI-log/` | Iteration layer: compile reports, iteration reports, link audits, other AI analysis outputs. |
+| `3_KBI-log/` | Iteration layer: compile reports, iteration reports, link audits, system changelog. |
 | `4_Outputs/` | Output layer: content compiled from wiki entries (articles, scripts, posts). |
 | `.agents/skills/` | The 9 project skills. Read the corresponding SKILL.md before using a skill. |
 
@@ -55,19 +55,41 @@ This repo is a git repository: commit small, reviewable steps. The skill invento
 
 Before creating or modifying documents (PDF / Word / PPT / HTML), follow the quality red lines in `2_Schema/TheSchema.md` §8 and the operating manual in `2_Schema/pipeline.md` — no fabrication, traceable facts, structure over decoration.
 
-## Command Cheatsheet
+## Naming
 
-| You want to… | Trigger |
-|--------------|---------|
-| Compile a single note | `/by-1` |
-| Compile all uncompiled notes | `/by-a` |
-| Vault health check / iteration analysis | `/kbi` |
-| Topic knowledge map | `/jh-1` |
-| Weekly review | `/wr-1` |
-| Log this task to today's diary | `/rec-1` |
-| Distill AI conversations | `/chat-distill` |
-| Project planning / phase review | `/chiselplan` |
-| Generate a blog doc | `/blog-1` |
+Filenames use **no spaces** — join words with `-` (e.g. `Agnes-AI-platform.md`, `SD-WebUI-prompt-reference.md`). Display titles may keep spaces. Full spec: `2_Schema/naming.md`.
+
+## Project Skills (authoritative inventory)
+
+This vault ships **9** project skills. Read the corresponding `SKILL.md` under `.agents/skills/<name>/` before using a skill.
+
+> **Single source of truth**: this inventory (name / trigger / responsibility / output) is maintained **only in this file**. README.md names the skills but does not copy this table. When in doubt, follow this file. After modifying a skill, update this table.
+
+| Skill | Name | Trigger | Responsibility | Output |
+|-------|------|---------|----------------|--------|
+| by-1 | Single compile | "compile this" | read one document → extract knowledge → compile into 1_Wiki/ | wiki entries + index update |
+| by-a | Bulk compile | "/by-a", "compile everything" | scan vault for unprocessed files → group & bulk compile (run find_uncompiled.py first) | wiki entries + index + compile report |
+| kbi | KB iteration analysis | "/kbi", "health check" | scan vault: gaps / uncompiled / broken links / hallucinations / islands / link audit (run audit_links.py first) | iteration report (read-only) |
+| jh-1 | Topic map | "topic map" | scan entries by topic → knowledge map → merge/new suggestions | knowledge map |
+| wr-1 | Weekly review | "/wr-1", "weekly review" | compile last complete Mon–Sun 7 diaries → weekly review doc (run review_status.py first) | 0_Inbox/weekly-review/MMDD-last-week-review.md |
+| rec-1 | Minimal diary record | "record it" | append minimal lines to today's diary `# 记录：` section | diary append (append-only) |
+| chat-distill | AI conversation distill | "distill conversation" | collect chat logs → 3-gate filter → store → compile → link | chat-distill store + wiki entries |
+| chiselplan | Planning / phase review | "re-plan", "phase review" | goals → task phases → write plan (optionally creates its own skill) | plan file |
+| blog-1 | Blog document generation | — | create article / project page / share docs for the blog | keiROLE blog data dir md |
+
+## Quick Commands
+
+| What you want | Trigger |
+|---------------|---------|
+| Weekly review | /wr-1 |
+| Compile one document | /by-1 |
+| Compile everything unprocessed | /by-a |
+| KB health check / iteration | /kbi |
+| Topic map | /jh-1 |
+| Record this into the diary | /rec-1 |
+| Distill an AI conversation | /chat-distill |
+| Re-plan / phase review | /chiselplan |
+| Blog documents | /blog-1 |
 
 ## Diary Frontmatter
 
