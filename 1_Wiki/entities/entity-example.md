@@ -1,37 +1,37 @@
 ---
-title: "[Entity Name]"
+title: "GeForce RTX 4060 Ti"
 type: entity
-entity_kind: organization
-created: YYYY-MM-DD
-source: "[full path of the source file]"
+entity_kind: product
+created: 2026-11-18
+source: 0_Inbox/clippings/xiaojian-guo-monitor-episode.md
 confidence: high
 tags:
   - entity
-  - [topic]
+  - pc-hardware
   - para/resource
 aliases:
-  - [alias]
+  - RTX 4060 Ti
 author: agent
 ---
 
-# [Entity Name]
-
-<!-- Format example — the body of an entity entry. Replace every placeholder with real content. -->
+# GeForce RTX 4060 Ti
 
 ## Source
 
-- [[source-filename]] (0_Inbox/...)
+- [[0_Inbox/clippings/xiaojian-guo-monitor-episode.md]]
 
 ## Overview
 
-[Who / what is this entity? 2-4 sentences.]
+The GeForce RTX 4060 Ti is a graphics card mentioned in the monitor video. The presenter uses it to illustrate pairing a graphics card with a 1440p display for mainstream online games.
 
 ## Key Information
 
 | Field | Value |
-|-------|-------|
-| [field] | [value] |
+|---|---|
+| Category | Graphics card |
+| Display resolution in the example | 1440p |
+| Use case in the example | Mainstream online games |
 
 ## See also
 
-- [[related-entry]] related
+- [[monitor-selection-guide]] related

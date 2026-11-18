@@ -123,7 +123,7 @@ Body structure (only excerpts with incremental value):
    - Sessions scanned / candidates / selected / new entries / supplemented entries
    - Duplicates blocked by the dedup gate (a good sign — the knowledge base already covers them)
    - Which agents/scenarios **consistently** produce valuable conclusions → mark "worth following"
-2. Per `/rec-1`, append one line to today's diary `## Log` (how many distilled, which entries created, outputs linked).
+2. Use `/rec-1` to log how many conversations were distilled, which entries were created, and where to find them. Follow its diary section and topic-tag rules.
 
 ---
 

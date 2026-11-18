@@ -57,7 +57,8 @@ Higher is sharper, but only buy what the graphics card can drive (for mainstream
 
 ## See also
 
-<!-- No labeled link yet: the first compiled entry has no established relation to another entry. Links are earned, not assigned — leave it empty rather than force a fake link. -->
+- [[concept-example]] part-of: Refresh rate is one of the three decisions.
+- [[resource-example]] apply: The checklist turns the guide's three criteria into checks.
 
 ---
 

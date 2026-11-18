@@ -1,96 +1,54 @@
 # AGENTS.md — Kei-Second-Brain Vault Guide
 
-This file is the **single authoritative entry point** of Kei-Second-Brain: directory conventions, the authoritative skill inventory, operating rules and quick commands all live here. Detailed rules live in `2_Schema/` (`TheSchema.md` = global rules, `frontmatter.md` = field spec, `naming.md` = naming + PARA, `pipeline.md` = operating manual). **Every AI task in this vault reads this file first.**
+This file is the authoritative entry point for the vault's operating rules, directory conventions, and skill inventory. Read it before working in the vault. Detailed rules live in `2_Schema/`. The README introduces the project.
 
-`README.md` is the project showcase for GitHub visitors — it introduces the methodology but is **not** a system document; when a rule question arises, this file and `2_Schema/TheSchema.md` are the authority.
+## Project skills
 
----
-
-## Project Skills (single source of truth)
-
-This project ships **9 project-level skills** in `.agents/skills/`.
-
-> **Single source of truth**: this inventory (name / trigger / responsibility / output) is maintained **only in this file**. TheSchema references it but does not copy it — when the two disagree, this file wins. After changing any skill, you must update this inventory in the same change.
+Skills live under `.agents/skills/<name>/`. Read the relevant `SKILL.md` before using it. Update this inventory in the same change as any skill addition or change to its trigger, responsibility, or output.
 
 | Skill | Trigger | Responsibility | Output |
-|-------|---------|----------------|--------|
-| `by-1` | `/by-1` — "compile this note" | Read a single raw note → extract knowledge → compile into `1_Wiki/` | A wiki entry + index update |
-| `by-a` | `/by-a` — "compile everything" | Scan the vault for uncompiled notes and batch-compile them (run `find_uncompiled.py` first) | Wiki entries + index + compile report |
-| `kbi` | `/kbi` — "health check" / "vault iteration" | Scan the whole vault: gaps, uncompiled notes, broken links, hallucinations, islands (run `audit_links.py` first) | Iteration report (read-only) |
-| `jh-1` | `/jh-1` — "aggregate topic X" | Scan related entries by topic → build a knowledge map → suggest merges / new entries | Knowledge map |
-| `wr-1` | `/wr-1` — "weekly review" | Take the last full week's diary notes → produce a weekly review doc | Weekly review note |
-| `chat-distill` | `/chat-distill` — "distill conversations" | Collect → filter → archive → compile → link reusable AI conversations | chat-distill raw notes + wiki entries |
-| `chiselplan` | `/chiselplan` — "plan my project" / "phase review" | Goal → task phases → update the plan file | Updated plan file |
-| `blog-1` | `/blog-1` — "make a blog post" | Generate blog docs — articles, project write-ups, share posts | Markdown doc in `4_Outputs/` |
-| `rec-1` | `/rec-1` — "log to diary" | Append-only minimal log of the current task to today's diary log section | Diary append (never rewrite) |
+|---|---|---|---|
+| `by-1` | `/by-1`, “compile this” | Extract reusable knowledge from one source | Wiki entries and index update |
+| `by-a` | `/by-a`, “compile everything” | Scan eligible sources and compile them in batches | Wiki entries, index update, and compile report |
+| `kbi` | `/kbi`, “health check”, `/kbi repair` | Audit the vault and apply verified low-risk changes when repair is requested | Iteration report and any applied repairs |
+| `jh-1` | `/jh-1`, “topic map” | Map entries for a topic and propose improvements | Knowledge map |
+| `wr-1` | `/wr-1`, “weekly review” | Review the last complete Monday–Sunday week | Weekly review and diary markers |
+| `rec-1` | `/rec-1`, “log it”, task wrap-up | Append one topic-tagged block per distinct matter | Today's diary log |
+| `chat-distill` | `/chat-distill`, “distill conversations” | Select and compile reusable conclusions from conversations | Source notes and Wiki entries |
+| `chiselplan` | `/chiselplan`, “re-plan”, “phase review” | Define a goal and its phases, or review progress | Project plan in `2_Schema/chiselplan/` |
+| `kbr` | `/kbr`, “recall a batch” | Quiz the user on important, overdue, and new Wiki concepts | Local scores and history, plus first-review tags |
+| `blog-1` | `/blog-1`, “make a blog post” | Draft articles, project pages, and shares | Markdown in `4_Outputs/` |
 
-## Operating Rules (mandatory)
+## Operating rules
 
-1. **Archive before delete/overwrite**: any deletion, overwrite or rewrite of vault files must first move the original into `1_Wiki/archive/` (prepend `YYYY-MM-DD-` on name conflict), then apply the change. **Permanent deletion is forbidden** (no un-recoverable removal). Archived files are treated as deprecated and may be cleaned up by later passes.
-2. **Only touch what was named**: do not expand the task scope. Read the original file before modifying it; keep content that was not asked to be changed.
-3. **Formatting rules**: tags mentioned in prose must be wrapped in backticks (e.g. `#event`; example code blocks excluded). When writing tags and wiki links, always keep a space before and after them — never glue them to text, Chinese brackets or punctuation (e.g. `标题（#认知）：` or `文字[[链接]]` are both wrong).
+1. **Archive before delete or overwrite.** Move original vault files into `1_Wiki/archive/` before deletion, overwrite, or rewrite. Use a `YYYY-MM-DD-` prefix when names collide. Keep archived originals recoverable. Never permanently delete vault files.
+2. **Keep scope narrow.** Read the original before editing. Preserve the user's unrelated text, tasks, and metadata.
+3. **Limit routine writes to the designated fields.** Compilation preserves source bodies and writes only processing markers. Diary changes follow `2_Schema/diary-system.md`. `/kbr` may add a single first-review tag without changing other frontmatter or the body. KBI repairs require the requested repair mode and a recoverable original.
+4. **Format tags and links.** In prose, put literal tags in backticks, such as `#event`. In vault entries, keep spaces around tags and wikilinks, including next to punctuation.
+5. **Keep public settings portable.** Shared configurations use vault-relative paths. Store local paths, credentials, and generated recall state outside tracked public files.
 
-## Git Workflow
+## Git workflow
 
-This repo is a git repository: commit small, reviewable steps. The skill inventory above and the actual `.agents/skills/` folder must stay in sync — a skill change is not done until this table is updated.
+Commit small, reviewable steps. Keep the skill inventory synchronized with the skill directories.
 
-## Core Directory Conventions
+## Directory conventions
 
-- **Naming**: document / entry / file names contain no spaces — join words with `-` (e.g. `monitor-selection-guide.md`); the human-readable title may keep spaces.
+Use hyphens in filenames. Display titles may contain spaces.
 
 | Path | Role |
-|------|------|
-| `0_Inbox/` | Raw material layer: unprocessed input (diary/, weekly-review/, chat-distill/, clippings/). Read-only — AI may only append frontmatter marker fields. |
-| `1_Wiki/` | Knowledge compilation layer: compiled entries (concepts/, entities/, comparisons/, frameworks/, resources/), templates/, archive/; entry point `index.md`. |
-| `2_Schema/` | Configuration layer: TheSchema, frontmatter, naming, pipeline, `diary-system.md` (diary system spec), `templates/`, and `memory/` (AI working memory — see below). |
-| `3_KBI-log/` | Iteration layer: compile reports, iteration reports, link audits, system changelog. |
-| `4_Outputs/` | Output layer: content compiled from wiki entries (articles, scripts, posts). |
-| `.agents/skills/` | The 9 project skills. Read the corresponding SKILL.md before using a skill. |
+|---|---|
+| `0_Inbox/` | Raw notes, including `diary/`, `weekly-review/`, `chat-distill/`, and `clippings/` |
+| `1_Wiki/` | Compiled concepts, entities, comparisons, frameworks, and resources, navigated from `index.md` |
+| `2_Schema/` | Rules, templates, plans, and AI working memory |
+| `3_KBI-log/` | Compile reports, iteration reports, and audits |
+| `4_Outputs/` | Drafts and analyses derived from the wiki |
 
-## Memory — AI Working Memory
+Weekly reviews add `weekly_reviewed: YYYY-MM-DD` to each covered diary. Skip diaries already marked with this field.
 
-`2_Schema/memory/` is the working-memory module for AI agents: a master index (`memory-index.md`) plus one snapshot doc per active work domain — current status, key asset entry points, red lines. **Usage rules**: read the matching domain doc before acting on that domain; write new status back to it before continuing; red lines are hard constraints; when unsure, ask. Full contract: `2_Schema/memory/README.md`.
+## Working memory
 
-## Document-Type Tasks
+Use `2_Schema/memory/memory-index.md` to find a domain snapshot. Read the matching domain before acting. Update it when its state changes, preserve its red lines, and ask when its instructions are unclear. See `2_Schema/memory/README.md` for the contract.
 
-Before creating or modifying documents (PDF / Word / PPT / HTML), follow the quality red lines in `2_Schema/TheSchema.md` §8 and the operating manual in `2_Schema/pipeline.md` — no fabrication, traceable facts, structure over decoration.
+## Document tasks
 
-## Naming
-
-Filenames use **no spaces** — join words with `-` (e.g. `Agnes-AI-platform.md`, `SD-WebUI-prompt-reference.md`). Display titles may keep spaces. Full spec: `2_Schema/naming.md`.
-
-## Project Skills (authoritative inventory)
-
-This vault ships **9** project skills. Read the corresponding `SKILL.md` under `.agents/skills/<name>/` before using a skill.
-
-> **Single source of truth**: this inventory (name / trigger / responsibility / output) is maintained **only in this file**. README.md names the skills but does not copy this table. When in doubt, follow this file. After modifying a skill, update this table.
-
-| Skill | Name | Trigger | Responsibility | Output |
-|-------|------|---------|----------------|--------|
-| by-1 | Single compile | "compile this" | read one document → extract knowledge → compile into 1_Wiki/ | wiki entries + index update |
-| by-a | Bulk compile | "/by-a", "compile everything" | scan vault for unprocessed files → group & bulk compile (run find_uncompiled.py first) | wiki entries + index + compile report |
-| kbi | KB iteration analysis | "/kbi", "health check" | scan vault: gaps / uncompiled / broken links / hallucinations / islands / link audit (run audit_links.py first) | iteration report (read-only) |
-| jh-1 | Topic map | "topic map" | scan entries by topic → knowledge map → merge/new suggestions | knowledge map |
-| wr-1 | Weekly review | "/wr-1", "weekly review" | compile last complete Mon–Sun 7 diaries → weekly review doc (run review_status.py first) | 0_Inbox/weekly-review/MMDD-last-week-review.md |
-| rec-1 | Minimal diary record | "record it" | append minimal lines to today's diary `# 记录：` section | diary append (append-only) |
-| chat-distill | AI conversation distill | "distill conversation" | collect chat logs → 3-gate filter → store → compile → link | chat-distill store + wiki entries |
-| chiselplan | Planning / phase review | "re-plan", "phase review" | goals → task phases → write plan (optionally creates its own skill) | plan file |
-| blog-1 | Blog document generation | — | create article / project page / share docs for the blog | keiROLE blog data dir md |
-
-## Quick Commands
-
-| What you want | Trigger |
-|---------------|---------|
-| Weekly review | /wr-1 |
-| Compile one document | /by-1 |
-| Compile everything unprocessed | /by-a |
-| KB health check / iteration | /kbi |
-| Topic map | /jh-1 |
-| Record this into the diary | /rec-1 |
-| Distill an AI conversation | /chat-distill |
-| Re-plan / phase review | /chiselplan |
-| Blog documents | /blog-1 |
-
-## Diary Frontmatter
-
-Diary notes use `weekly_reviewed: YYYY-MM-DD` after being covered by a weekly review; reviewed notes are skipped and not re-processed.
+Before creating or editing PDF, Word, slides, or HTML, read the quality red lines in `2_Schema/TheSchema.md` and the operating instructions in `2_Schema/pipeline.md`. Keep facts traceable and prioritize the structure users need.

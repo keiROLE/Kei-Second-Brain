@@ -1,38 +1,37 @@
 ---
-title: "[Resource Name]"
+title: "Monitor Buying Checklist"
 type: resource
-created: YYYY-MM-DD
-source: "[full path of the source file]"
+created: 2026-11-18
+source: 0_Inbox/clippings/xiaojian-guo-monitor-episode.md
 confidence: high
 tags:
   - resource
-  - [topic]
+  - pc-hardware
   - para/resource
 aliases:
-  - [alias]
+  - Monitor specs checklist
 author: agent
 ---
 
-# [Resource Name]
-
-<!-- Format example — the body of a resource entry. Replace every placeholder with real content. -->
+# Monitor Buying Checklist
 
 ## Source
 
-- [[source-filename]] (0_Inbox/...)
+- [[0_Inbox/clippings/xiaojian-guo-monitor-episode.md]]
 
 ## Category
 
-| Category | Value |
-|----------|-------|
-| Type | [tool / website / list / template] |
-| Topic | [topic] |
-| Cost | [free / paid / freemium] |
+| Field | Value |
+|---|---|
+| Type | Checklist |
+| Use | Compare a monitor's specifications with the buyer's needs |
 
-## Description
+## Checklist
 
-[What is this resource, and when should you reach for it?]
+- [ ] Screen size suits the main use, such as competitive shooters, office work, or general gaming.
+- [ ] The graphics card can drive the selected resolution in the games the buyer plays.
+- [ ] The refresh-rate choice accounts for the frame rate the game can provide.
 
 ## See also
 
-- [[related-entry]] background
+- [[monitor-selection-guide]] background

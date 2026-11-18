@@ -2,7 +2,7 @@
 
 **An AI-compiled second brain.** A complete, open methodology for running a personal knowledge base where **AI compiles, maintains and outputs** — not just stores.
 
-This repository is a fully working system: a documented architecture, 9 reusable AI skills, and a complete sample knowledge base that demonstrates the whole pipeline.
+This repository includes a documented architecture, 10 reusable AI skills, and a sample knowledge base that demonstrates the pipeline.
 
 > Chinese version: [README.zh.md](README.zh.md)（中文版，以英文版为准）
 
@@ -21,8 +21,8 @@ The repo contains three things:
 | Part | Location | What it is |
 |------|----------|------------|
 | **The system** | `2_Schema/` | The rules: architecture, frontmatter spec, naming, link rules, pipeline manual, diary system, AI working memory |
-| **The skills** | `.agents/skills/` | 9 AI skills (compile, iterate, review, plan...) that run the system |
-| **The example** | `0_Inbox/` `1_Wiki/` `3_KBI-log/` `4_Outputs/` | A complete sample vault showing every stage of the pipeline — format demonstrations (one entry per type, placeholders), plus one **real** capture→compile run (see "A real example") |
+| **The skills** | `.agents/skills/` | 10 AI skills for compilation, maintenance, recall, planning, and related tasks |
+| **The example** | `0_Inbox/` `1_Wiki/` `3_KBI-log/` `4_Outputs/` | A sample vault with five bilingual Wiki topics drawn from a monitor-buying transcript |
 
 ## How it differs from other methods
 
@@ -35,12 +35,12 @@ The repo contains three things:
 
 ## Prerequisites
 
-You need two tools:
+To open the vault and use its skills:
 
 1. **Obsidian** — the vault runs in Obsidian (free). Any recent version works.
-2. **An AI client that supports custom skills/agents** — e.g. Claude Code, or any agent that can read markdown instructions and act on files. The skills in `.agents/skills/` are plain markdown instruction files (SKILL.md); your AI client just needs to be able to load and follow them.
+2. **An AI client that supports custom skills** — for example, Claude Code or another agent that can read Markdown instructions and operate on files. Each skill starts with a `SKILL.md`.
 
-No coding, no server, no database required.
+Install Python 3.9 or newer to run the bundled scripts. Active recall additionally uses PyYAML (`python -m pip install PyYAML`).
 
 ## Architecture
 
@@ -73,14 +73,16 @@ articles, scripts, posts
 
 ## The pipeline (one paragraph)
 
-**Input**: video transcripts, web clippings, AI conversations and daily notes land in `0_Inbox/`. **Compile**: `/by-1` (single) or `/by-a` (bulk) turns them into typed entries in `1_Wiki/` — concept, entity, comparison, framework, resource — each with a source, a confidence level and typed links. **Maintain**: `/kbi` scans for gaps, broken links, islands and hallucinations and outputs a read-only iteration report. **Output**: entries are pulled into articles, video scripts and posts (e.g. `/blog-1`). Nothing runs automatically — every stage is user-triggered. The full operating manual is `2_Schema/pipeline.md`.
+Video transcripts, web clippings, AI conversations, and daily notes land in `0_Inbox/`. `/by-1` and `/by-a` compile them into sourced entries in `1_Wiki/`. `/kbi` reports vault issues, and `/kbi repair` applies verified low-risk fixes on request. `/kbr` helps you recall what you learned. `/blog-1` turns entries into drafts. See the full operating manual in `2_Schema/pipeline.md`.
 
 ## A real example — capture → compile
 
-The sample vault contains one **real** capture→compile run (everything else is a format skeleton):
+The sample vault uses a real capture-to-compile example:
 
 1. **Capture** — the author's own video transcript about choosing a monitor was clipped into `0_Inbox/clippings/xiaojian-guo-monitor-episode.md`: real input, kept verbatim.
 2. **Compile** — `/by-1` turned it into a typed entry: `1_Wiki/frameworks/monitor-selection-guide.md`.
+
+The same transcript supports the concept, entity, comparison, and checklist examples. See [the Wiki index](1_Wiki/index.md) for both languages and their source links.
 
 The whole loop — one person, from a video to a published article, every skill used — is told as a story in **[WORKFLOW.md](WORKFLOW.md)**.
 
@@ -94,7 +96,7 @@ git clone https://github.com/keiROLE/Kei-Second-Brain.git
 # browse 0_Inbox/ and 1_Wiki/ — start with the two "real example" files listed above
 ```
 
-The repository *is* a complete sample vault. `0_Inbox/`, `1_Wiki/`, `2_Schema/`, `3_KBI-log/` and `4_Outputs/` show every stage of the pipeline — one entry per type as a format demonstration, plus one real capture→compile run.
+Start with `1_Wiki/index.md` to browse the five entry types and trace them back to their source. The other folders show sample inputs, rules, reports, and outputs.
 
 ### Option B — let an AI build your own
 
@@ -122,7 +124,7 @@ The repository *is* a complete sample vault. `0_Inbox/`, `1_Wiki/`, `2_Schema/`,
 | `2_Schema/pipeline.md` | End-to-end operating manual (input → output) |
 | `2_Schema/diary-system.md` | Diary system spec (diary template, weekly-review loop) |
 | `2_Schema/memory/` | AI working-memory module — per-domain status snapshots (see its README.md) |
-| `.agents/skills/` | by-1, by-a, kbi, jh-1, wr-1, rec-1, chat-distill, blog-1, chiselplan — authoritative inventory maintained in `AGENTS.md` |
+| `.agents/skills/` | The 10 skills listed in [AGENTS.md](AGENTS.md#project-skills) |
 | `WORKFLOW.md` | The whole system as a story — one person, one loop, every skill used |
 | `0_Inbox/clippings/xiaojian-guo-monitor-episode.md` | Real clipped material (the example input) |
 | `1_Wiki/frameworks/monitor-selection-guide.md` | The entry it was compiled into (the example output) |
@@ -134,7 +136,7 @@ The repository *is* a complete sample vault. `0_Inbox/`, `1_Wiki/`, `2_Schema/`,
 - Issues are welcome: ask questions, report problems.
 - **No promise of regular updates**; major versions ship irregularly as the author's own vault evolves.
 - Pull requests are merged after discussion; large unrequested changes are not accepted.
-- The sample content is fictional demonstration; support is limited to the methodology, not the demo data.
+- The monitor entries use the included transcript. The workflow story is fictional and illustrates how to run the system.
 
 ## License
 

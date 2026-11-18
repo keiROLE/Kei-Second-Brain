@@ -24,7 +24,7 @@ The global rules, naming conventions and AI workflows of the knowledge base.
 
 | Layer | Directory | Role | Read/Write |
 |-------|-----------|------|------------|
-| 0_Inbox/ | Raw material layer | Source of truth; never edited in place | Read-only |
+| 0_Inbox/ | Raw material layer | Source of truth for compilation | Processing markers and scoped diary updates |
 | 1_Wiki/ | Knowledge compilation layer | The core knowledge base, maintained by AI | AI read/write |
 | 2_Schema/ | Configuration layer | The operating system of the vault | AI read/write |
 | 3_KBI-log/ | Iteration layer | Compile reports, iteration reports, link audits | AI write |
@@ -219,7 +219,7 @@ tags:
 ---
 ```
 
-Body includes: execution time, scan scope, number of issues found, list of recommended actions. Reports **do not modify wiki entries directly** — they output recommendations; the user confirms before changes are applied.
+Body includes execution time, scan scope, findings, recommended actions, and any fixes applied with `/kbi repair`. The default audit produces a report. Repair mode follows the verified low-risk scope and archiving rules in the KBI skill.
 
 ---
 
@@ -304,7 +304,7 @@ On a hit, list the entry name + its confidence rating; do not narrate the search
 
 ## 9. Quality Red Lines
 
-- **0_Inbox/ is read-only**: compilation never edits the original (only appends frontmatter markers).
+- **Protect raw sources**: compilation preserves original text and updates only processing markers. Rules for scoped diary updates are in `2_Schema/diary-system.md`.
 - **No fabrication**: content not present in the source is not written. When unsure, mark `confidence: low`.
 - **AI supplements must be labeled**: `> 💡 AI note: ...`
 - **Numbers / dates / facts are traceable**: distinguish "verified" from "claimed by one party".
@@ -321,10 +321,12 @@ Record → Review → Compile → Iterate → Distill → Plan → Output
 1. **Record**: daily note (`0_Inbox/diary/YYYY-MM-DD.md`); AI appends via `/rec-1`.
 2. **Review**: weekly, `/wr-1` compiles the last full week of diary notes into a weekly review.
 3. **Compile**: `/by-1` for single docs, `/by-a` for bulk.
-4. **Iterate**: `/kbi` health check (gaps, broken links, islands, hallucinations, link audit) — read-only report.
+4. **Iterate**: `/kbi` reports gaps, broken links, islands, unsupported content, and link-audit findings. `/kbi repair` also applies verified low-risk fixes.
 5. **Distill**: `/chat-distill` filters AI conversations into the knowledge base.
-6. **Plan**: `/chiselplan` for project planning; optional daily loop via the `plan-1` skill it can create.
+6. **Plan**: `/chiselplan` sets project direction and reviews phases.
 7. **Output**: `/blog-1` turns entries into articles / project pages / shares in `4_Outputs/`.
+
+After compiling, use `/kbr` to review the wiki through active recall and keep scores in local state.
 
 The end-to-end pipeline (input → compile → maintain → output) with concrete operating steps: see `pipeline.md`.
 

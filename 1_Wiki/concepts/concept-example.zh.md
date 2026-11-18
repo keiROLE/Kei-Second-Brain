@@ -1,35 +1,32 @@
 ---
-title: "[概念名]"
+title: "刷新率短板"
 type: concept
-created: YYYY-MM-DD
-source: "[源文件完整路径]"
+created: 2026-11-18
+source: 0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md
 confidence: high
 tags:
   - concept
-  - [主题]
+  - pc-hardware
   - para/resource
 aliases:
-  - [别名]
+  - 刷新率短板效应
 author: agent
 ---
 
-# [概念名]
-
-<!-- 格式示例——概念条目的正文结构。请用真实内容替换所有占位符，知识库中不得残留虚构内容。 -->
+# 刷新率短板
 
 ## 来源
 
-- [[源文件名]]（0_Inbox/...）
+- [[0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md]]
 
 ## 定义
 
-[用 2-5 句通俗语言定义这个概念。]
+视频把显示器刷新率与游戏帧率的关系解释为短板效应。刷新率用 Hz 表示，游戏帧率表示每秒输出的画面数。两者中较低的一项限制每秒能显示多少不同的游戏画面。
 
 ## 核心洞察
 
-[可选——最值得记住的一点。]
+判断换更高刷新率的显示器是否有用时，把屏幕刷新率和游戏能跑出的帧率放在一起看。
 
 ## 参见
 
-- [[相关条目]] apply
-- [[另一条目]] contrast
+- [[monitor-selection-guide.zh]] apply

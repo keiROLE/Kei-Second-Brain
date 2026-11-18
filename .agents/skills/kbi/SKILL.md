@@ -1,6 +1,6 @@
 ---
 name: kbi
-description: Knowledge-base iteration analysis — scan the whole vault, find coverage gaps, unprocessed content, isolated entries, broken links and hallucinations, and output an iteration report with recommendations. Triggers on "/kbi", "knowledge base iteration", "health check" or "analyze the knowledge base".
+description: Audit the vault for gaps, uncompiled content, isolated entries, broken links, and unsupported claims. Triggers on "/kbi" or "health check". Use "/kbi repair" for verified low-risk fixes with an audit trail.
 ---
 
 > This skill is part of the Kei-Second-Brain ecosystem. The authoritative system entry is `AGENTS.md` (skill inventory + operating rules); `README.md` is the project showcase for GitHub visitors.
@@ -20,6 +20,21 @@ You are the knowledge-base iteration analyst. Analyze the Obsidian vault compreh
 3. **Wiki health issues** — broken links, hallucinations, structural violations, duplicate entries
 4. **Graph weaknesses** — isolated entries, weak/fake links, under-linked areas, link-audit findings
 5. **Actionable improvements** — recommendations that strengthen the user's knowledge and methods
+
+## Audit and repair modes
+
+Run `/kbi` for a report. When the user explicitly asks for routine fixes with `/kbi repair`, apply these four low-risk changes during the review:
+
+| Finding | Apply when |
+|---|---|
+| Broken link pointer | There is exactly one verified intended target, or an archived target has a documented replacement. Keep display text and verify any existing heading or block reference on the destination. |
+| Missing required field | The source or body provides evidence for `source`, `confidence`, or `author`. Leave the value as a recommendation when the evidence is inconclusive. |
+| Deprecated frontmatter field | `related` or `links` appears in a Wiki entry and is no longer used. Report any unique relationship that would otherwise be lost for review. |
+| Unlabeled reference | A `See also` or `参见` link resolves and the existing relationship has a clearly supported type. |
+
+Archive each original once under `1_Wiki/archive/` before editing, following `AGENTS.md`. Keep patches limited to the affected pointers or metadata and preserve surrounding content. Rerun mechanical checks after editing. The report lists each applied change, the archived original, and the verification result.
+
+Report semantic changes for individual review, including weak-link removal, adding links to islands, unsupported-content removal, new entries, and renames. A syntax or label check can flag a candidate. It does not establish the underlying relationship.
 
 ## Input
 
@@ -156,6 +171,7 @@ tags:
 
 Report sections:
 - Opening note: audit scope and depth (what was covered, per-entry judged vs completeness-flagged, what was not covered — state honestly).
+0. Applied repairs (mode, affected entry, issue, change, archive location, and recheck result)
 1. Vault overview (counts)
 2. Coverage gaps (high/medium priority, each with: current state, why it matters, suggested entries)
 3. Uncompiled content (file → potential type → suggested entry)
@@ -171,15 +187,15 @@ Report sections:
    - P0 fix broken links · P1 delete/label hallucinations · P2 handle islands (only non-intentional) · P3 add second real links to single-point entries · P4 apply reasoned link suggestions · P5 supplement missing core content · P6 fix structural issues · P7 create entries for coverage gaps · P8 compile uncompiled content
 7. One-sentence insight of the day
 
-### Phase 7: Link audit (existing links, read-only)
+### Phase 7: Link audit (existing links)
 
 Audit all existing `## See also` links (results merged into Phase 6 — no separate file):
 
 1. Traverse all See also links (labeled = justified; unlabeled → "to-label" list).
 2. Try to assign one of the 8 types to each:
-   - Classifiable → real link (optionally label it)
+   - Classifiable and supported by the entry content → propose a label, or apply it in repair mode
    - Unclassifiable / strained → weak link, list under "candidates to remove"
-3. **Read-only**: removal/modification happens only after user confirmation.
+3. Remove weak links only after individual confirmation.
 
 ## Rules
 
@@ -189,6 +205,6 @@ Audit all existing `## See also` links (results merged into Phase 6 — no separ
 - If nothing significant found, still output a "no major changes" report.
 - Reports go in `3_KBI-log/`; create the directory on first run.
 - Open each report by noting "X days since last report, no major changes" or "new findings vs last run".
-- **Read-only**: iteration analysis reports problems and findings; it does not modify files unless the user explicitly asks for fixes.
+- Use report mode by default. Repair mode allows only the verified low-risk changes listed above.
 - **Broken-link fixes go through the decision tree** (fix pointer / create entry / delete link / fix format); never fake-repair with a semantically close unrelated entry.
 - **Links are earned, not assigned**: See also links carry type labels; no label → no link.

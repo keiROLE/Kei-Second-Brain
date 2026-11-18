@@ -1,7 +1,7 @@
 ---
 title: "Index — Knowledge Base Navigation"
 type: index
-updated: YYYY-MM-DD
+updated: 2026-11-18
 tags:
   - index
   - para/resource
@@ -9,46 +9,21 @@ tags:
 
 # Knowledge Base Index
 
-<!-- Format example — the index navigation. One entry per type is kept as a format demonstration; replace with your real entries. -->
-
-> Total entries: 5 · Concepts 1 · Entities 1 · Comparisons 1 · Frameworks 1 · Resources 1
+Five sample topics are each available in English and Chinese, for ten wiki files.
 
 ## Quick Navigation
 
-### Concepts
-
-| Entry | Question answered |
-|-------|-------------------|
-| [[concept-example]] | [What question does this concept answer?] |
-
-### Entities
-
-| Entry | Question answered |
-|-------|-------------------|
-| [[entity-example]] | [What question does this entity answer?] |
-
-### Comparisons
-
-| Entry | Question answered |
-|-------|-------------------|
-| [[comparison-example]] | [What question does this comparison answer?] |
-
-### Frameworks
-
-| Entry | Question answered |
-|-------|-------------------|
-| [[monitor-selection-guide]] | How to pick a monitor (real example — see README) |
-
-### Resources
-
-| Entry | Question answered |
-|-------|-------------------|
-| [[resource-example]] | [What question does this resource answer?] |
+| Type | English | 中文 | What it covers |
+|---|---|---|---|
+| Concept | [[concept-example]] | [[concept-example.zh]] | How game frame rate and display refresh rate limit each other |
+| Entity | [[entity-example]] | [[entity-example.zh]] | A graphics card used in the 1440p example |
+| Comparison | [[comparison-example]] | [[comparison-example.zh]] | Choosing between 24-inch and 27-inch monitors |
+| Framework | [[monitor-selection-guide]] | [[monitor-selection-guide.zh]] | Choosing a monitor by size, resolution, and refresh rate |
+| Resource | [[resource-example]] | [[resource-example.zh]] | A checklist for comparing monitor listings |
 
 ## Source Map
 
-| Source (0_Inbox) | Compiled into |
-|------------------|---------------|
-| [source file] | [[entry]] |
-
-> Note: entries in this example vault are format placeholders only. A real vault grows through weekly compile runs (/by-a) and iteration reports (/kbi).
+| Source | Compiled into |
+|---|---|
+| 0_Inbox/clippings/xiaojian-guo-monitor-episode.md | [[concept-example]], [[entity-example]], [[comparison-example]], [[monitor-selection-guide]], [[resource-example]] |
+| 0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md | [[concept-example.zh]], [[entity-example.zh]], [[comparison-example.zh]], [[monitor-selection-guide.zh]], [[resource-example.zh]] |

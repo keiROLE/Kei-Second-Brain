@@ -2,7 +2,7 @@
 
 **一个由 AI 编译的第二大脑。** 一套完整、可开源的个人知识库方法论——**AI 负责编译、维护和输出**，而不只是存储。
 
-本仓库是一套可直接运行的系统：一份成文的架构、9 个可复用的 AI Skill、以及一个演示完整流水线的示例知识库。
+仓库包含一套知识库规则、10 个可复用的 AI Skill，以及一个用来演示完整流程的示例库。
 
 > English version: [README.md](README.md)（翻译可能滞后，以英文版为准）
 
@@ -21,8 +21,8 @@ Kei-Second-Brain 是把个人知识库方法论做成可复用系统的开源发
 | 部分 | 位置 | 是什么 |
 |------|------|--------|
 | **系统** | `2_Schema/` | 规则：架构、frontmatter 规范、命名、链接规则、流水线手册、日记系统、AI 工作记忆 |
-| **Skill** | `.agents/skills/` | 9 个驱动系统运转的 AI Skill（编译、迭代、复盘、规划……） |
-| **示例** | `0_Inbox/` `1_Wiki/` `3_KBI-log/` `4_Outputs/` | 完整的示例库，展示流水线的每个环节——格式演示（每类一条、仅占位符），外加一次**真实**的"摘录→编译"（见「真实例子」） |
+| **Skill** | `.agents/skills/` | 10 个用于编译、维护、回忆和规划的 AI Skill |
+| **示例** | `0_Inbox/` `1_Wiki/` `3_KBI-log/` `4_Outputs/` | 从一篇显示器选购逐字稿整理出的五类中英文 Wiki 条目 |
 
 ## 与其他方法的区别
 
@@ -35,12 +35,12 @@ Kei-Second-Brain 是把个人知识库方法论做成可复用系统的开源发
 
 ## 前置条件
 
-只需要两个工具：
+打开知识库和使用 Skill 需要：
 
 1. **Obsidian** —— 知识库运行在 Obsidian 里（免费），任意较新版本即可。
-2. **支持自定义 Skill/Agent 的 AI 客户端** —— 如 Claude Code，或任何能读取 markdown 指令并操作文件的 agent。`.agents/skills/` 里的 Skill 就是纯 markdown 指令文件（SKILL.md），你的 AI 客户端只需要能加载并执行它们。
+2. **支持自定义 Skill 的 AI 客户端** —— 如 Claude Code，或任何能读 Markdown 指令并操作文件的客户端。每个 Skill 从 `SKILL.md` 开始。
 
-不需要写代码、不需要服务器、不需要数据库。
+运行配套脚本需要 Python 3.9 或更新版本。主动回忆还需要 PyYAML，可用 `python -m pip install PyYAML` 安装。
 
 ## 架构
 
@@ -73,11 +73,11 @@ chat-distill/  clippings/            comparisons/  frameworks/          AGENTS�
 
 ## 流水线（一段话）
 
-**输入**：视频逐字稿、网页剪藏、AI 对话、日记都落到 `0_Inbox/`。**编译**：`/by-1`（单篇）或 `/by-a`（批量）把它们变成 `1_Wiki/` 里的类型化条目——概念、实体、对比、框架、资源——每条都带来源、置信度和类型化链接。**维护**：`/kbi` 扫描缺口、断链、孤岛和幻觉，输出只读的迭代报告。**输出**：条目被取材成文章、视频脚本和帖子（如 `/blog-1`）。没有任何环节自动运行——每步都由用户主动触发。完整操作手册见 `2_Schema/pipeline.md`。
+视频逐字稿、网页剪藏、AI 对话和日记进入 `0_Inbox/`。`/by-1` 和 `/by-a` 把它们编译成 `1_Wiki/` 里的溯源条目。`/kbi` 报告库里的问题，`/kbi repair` 按请求处理可核实的低风险问题。`/kbr` 用于主动回忆，`/blog-1` 用于把条目整理成稿件。完整操作见 `2_Schema/pipeline.md`。
 
 ## 真实例子 —— 摘录 → 编译
 
-示例库里有一段**真实**的"摘录→编译"（其余都是格式骨架）：
+示例库展示了一次真实的「摘录 → 编译」流程：
 
 1. **摘录** —— 作者本人讲显示器选购的视频文案被剪藏进 `0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md`：真实输入，按原文保留。
 2. **编译** —— `/by-1` 把它编译成一个类型化条目：`1_Wiki/frameworks/monitor-selection-guide.zh.md`。
@@ -94,7 +94,7 @@ git clone https://github.com/keiROLE/Kei-Second-Brain.git
 # 先逛 0_Inbox/ 和 1_Wiki/ —— 从上面「真实例子」里的两个文件开始
 ```
 
-本仓库本身就是一套完整的示例库。`0_Inbox/`、`1_Wiki/`、`2_Schema/`、`3_KBI-log/` 和 `4_Outputs/` 展示流水线的每个环节——每类一条格式演示，外加一次真实的"摘录→编译"。
+从 `1_Wiki/index.md` 可以浏览五类条目的中英文版本，并沿来源链接查看显示器逐字稿。其他目录提供输入、规则、报告和输出示例。
 
 ### 方式 B —— 让 AI 帮你搭建
 
@@ -122,7 +122,7 @@ git clone https://github.com/keiROLE/Kei-Second-Brain.git
 | `2_Schema/pipeline.md` | 端到端操作手册（输入 → 输出） |
 | `2_Schema/diary-system.md` | 日记系统规范（日记模板、周复盘闭环） |
 | `2_Schema/memory/` | AI 工作记忆模块——按业务域记录状态快照（见其 README.md） |
-| `.agents/skills/` | by-1、by-a、kbi、jh-1、wr-1、rec-1、chat-distill、blog-1、chiselplan——唯一事实源清单维护在 `AGENTS.md` |
+| `.agents/skills/` | [AGENTS.md](AGENTS.md#project-skills) 所列的 10 个 Skill |
 | `WORKFLOW.md` | 整个系统的故事版——一个人、一个闭环、所有 skill 都会用到 |
 | `0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md` | 真实剪藏素材（例子里的输入） |
 | `1_Wiki/frameworks/monitor-selection-guide.zh.md` | 它被编译成的条目（例子里的输出） |
@@ -134,7 +134,7 @@ git clone https://github.com/keiROLE/Kei-Second-Brain.git
 - 欢迎提 issue：提问、报问题都可以。
 - **不承诺定期更新**；大版本随作者自用库演进不定期发布。
 - PR 需讨论后合入，不接受未经讨论的大改。
-- 示例内容为虚构演示；支持范围限于方法论本身，不含演示数据。
+- 显示器条目依据仓库内的逐字稿。工作流故事使用虚构人物来演示操作。
 
 ## 许可证
 

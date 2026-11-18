@@ -16,7 +16,7 @@ author: agent
 
 ## Source
 
-- [[xiaojian-guo-monitor-episode]] (0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md)
+- [[0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md]]
 
 ## 定义
 
@@ -57,7 +57,8 @@ author: agent
 
 ## See also
 
-<!-- 暂无已标注链接：首个编译条目还没有与其他条目建立可说明的关系。链接靠挣不靠分配——宁缺毋滥，不硬凑假链。 -->
+- [[concept-example.zh]] part-of：刷新率是指南里的三个选购维度之一。
+- [[resource-example.zh]] apply：清单把指南里的三个维度转成可逐项核对的问题。
 
 ---
 

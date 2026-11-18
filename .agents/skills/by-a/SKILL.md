@@ -18,7 +18,7 @@ User says "/by-a", "compile everything", "process all new content", or similar.
 ### Step 0: Discover new files
 
 > **Run the script first (deterministic part — the LLM does not re-do file scanning)**:
-> `python .agents/skills/by-a/find_uncompiled.py` → prints the uncompiled-candidate list directly (it already excludes `processed: skip`, sources already listed in the index, and `processed: true`). The LLM only does the grouping judgment on this list.
+> `python .agents/skills/by-a/find_uncompiled.py` → lists candidates after excluding `processed: skip`, `processed: true`, and sources registered in the index or compiled entry frontmatter. The script also skips the current day's unfinished diary, using the machine's local calendar date. If the user's local date differs, hold back their current diary too.
 > After compiling, write back markers with: `python .agents/skills/by-a/find_uncompiled.py mark <file> ...` (frontmatter only). **Do not hand-edit frontmatter one by one.**
 
 Scan the following locations for .md files with `processed: false` or **missing the `processed` field** (**exclude files flagged `processed: skip`**):
@@ -29,6 +29,7 @@ Scan the following locations for .md files with `processed: false` or **missing 
 **Exclusion rules**:
 - Skip files already compiled (cross-check the "Source" column of `1_Wiki/index.md`).
 - Skip files flagged `processed: skip` (do-not-compile).
+- Skip today's unfinished diary.
 - Skip pure password/secret files.
 - Skip fiction/creative drafts.
 - Skip images and non-.md files.
@@ -80,7 +81,7 @@ Scan files whose names contain "misc"/"untitled":
 2. Add all new entries to the quick-nav, grouped by type.
 3. Update the statistics.
 4. Ensure no duplicate entries.
-5. **Write back `processed` markers (mandatory)**: set `processed: false` → `true` on every source file compiled or scanned-and-skipped this round, **in the same pass as the index update**. Use `python .agents/skills/by-a/find_uncompiled.py mark <file> ...` (frontmatter only); do not hand-edit frontmatter one by one. Never update the index without writing back markers — otherwise the next scan re-processes the same files.
+5. **Write back `processed` markers (mandatory)**: mark compiled and reviewed sources in the same pass as the index update. Run `python .agents/skills/by-a/find_uncompiled.py mark <file> ...` for notes with frontmatter. For a source with no frontmatter, prepend a minimal frontmatter block containing `processed: true` while preserving the original text. Respect existing `processed: skip` markers.
 
 ### Step 5: Output the compile report (with details)
 

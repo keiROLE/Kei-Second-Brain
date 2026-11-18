@@ -1,26 +1,9 @@
-# [Article Title]
+# Three questions to ask before buying a monitor
 
-> Output example — demonstrates the **Output** stage of the pipeline: knowledge → content. An article compiled from 1_Wiki entries (see the repo root README, "The pipeline" section).
+Start with the games or work you use the monitor for most. The [[monitor-selection-guide]] covers three decisions you can check on each listing.
 
-<!-- Format example — the structure of a published piece compiled from wiki entries. Replace every placeholder with real content; an output is never left as a skeleton. -->
+1. **What size fits the main use?** The [[comparison-example]] gives the video’s reasoning for considering 24 inches for competitive shooters and 27 inches for mixed use.
+2. **What resolution can the graphics card drive?** Check performance at the resolution you want in the games you actually play. The [[entity-example]] is the card the video uses to illustrate a 1440p setup.
+3. **How much of the refresh rate will you use?** Put the monitor’s refresh rate next to the frame rate the game delivers. The [[concept-example]] explains why the lower of the two limits how many distinct game frames can be displayed.
 
-## [Section 1 — a hook that states what the reader gets]
-
-[Opening paragraph. Articles compiled from this vault share one rule: every claim traces back to an entry.]
-
-## [Section 2 — body section that pulls one wiki entry]
-
-Each body section draws from one entry type — concept, comparison, framework, resource — and links it:
-
-- A concept explains the *why* ([[concept-entry]]).
-- A comparison settles a choice ([[comparison-entry]]).
-- A framework gives the steps ([[framework-entry]]).
-- A resource points to the tools ([[resource-entry]]).
-
-## [Section 3 — closing]
-
-[Summary or call to action.]
-
----
-
-*Compiled from the sample knowledge base. Format demonstration only — the structure, not the facts, is the point.*
+Use the [[resource-example]] to compare two listings side by side.

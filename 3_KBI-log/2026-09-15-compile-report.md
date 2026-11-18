@@ -1,7 +1,7 @@
 ---
-title: "by-a Bulk Compile Report (YYYY-MM-DD)"
+title: "by-a Bulk Compile Report (2026-09-15)"
 type: analysis-report
-created: YYYY-MM-DD
+created: 2026-09-15
 source_skill: "/by-a"
 tags:
   - analysis
@@ -11,7 +11,7 @@ tags:
 
 <!-- Format example — the bulk compile report produced by /by-a after a compile run. -->
 
-# YYYY-MM-DD Compile Report (by-a)
+# 2026-09-15 Compile Report (by-a)
 
 ## Compile Complete
 
@@ -44,7 +44,7 @@ tags:
 
 | Entry | Source | Note |
 |-------|--------|------|
-| [[entry]] | [source] | [note] |
+| [[concept-example]] | [source] | [note] |
 
 <!-- Entities / Comparisons / Frameworks / Resources follow the same pattern -->
 
@@ -52,7 +52,7 @@ tags:
 
 | Entry | Source | Note |
 |-------|--------|------|
-| [[entry]] | [source] | [what was added] |
+| [[concept-example]] | [source] | [what was added] |
 
 ## Skipped Files
 

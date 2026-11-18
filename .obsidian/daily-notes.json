@@ -1,0 +1,5 @@
+{
+  "format": "YYYY-MM-DD",
+  "folder": "0_Inbox/diary",
+  "template": "2_Schema/templates/diary-template.md"
+}

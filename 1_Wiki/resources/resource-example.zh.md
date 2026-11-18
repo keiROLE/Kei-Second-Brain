@@ -1,38 +1,37 @@
 ---
-title: "[资源名]"
+title: "显示器选购检查清单"
 type: resource
-created: YYYY-MM-DD
-source: "[源文件完整路径]"
+created: 2026-11-18
+source: 0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md
 confidence: high
 tags:
   - resource
-  - [主题]
+  - pc-hardware
   - para/resource
 aliases:
-  - [别名]
+  - 显示器规格核对清单
 author: agent
 ---
 
-# [资源名]
-
-<!-- 格式示例——资源条目的正文结构。请用真实内容替换所有占位符。 -->
+# 显示器选购检查清单
 
 ## 来源
 
-- [[源文件名]]（0_Inbox/...）
+- [[0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md]]
 
 ## 分类
 
-| 类别 | 值 |
-|------|-----|
-| 类型 | [工具 / 网站 / 清单 / 模板] |
-| 主题 | [主题] |
-| 费用 | [免费 / 付费 / 免费增值] |
+| 字段 | 信息 |
+|---|---|
+| 类型 | 检查清单 |
+| 用途 | 把显示器规格与购买者的需求逐项核对 |
 
-## 描述
+## 检查清单
 
-[这个资源是什么，什么时候用它？]
+- [ ] 屏幕尺寸适合主要用途，例如竞技射击、办公或通用游戏。
+- [ ] 显卡能在常玩的游戏里带动所选分辨率。
+- [ ] 选择刷新率时考虑了游戏能输出的帧率。
 
 ## 参见
 
-- [[相关条目]] background
+- [[monitor-selection-guide.zh]] background

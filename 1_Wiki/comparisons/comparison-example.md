@@ -1,36 +1,35 @@
 ---
-title: "[A] vs [B]"
+title: "24-inch vs 27-inch Monitors"
 type: comparison
-created: YYYY-MM-DD
-source: "[full path of the source file]"
+created: 2026-11-18
+source: 0_Inbox/clippings/xiaojian-guo-monitor-episode.md
 confidence: high
 tags:
   - comparison
-  - [topic]
+  - pc-hardware
   - para/resource
 aliases:
-  - [alias]
+  - 24-inch or 27-inch monitor
 author: agent
 ---
 
-# [A] vs [B]
-
-<!-- Format example — the body of a comparison entry. Replace every placeholder with real content. -->
+# 24-inch vs 27-inch Monitors
 
 ## Source
 
-- [[source-filename]] (0_Inbox/...)
+- [[0_Inbox/clippings/xiaojian-guo-monitor-episode.md]]
 
 ## Comparison Matrix
 
-| Dimension | [A] | [B] |
-|-----------|-----|-----|
-| [dimension 1] | [value] | [value] |
+| Use | 24-inch | 27-inch |
+|---|---|---|
+| Competitive shooters | The video recommends it when a smaller screen helps with aiming. | Can handle shooters as part of mixed use. |
+| Office work and other games | The video describes the smaller screen as cramped for office work. | The video's balanced choice for office work and gaming. |
 
 ## Conclusion
 
-[One paragraph: when to choose which, and what the deciding factor is.]
+Choose based on what the monitor will do most. The video favors 24 inches for a competitive-shooter setup and 27 inches for general use.
 
 ## See also
 
-- [[related-entry]] example
+- [[monitor-selection-guide]] background

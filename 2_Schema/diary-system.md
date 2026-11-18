@@ -2,7 +2,7 @@
 abstract: "Diary note conventions: paragraph structure, line-level tags, and the rules AI follows when compiling raw daily notes into wiki entries."
 author: Kei
 created: 2026-07-19
-updated: 2026-11-01
+updated: 2026-11-18
 tags:
   - diary
   - knowledge-base
@@ -23,13 +23,14 @@ Every diary note is fixed to the following sections, in this order:
 
 | Section | Role | Who writes |
 |---------|------|------------|
-| `## 记录 / Log` | Today's events, thoughts, excerpts, life stream (line-level tagged blocks) | User handwritten + AI append (`/rec-1`) |
-| `## 输入 / Input` | Knowledge consumed today (reading notes, article excerpts, etc.) and `#learn` tasks | User pastes / AI organizes |
-| `## 输出 / Output` | Content produced today (theories, drafts, docs) — **optional**, only some diary notes use it | User / AI |
-| `## 计划 / Plan` | Today's task plan; temporary tasks are listed as checkboxes inside this section | User handwritten + AI manages |
+| `# Log:` | Today's events, thoughts, excerpts, and progress in tagged blocks | User handwritten + AI append (`/rec-1`) |
+| `# Input:` | Reading notes, excerpts, other knowledge consumed today, and `#learn` tasks | User pastes / AI organizes |
+| `# Output:` | Optional section for content produced today | User / AI |
+| `# Plan:` | Today's tasks, including any `## Temporary Plan:` checklist | User |
 
 - The template ships empty section headings only; when AI appends content, it must not reorder the sections or touch what the user handwrote.
-- Missing sections are never retrofitted onto old notes; when a section is needed, AI appends it in the template format.
+- Recognize older section headings at level 1 or 2, including `Log`, `记录`, `记录 / Log` and the equivalents for Input, Output, and Plan. Trailing colons are optional and English labels are case-insensitive. A known peer section ends the current section even if an older note mixes levels. Preserve the existing headings.
+- Create only the section needed for the current append.
 
 ## 2. How to Write
 
@@ -57,7 +58,7 @@ The list above is the baseline set. You may extend it with your own domain tags 
 
 ### Category tags (subject matter)
 
-Category tags describe what the block is **about**. They go **after** the line's type tag, space-separated. Example format: `#method` `#cognition` `#growth` — content. The domain list is yours to extend (e.g. `#ai`, `#business`, `#health`); keep it small and consistent.
+Category tags describe what the block is about. Put them after the type tag and optional `#project`, separated by spaces. AI log blocks use the topic-tag registry in `2_Schema/naming.md` so the same matter stays findable across days.
 
 ### Basic principles
 
@@ -69,7 +70,7 @@ Category tags describe what the block is **about**. They go **after** the line's
 - No manual filing into projects, tasks, or the wiki; the later AI compilation decides that.
 - Tags are optional. When the meaning is obvious, you may skip them.
 - Locked / finalized content (a finalized statement, a finalized plan, a locked external messaging line) goes under `#event` (project progress / outcome), **not** `#method`. When the text is long, put the tag on its own line below rather than cramming it at the end of a long line.
-- All content from a single AI task forms one block: state "what was done + the result / how far it got + the output (doc / file / link)". Do not fragment it into Q&A shards; write in the original order, no self-invented numbering.
+- Combine updates on the same matter into one AI log block with the action, result, and any output link. Give independent outcomes their own blocks in the order they occurred.
 
 ### Example
 

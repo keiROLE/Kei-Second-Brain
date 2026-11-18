@@ -1,37 +1,37 @@
 ---
-title: "[实体名]"
+title: "GeForce RTX 4060 Ti（中文）"
 type: entity
-entity_kind: organization
-created: YYYY-MM-DD
-source: "[源文件完整路径]"
+entity_kind: product
+created: 2026-11-18
+source: 0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md
 confidence: high
 tags:
   - entity
-  - [主题]
+  - pc-hardware
   - para/resource
 aliases:
-  - [别名]
+  - 4060 Ti
 author: agent
 ---
 
-# [实体名]
-
-<!-- 格式示例——实体条目的正文结构。请用真实内容替换所有占位符。 -->
+# GeForce RTX 4060 Ti（中文）
 
 ## 来源
 
-- [[源文件名]]（0_Inbox/...）
+- [[0_Inbox/clippings/xiaojian-guo-monitor-episode.zh.md]]
 
 ## 概述
 
-[这个实体是什么？2-4 句。]
+GeForce RTX 4060 Ti 是显示器选购视频提到的一款显卡。视频以主流网游为例，用这张显卡说明如何考虑与 1440p 显示器的搭配。
 
 ## 关键信息
 
 | 字段 | 信息 |
-|------|------|
-| [字段] | [信息] |
+|---|---|
+| 类别 | 显卡 |
+| 示例分辨率 | 1440p |
+| 示例场景 | 主流网游 |
 
 ## 参见
 
-- [[相关条目]] related
+- [[monitor-selection-guide.zh]] related

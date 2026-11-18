@@ -1,0 +1,14 @@
+{
+  "kb_path": "1_Wiki",
+  "state_dir": "state",
+  "exclude_dirs": ["archive", "templates"],
+  "exclude_patterns": ["compendium", "prompt-library"],
+  "exclude_files": ["index.md"],
+  "batch_size": 5,
+  "recall_threshold": 60,
+  "min_interval_days": 2,
+  "pool_ratios": { "dredge": 0.6, "coverage": 0.25, "new": 0.15 },
+  "dredge_pool_size": 40,
+  "coverage_pool_size": 40,
+  "unknown_default_score": 50
+}

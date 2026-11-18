@@ -1,45 +1,23 @@
 ---
-abstract: "[MMDD] Last Week Review"
-created: YYYY-MM-DD
+title: "Weekly Review Example — September 14–20, 2026"
+created: 2026-09-21
 tags:
   - weekly-review
   - review
   - inbox/raw
 ---
 
-<!-- Format example — a weekly review compiled from the 7 diary notes of the last complete week (Mon-Sun). -->
+# Weekly Review Example — September 14–20, 2026
 
-# [MMDD] Last Week Review (2026-MM-DD ~ 2026-MM-DD)
+This example covers the Tuesday diary included in the sample vault.
 
-## Week Overview
+## Tuesday, September 15
 
-> [3-5 lines summarizing the week's main thread: what moved forward, what stalled.]
+- #event Compiled the monitor transcript into [[monitor-selection-guide]] .
+- #learn Compared screen size, resolution, and refresh rate with the main use.
 
-## Monday MM-DD
+Daily note [[2026-09-15]] .
 
-[[YYYY-MM-DD]]
+## Next action
 
-- #event [event]
-- #method [insight or method captured that day]
-
-## Tuesday MM-DD
-
-[[YYYY-MM-DD]]
-
-- #method [insight]
-
-<!-- ... Wednesday through Sunday follow the same pattern ... -->
-
-## Key Events
-
-- #event [the events that actually mattered]
-- #event [artifact produced: [[entry-name]]]
-
-## Cognition & Reflection
-
-- #thought [what changed in your thinking]
-- #quote [a line worth keeping]
-
-## Unresolved Questions
-
-- #next [open question / carried-over task]
+- #next Compare two listings with [[resource-example]] .

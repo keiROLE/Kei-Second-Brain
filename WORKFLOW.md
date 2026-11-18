@@ -48,7 +48,7 @@ The agent read the clipping, classified it (a **framework** — it gives steps/c
 > - **Frontmatter** — `type: framework`, `source: 0_Inbox/clippings/xiaojian-guo-monitor-episode.md` (traceability), `confidence: high`, `author: agent`.
 > - **Structured body** — the three decision axes as tables (size / resolution / refresh rate).
 > - **Honest filtering** — the video's marketing line ("DM me your budget") was **dropped**: it is not knowledge.
-> - **`## See also`** — empty on purpose: no established relation yet, and links are earned, not assigned.
+> - **`## See also`** — each link names a specific relationship, such as the checklist applying the guide's criteria.
 
 Over the next days Alex kept watching (CPU, GPU, RAM episodes), clipped each one, then ran the batch version:
 
@@ -62,7 +62,7 @@ It scanned the inbox, compiled all unprocessed clippings, wrote back `processed:
 3_KBI-log/2026-09-15-compile-report.md
 ```
 
-> *(The example vault keeps one entry per type, so the CPU/GPU/RAM entries are illustrative — your vault will grow them for real.)*
+> The repository's [Wiki index](1_Wiki/index.md) lists the monitor entries. The later CPU, GPU, and RAM clippings are part of Alex's story.
 
 The **compile principle**: raw material becomes knowledge only here — typed, sourced, confidence-rated, link-earned.
 
@@ -138,7 +138,7 @@ Learning needs a plan, so Alex kicked off a project with `/chiselplan`:
 /chiselplan   →   "plan my PC-learning project"
 ```
 
-It wrote a plan file with a final goal and task phases (foundation → build → deep-dive). During the week it can even create a companion daily-loop skill (default name `plan-1`) that rolls today's 3-5 tasks from the current phase — but Alex kept it simple this week.
+It wrote a plan file with a final goal and task phases (foundation → build → deep-dive). At the end of a phase, Alex used the same skill to review progress and decide what to do next.
 
 The agent also tracks the project's status in its working memory (`2_Schema/memory/`): a one-page snapshot of the current phase and red lines, read before the next session and updated whenever status changes, so it picks up where it left off instead of re-asking everything. Module contract: `2_Schema/memory/README.md`.
 
@@ -153,7 +153,9 @@ The **plan & review principle**: raw material feeds forward (plan) and backward 
 
 ---
 
-## Step 6 · Output — knowledge becomes content
+## Step 6 · Recall and output
+
+Alex tried `/kbr` to recall why refresh rate and game frame rate have to be considered together. The agent gave one cue, waited for an answer, and recorded the score locally.
 
 Finally, Alex wanted to write up what was learned. `/blog-1` turns compiled entries into articles:
 
@@ -164,7 +166,7 @@ Finally, Alex wanted to write up what was learned. `/blog-1` turns compiled entr
 It generated a markdown file with frontmatter + slug in the Output layer:
 
 ```
-4_Outputs/pc-hardware-notes.md
+4_Outputs/output-sample.md
 ```
 
 > The article was written **from the compiled entries**, not from memory — sources and confidence levels carried over. Alex published it on a personal blog. A reader asked a question about monitor refresh rates; that question became the next video Alex watched, the next clipping, the next compile.
@@ -187,7 +189,7 @@ Raw material flows in; knowledge is compiled, kept honest, and pushed back out a
 
 ---
 
-## Skill map — all 9, when each one runs
+## Skill map — when to use the 10 skills
 
 | Skill | Trigger | In this story |
 |-------|---------|---------------|
@@ -197,8 +199,9 @@ Raw material flows in; knowledge is compiled, kept honest, and pushed back out a
 | `/rec-1` | "log today's progress" | Step 3 — appended the daily diary line |
 | `/kbi` | "knowledge base iteration" | Step 4 — health check, broken links, gaps, hallucinations |
 | `/jh-1` | "aggregate topic X" | Step 4 — PC-hardware knowledge map |
-| `/chiselplan` | "plan my project" | Step 5 — learning project with phases (can create `plan-1`) |
+| `/chiselplan` | "plan my project" | Step 5 — set a goal and review project phases |
 | `/wr-1` | "weekly review" | Step 5 — 7 diary notes → weekly review |
+| `/kbr` | "recall a batch" | Step 6 — recall a concept and record the score |
 | `/blog-1` | "article / project / share" | Step 6 — PC Hardware Notes → `4_Outputs/` |
 
-You do not need all nine at the start. The minimal start is **capture → `/by-1` → read the entry**. Add the rest when the loop asks for them.
+Start with **capture → `/by-1` → read the entry**. Add the other skills as you need them.

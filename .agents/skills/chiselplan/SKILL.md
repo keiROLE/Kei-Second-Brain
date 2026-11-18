@@ -1,6 +1,6 @@
 ---
 name: chiselplan
-description: Project planning / restart — break a goal into "final goal + task phases" written into a plan file under 2_Schema/chiselplan/, or force a mid-way phase review. Triggers on "/chiselplan", "re-plan", "phase review", "project kickoff". This skill can create a companion "daily loop" skill (default name plan-1) — see "Can create skills" below.
+description: Break a goal into a phased plan under 2_Schema/chiselplan/, or review an active phase. Triggers on "/chiselplan", "re-plan", "phase review", and "project kickoff".
 ---
 
 > This skill is part of the Kei-Second-Brain ecosystem. The authoritative system entry is `AGENTS.md` (skill inventory + operating rules); `README.md` is the project showcase for GitHub visitors.
@@ -13,7 +13,7 @@ When called, the user may add instructions (if none and intent is unclear, ask w
 
 ## Mode 1: Plan (project kickoff / goal restructure)
 
-Create/update a plan file: under `2_Schema/chiselplan/` (default `plan.md`; the user may specify a name, e.g. `plan_2.md`). Structure:
+Create or update the selected file under `2_Schema/chiselplan/`. Default to `plan.md` when starting a new plan. Use the requested filename when the user supplies one. Structure:
 
 ```
 # <Project Name> Plan (plan)
@@ -42,28 +42,6 @@ Rules:
 - Read the plan file and recent diary notes in `0_Inbox/diary/`; judge whether the current phase is done.
 - Done → mark the phase title ✅ + advance the pointer + adjust the final goal.
 - Not done → explicitly state which subtasks are incomplete; do not advance.
-
-## Can create skills (default name plan-1)
-
-This skill can create a companion **"daily loop" skill** for a project, default name **plan-1** (append a suffix if the name conflicts).
-
-The created skill's **purpose**:
-- Each day, review yesterday's diary (tasks done / unfinished carried over)
-- Judge whether the current phase of the plan file is done (if done, run the phase review automatically)
-- Roll 3-5 concrete tasks for today from the current phase into today's diary `# PLAN` section
-- Mark task ownership (AI can do independently / depends on user input / must be done by the user)
-
-**When to create**: when the project enters execution and needs daily rolling progress. After planning, if the user needs a daily loop, proactively say: "This skill can create a companion daily-loop skill (default name plan-1) that reviews yesterday, judges whether the phase is done, and rolls today's tasks. Want me to create it now?"
-
-## Boundary with plan-1
-
-| | chiselplan | plan-1 (daily loop) |
-|---|---|---|
-| Frequency | low | high |
-| When | kickoff, restructure, phase switch | every day |
-| Duty | plan / phase review | review yesterday + roll today's tasks |
-
-chiselplan sets the direction and judges phases; plan-1 pushes things forward daily. They work together; neither replaces the other.
 
 ## Input references
 

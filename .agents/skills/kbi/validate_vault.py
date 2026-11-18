@@ -3,8 +3,7 @@
 validate_vault.py — kbi companion (deterministic lint part, read-only)
   Mechanically checks every 1_Wiki/ entry against 2_Schema/frontmatter.md,
   TheSchema.md section 5, and naming.md.
-  The LLM only makes semantic judgments (kbi is read-only); this script only
-  does mechanical checks and prints a per-category violation list.
+  This script performs read-only mechanical checks and prints a violation list.
 
 Usage (run from the vault root):
   python .agents/skills/kbi/validate_vault.py
@@ -46,7 +45,7 @@ REQUIRED = ["title", "type", "created", "source", "confidence", "tags", "author"
 DEPRECATED = ["related", "links"]
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 # Placeholder filenames that count as violations. Extend this set as needed.
-PLACEHOLDER_STEMS = {"untitled", "misc"}
+PLACEHOLDER_STEMS = {"untitled", "misc", "未命名"}
 
 
 def read_text(p):
@@ -96,13 +95,13 @@ def count_tags(fields):
     if isinstance(v, list):
         return len(v)
     if isinstance(v, str):
-        return len([x for x in re.split(r"[,]", v) if x.strip()])
+        return len([x for x in re.split(r"[,，]", v) if x.strip()])
     return 0
 
 
 def parse_see_also(text):
     """Return (bad_entries, unlabeled, illegal_label, total)."""
-    m = re.search(r"^##\s*See also\s*$", text, re.M)
+    m = re.search(r"^##[ \t]+(?:See also|参见)[ \t]*$", text, re.M | re.I)
     if not m:
         return [], [], [], 0
     section = text[m.end():]
@@ -113,7 +112,7 @@ def parse_see_also(text):
     bad, unlabeled, illegal = [], [], []
     total = 0
     for line in section.splitlines():
-        lm = re.match(r"^\s*-\s*\[\[(.+?)\]\](?:\s+(\S+))?\s*$", line)
+        lm = re.match(r"^\s*-\s*\[\[(.+?)\]\](.*)$", line)
         if not lm:
             continue
         total += 1

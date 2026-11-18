@@ -18,7 +18,7 @@ The layer number *is* the layer. All names are short English with a numeric pref
 
 | Layer | Directory | Role | Read/Write |
 |-------|-----------|------|------------|
-| 0 | `0_Inbox/` | Raw material layer | Read-only (AI appends frontmatter markers only) |
+| 0 | `0_Inbox/` | Raw material layer | Compilation preserves source text. Diary edits follow `diary-system.md`. |
 | 1 | `1_Wiki/` | Knowledge compilation layer | AI read/write |
 | 2 | `2_Schema/` | Configuration layer | AI read/write |
 | 3 | `3_KBI-log/` | Iteration layer (compile / iteration / link-audit reports) | AI write |
@@ -36,8 +36,8 @@ The layer number *is* the layer. All names are short English with a numeric pref
 
 Uniform format: **`<verb-short>-<optional number>`** (this open-source release uses no vault prefix).
 
-- Function abbreviations — short, verbified: `by` (compile), `wr` (weekly review), `rec` (record), `jh` (topic map), `kbi` (iteration analysis), `plan` (daily loop), `chat-distill`, `chiselplan` (planning), `blog` (output).
-- Numbering: multiple instances of one function use `-1` / `-3` (e.g. `plan-1`, `plan-3`); bulk / all-vault forms use `-a` (`by-a`).
+- Keep function names short, such as `kbi` for iteration analysis, `kbr` for active recall, or `chiselplan` for planning.
+- Use `-1` for single-item actions such as `by-1` and `-a` for bulk actions such as `by-a`.
 - Forbidden: full verb names (e.g. `kb-iter`), mixed languages, meaningless numbers.
 
 ## 3. Files & entries
@@ -96,6 +96,20 @@ Every note gets a PARA tag. Classification is by *what the note is for*, not by 
 - Status tags: `#inbox/raw` (unprocessed material), `#compiled` (organized documents)
 - Topic tags: free-form, descriptive, lowercase (`#media`, `#sales`, `#ai-tools`)
 - Every 1_Wiki entry carries ≥ 3 tags: type + topic + PARA.
+
+## 6. Diary topic-tag registry
+
+Use one topic tag per AI log block by default. Reuse it for the same matter across days. Add a second when the block advances both topics. Put topic tags after the type tag and the optional `#project`.
+
+| Tag | Use for |
+|---|---|
+| `#knowledge-base` | Vault rules, note capture, compilation, and maintenance |
+| `#learning` | Study plans, exercises, and learning progress |
+| `#content-creation` | Research, drafts, editing, and publishing |
+| `#software` | Code, tools, integrations, and testing |
+| `#planning` | Goals, schedules, and phase reviews |
+
+Extend this registry with the user's stable topic names when requested.
 
 ---
 

@@ -87,7 +87,9 @@ def main():
                 if am:
                     for al in re.findall(r"-\s+(.+)", am.group(1)):
                         wiki_entries[norm(al.strip())] = relw
-                files[relw] = strip_section(body, "Source")
+                for heading in ("Source", "原文档", "来源"):
+                    body = strip_section(body, heading)
+                files[relw] = body
 
     link_re = re.compile(r"\[\[([^\]|#]+)(?:[#|][^\]]*)?\]\]")
     out = {}                 # outgoing links (wiki targets only, for connectivity)
@@ -98,28 +100,28 @@ def main():
             tn = norm(t)
             # Path-style links: resolve by exact vault-relative path, also try appending .md
             if "/" in t or "\\" in t or t.endswith(".md"):
-                pt = t.strip().replace("/", os.sep).replace("\\", os.sep).lstrip(os.sep)
-                if pt.startswith("1_Wiki" + os.sep):
-                    wp = WIKI / pt[len("1_Wiki" + os.sep):]
-                    resolved = wp.is_file() or wp.with_suffix(".md").is_file()
-                else:
-                    vp = VAULT / pt
-                    resolved = vp.is_file() or vp.with_suffix(".md").is_file()
-                if not resolved:
+                pt = t.strip().replace("\\", "/").lstrip("/")
+                target = VAULT / pt
+                candidates = (target, Path(str(target) + ".md"))
+                resolved = next((p for p in candidates if p.is_file()), None)
+                if resolved is None:
                     broken.setdefault(rel, set()).add(t.strip())
+                elif WIKI in resolved.parents:
+                    target_entry = str(resolved.relative_to(WIKI))
+                    if target_entry in files:
+                        out[rel].add(target_entry)
                 continue
             if tn in wiki_entries:
-                out[rel].add(tn)
+                out[rel].add(wiki_entries[tn])
             if tn not in vault_names:
                 broken.setdefault(rel, set()).add(t.strip())
 
     incoming = {r: 0 for r in files}
     for rel, targets in out.items():
-        for tn in targets:
-            if tn in wiki_entries and wiki_entries[tn] in incoming:
-                incoming[wiki_entries[tn]] += 1
+        for target in targets:
+            incoming[target] += 1
 
-    print("== Broken links (vault-wide resolution; `## Source` backlink section excluded) ==")
+    print("== Broken links (vault-wide resolution; source sections excluded) ==")
     if broken:
         for rel in sorted(broken):
             print(f"  {rel}: missing {', '.join(sorted(broken[rel]))}")

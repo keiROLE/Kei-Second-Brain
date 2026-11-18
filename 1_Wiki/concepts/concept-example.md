@@ -1,35 +1,32 @@
 ---
-title: "[Concept Name]"
+title: "Refresh Rate Bottleneck"
 type: concept
-created: YYYY-MM-DD
-source: "[full path of the source file]"
+created: 2026-11-18
+source: 0_Inbox/clippings/xiaojian-guo-monitor-episode.md
 confidence: high
 tags:
   - concept
-  - [topic]
+  - pc-hardware
   - para/resource
 aliases:
-  - [alias]
+  - Display refresh bottleneck
 author: agent
 ---
 
-# [Concept Name]
-
-<!-- Format example — the body of a concept entry. Replace every placeholder with real content; never leave fabricated text in the vault. -->
+# Refresh Rate Bottleneck
 
 ## Source
 
-- [[source-filename]] (0_Inbox/...)
+- [[0_Inbox/clippings/xiaojian-guo-monitor-episode.md]]
 
 ## Definition
 
-[Write 2-5 plain-language sentences defining this concept.]
+The video describes a bottleneck between a monitor's refresh rate in hertz and the game's output in frames per second. The lower of the two limits how many distinct game frames can be shown each second.
 
 ## Core Insight
 
-[Optional — the one thing worth remembering.]
+Compare the game's frame rate with the display's refresh rate when deciding whether a faster monitor will be useful.
 
 ## See also
 
-- [[related-entry]] apply
-- [[another-entry]] contrast
+- [[monitor-selection-guide]] apply

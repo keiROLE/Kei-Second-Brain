@@ -1,7 +1,7 @@
 ---
 title: "Pipeline — End-to-End Operating Procedure"
 type: schema
-updated: 2026-11-01
+updated: 2026-11-18
 tags:
   - config
   - pipeline
@@ -11,7 +11,7 @@ tags:
 
 The system overview lives in `AGENTS.md` (single authoritative entry); **this document is what an AI (or a human) actually follows** — the concrete operating manual for the full pipeline.
 
-The pipeline has seven stages. Every stage is **user-triggered** — nothing runs automatically.
+The pipeline has seven stages. Start it on request. `/rec-1` can also append a log block after an AI task produces a recordable outcome.
 
 ```
 ① Record → ② Review → ③ Compile → ④ Maintain → ⑤ Distill → ⑥ Plan → ⑦ Output
@@ -47,7 +47,7 @@ Intake rules: store first, organize later; no editing inside 0_Inbox; tag raw ma
 | Trigger | Daily diary; say "log this" at task wrap-up |
 | Skill | `/rec-1` (minimal append) |
 | Output | `0_Inbox/diary/YYYY-MM-DD.md` — appended under the `# Log:` section; append-only, never rewrite |
-| Rule | 0_Inbox is read-only; AI only appends frontmatter markers |
+| Rule | Use the diary system's scoped append rules for new log blocks. Preserve the existing text and use the topic-tag registry. |
 
 ## ② Review — weekly review
 
@@ -79,13 +79,13 @@ Workflow:
 |------|--------|
 | Trigger | "compile this" (single) / "compile all" (bulk) |
 | Skill | `/by-1` (single) / `/by-a` (bulk; runs the deterministic uncompiled-file scan first) |
-| Scan scope | `processed: false` **or missing the field**; **exclude `processed: skip`** |
+| Scan scope | `processed: false` or missing the field. Skip today's diary, `processed: skip`, and sources with existing compiled entries. |
 | Output | The five entry types in `1_Wiki/` + `index.md` updated |
 | Report | `3_KBI-log/YYYY-MM-DD-compile-report.md` (stats / entry details / skip categories) |
 | Writeback | Original file `processed: true`; body unchanged; `skip` files are never written back |
 
 Steps (by-a):
-1. **Run the scanner first**: `python .agents/skills/by-a/find_uncompiled.py` — outputs the candidate list (already excludes `processed: skip`, entries already in index.md's Source column, and `processed: true`). The LLM groups and judges; it does not re-scan files.
+1. **Run the scanner first**: `python .agents/skills/by-a/find_uncompiled.py`. It honors `processed: skip` and `processed: true` and checks the index and entry provenance. Hold back today's diary for the user's local date if it differs from the machine date.
 2. For each file, extract knowledge units:
    - concepts → `1_Wiki/concepts/`
    - entities → `1_Wiki/entities/`
@@ -108,9 +108,9 @@ Quality red lines apply throughout: no fabrication (`confidence: low` when unsur
 | Item | Detail |
 |------|--------|
 | Trigger | "iterate the KB" / "health check" |
-| Skill | `/kbi` (runs the deterministic link-audit script first) |
+| Skill | `/kbi` for the audit, `/kbi repair` for verified low-risk fixes after the audit |
 | Checks | coverage gaps / unprocessed files / broken links / hallucination candidates / island entries / link audit |
-| Output | `3_KBI-log/YYYY-MM-DD-iteration-report.md` — **read-only recommendations**; fixes are applied only after user confirmation |
+| Output | `3_KBI-log/YYYY-MM-DD-iteration-report.md` with findings and any applied repairs |
 
 Workflow:
 1. **Run the audit script first**: `python .agents/skills/kbi/audit_links.py` — outputs the broken-link list, island/half-island stats, incoming/outgoing connectivity and entry counts. The LLM makes semantic judgments on the script output instead of parsing links itself.
@@ -121,7 +121,8 @@ Workflow:
    - Island entries (confirm list, not auto-problem)
    - Hallucination candidates (unsourced claims)
    - Link audit (entries without type labels)
-3. Output: `3_KBI-log/YYYY-MM-DD-iteration-report.md` — **read-only recommendations**. Fixes are applied only after user confirmation.
+3. In repair mode, archive affected originals, apply only the verified fixes allowed by the KBI skill, and rerun the checks. Record applied fixes separately from proposals for individual review.
+4. Write `3_KBI-log/YYYY-MM-DD-iteration-report.md`.
 
 ## ⑤ Distill — AI conversations into the KB
 
@@ -142,21 +143,20 @@ Workflow:
 
 ---
 
-## ⑥ Plan — goal breakdown & daily loop
+## ⑥ Plan — goal breakdown and phase review
 
-**Goal**: goals broken down and pushed forward by a daily loop.
+**Goal**: break a goal into ordered phases and review progress against the current phase.
 
 | Item | Detail |
 |------|--------|
-| Trigger | "re-plan" / "stage review" (set direction); "daily loop" (daily push) |
-| Skill | `/chiselplan` (planning / stage review; writes `2_Schema/chiselplan/plan_2.md` and `plan_3.md`; never touches `plan_1.md`) |
-| Daily loop | `/plan-1` (processes only `plan_2.md`) / `/plan-3` (processes only `plan_3.md`) |
-| Output | Today's diary task section |
+| Trigger | "re-plan" or "phase review" |
+| Skill | `/chiselplan` for a selected plan under `2_Schema/chiselplan/` |
+| Output | A new or updated plan in `2_Schema/chiselplan/` |
 
 Workflow:
 1. Read the goal (or the current plan file) and the user's stated timeline.
 2. Break it into ordered task phases; each phase has a clear outcome.
-3. Write the plan to the plan file (e.g. `plan.md`, or a dedicated plan file the skill manages; chiselplan can create its own skill for a repeated loop).
+3. Write the selected plan file.
 4. Review the phase state regularly (phase review): what finished, what changed, what moves next.
 
 ## ⑦ Output — knowledge back into content
@@ -173,14 +173,18 @@ Rules:
 - Output derives from entries; entries remain the source of truth.
 - No fabrication: anything not backed by an entry must be marked as inference.
 
+## Optional active recall
+
+Use `/kbr` after compilation to review important, overdue, and new concepts. The skill reads `1_Wiki/` by default. It keeps scores and history in local state and adds a `recall` tag to an existing tags list on the first recorded review.
+
 ---
 
 ## Quality red lines (apply to every stage)
 
-- 0_Inbox/ is read-only (only frontmatter markers are appended).
+- Compilation preserves original inbox text and may write processing markers. Diary logging follows the append rules in `2_Schema/diary-system.md`.
 - No fabrication; mark uncertainty with `confidence`.
 - Numbers / dates / facts are traceable: "verified" vs "claimed by one party".
 - AI supplements labeled `> 💡 AI note:`.
 - AI-compiled content uses `author: agent`.
 
-> **Lane isolation**: each stage stays in its lane — `/wr-1` only reviews, never compiles; `/kbi` only reports, never fixes; `/plan-1` / `/plan-3` only touch their own plan files. All outputs are traceable, reports are read-only, and fixes require user confirmation.
+> `/wr-1` produces the weekly review. `/kbi` reports findings and applies verified low-risk fixes only in requested repair mode.
